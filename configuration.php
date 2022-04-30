@@ -34,7 +34,7 @@ class JConfig {
 	public $gzip = '0';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $host = 'localhost';
-	public $lifetime = '1';
+	public $lifetime = '90';
 	public $list_limit = '20';
 	public $live_site = '';
 	public $log_path = 'C:/OpenServer/domains/leb/administrator/logs';

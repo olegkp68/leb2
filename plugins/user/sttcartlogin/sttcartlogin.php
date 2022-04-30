@@ -43,10 +43,10 @@ class plgUserSttcartlogin extends JPlugin
 				if ($p_add) {
 					$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=" . $db->Quote($p_add[key($p_add)]) . " WHERE userid=" . $db->Quote($userid));
 					$db->query();
-				} else {
-					$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $db->Quote($p_add[key($p_add)]));
-					$re = $db->query();
-					$res = $db->loadResult();
+
+					//$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $db->Quote($p_add[key($p_add)]));
+					//$db->query();
+					//$res = $db->loadResult();
 				}
 				//----
 				$addprod = $this->params->get('addprod', 1);
