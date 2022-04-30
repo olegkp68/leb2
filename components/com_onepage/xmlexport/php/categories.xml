@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opctracking" method="upgrade" >	
+    <name>Virtuemart Categories</name>
+    <creationDate>Mar 2018</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2018 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>Export Categories For Adwords Remarketing Agency</description>
+    <files>
+        <filename>categories.php</filename>
+    </files>
+	<element>categories</element>
+
+<params ></params>
+    
+    
+    
+
+</extension>

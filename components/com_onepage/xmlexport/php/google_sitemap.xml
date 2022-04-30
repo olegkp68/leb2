@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opctracking" method="upgrade" >	
+    <name>Google Site Map XML</name>
+    <creationDate>Oct 2013</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>Google Site Map XML.</description>
+	
+    <files>
+        <filename>google_sitemap.php</filename>
+    </files>
+	<element>google_sitemap</element>
+
+<params  addfieldpath="/administrator/components/com_onepage/forms/fields" addpath="/administrator/components/com_onepage/forms/fields">
+   <param
+        type="text"
+        name="title"
+        id="title"
+        label="RSS Feed Title"
+        description="Google Merchant RSS Feed Title "
+        size="80"
+		default=""
+        maxLength="2550" />
+		
+		
+	  
+
+		   <param
+        type="text"
+        name="description"
+        id="description"
+        label="RSS Feed Description"
+        description="Google Merchant RSS Feed Description "
+        size="80"
+		default=""
+        maxLength="2550" />
+		
+		<param
+        type="list"
+        name="pidformat"
+        id="pidformat"
+        label="Product ID format" 
+        description="Choose your product ID format pre exported products with your feeds"
+		default="0"
+        >
+		 <option value="0">{product_id}</option>
+		 <option value="1">{product_sku} (ID will be used if sku is empty)</option>
+		 <option value="2">{product_sku}-{2 letter order language code}</option>
+		</param>
+		
+		
+		<param
+					name="menus"
+					type="menus"
+					label="Menus to Export"
+					description=""
+					clientid="0"
+					multiple="multiple"
+					>
+					<option value="">All</option>
+				</param>
+				
+				
+		<param
+        type="text"
+        name="maxlinks"
+        id="maxlinks"
+        label="Maximum number of links in XML"
+        description="Google supports only 50 000 links in single sitemap "
+        size="80"
+		default="40000"
+        maxLength="2550" />
+		
+		 <param
+        type="list"
+        name="skipvm"
+        id="skipvm"
+        label="Skip VM"
+        description="Virtuemart product object is not needed for this export "
+        
+		default="1"
+        ><option value="1">JYES</option></param>
+		
+		<param
+        type="note"
+        name="ff"
+        id="mynote404"
+        label="404 and 302 handling"
+        description="Insert URLs line by line, if there is a space within the line, URL will be replaced as a redirect, if there is no space in URL it will be skipped. Use *keyword* to skip or redirect URLs containing the keyword. "
+        size=""
+		default=""
+        maxLength="" />
+		
+		
+		<param
+		type="textarea"
+		name="special_urls"
+		id="special_urls"
+		label="URL list - separated by new line"
+		default=""
+		description=""
+		width="100%"
+		/>
+		
+		
+		
+		
+
+</params>
+    
+    
+    
+
+</extension>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opctracking" method="upgrade" >	
+    <name>OPC Tracking - TrustedShops.com</name>
+    <creationDate>Apr 2019</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2019 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description><![CDATA[trustedshops.com reviews]]></description>
+    <files>
+        <filename>trustedshops.php</filename>
+    </files>
+
+<params>
+    
+    
+			<param
+        type="text"
+        name="tsid"
+        id="tsid"
+        label="Widget _tsid"
+        description="Enter your tsid"
+        size="80"
+		default=""
+		multilang="multilang"
+        maxLength="255" />
+	
+	
+		
+		
+	
+    
+</params>	
+</extension>

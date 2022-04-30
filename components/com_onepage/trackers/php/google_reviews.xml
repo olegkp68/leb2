@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opctracking" method="upgrade" >	
+    <name>OPC Tracking - Google Reviews - Google Survey</name>
+    <creationDate>Oct 2013</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description><![CDATA[Google Survey Reviews - https://support.google.com/merchants/answer/7106244?hl=en&ref_topic=7105160#integration ]]></description>
+    <files>
+        <filename>google_reviews.php</filename>
+    </files>
+
+<params>
+    
+    
+			<param
+        type="text"
+        name="MERCHANT_ID"
+        id="MERCHANT_ID"
+        label="Google Mechant ID"
+        description="Enter your Merchant ID"
+        size="80"
+		default=""
+        maxLength="255" />
+		
+		
+			<param
+        type="text"
+        name="DELIVERY_DATE_ADD"
+        id="DELIVERY_DATE_ADD"
+        label="Estimated Delivery Date (+N days)"
+        description="Add number of days to add to order date which will be sent as estimated delivery date"
+        size="80"
+		default="1"
+        maxLength="255" />
+		
+		
+		<param type="list" label="Opt-in Style" name="OPT_IN_STYLE" id="OPT_IN_STYLE" default="OPT_IN_STYLE">
+		  <option value="CENTER_DIALOG">CENTER_DIALOG</option> 
+		  <option value="BOTTOM_RIGHT_DIALOG">BOTTOM_RIGHT_DIALOG</option> 
+		  <option value="BOTTOM_LEFT_DIALOG">BOTTOM_LEFT_DIALOG</option> 
+		  <option value="TOP_RIGHT_DIALOG">TOP_RIGHT_DIALOG</option> 
+		  <option value="TOP_LEFT_DIALOG">TOP_LEFT_DIALOG</option> 
+		  <option value="BOTTOM_TRAY">BOTTOM_TRAY</option> 
+		</param>
+	
+	
+	
+    
+</params>	
+</extension>

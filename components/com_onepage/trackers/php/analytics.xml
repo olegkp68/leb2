@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opctracking" method="upgrade" >	
+    <name>OPC Tracking - Google Analytics</name>
+    <creationDate>Oct 2013</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description><![CDATA[Google Ecommerce Analytics Tracking<br /> 
+	NOTE: If you are using Google Tag Manager, you may not need OPC's GA scripts. Important: Since March 2015 google dropped support for synchronious tracking and it's strongly recommended to use Universal Analytics. You may be receiving errors upon using old google tracking code.<br />
+	<br />
+	Latest gtag.js code added on Nov.2017: https://developers.google.com/analytics/devguides/collection/gtagjs/ - Choose to use it with Analytics Type. 
+	<br />
+	]]></description>
+    <files>
+        <filename>analytics.php</filename>
+    </files>
+
+<params>
+    
+    
+			<param
+        type="text"
+        name="google_analytics_id"
+        id="google_analytics_id"
+        label="Google Analitycs Tracking ID"
+        description="Enter your GA Id which usually looks like UA-xxxxx-x. Since June 2020 you can insert multiple GA or Adwords IDs for gtag tracking separated by comma. "
+        
+		default="UA-xxxxx-1"
+		placeholder="UA-xxxxx-1,UA-xxxxx-2"
+        maxLength="255" />
+		
+		<param
+        type="list"
+        name="idformat"
+        id="idformat"
+        label="Transaction ID format" 
+        description="Select either order_id, order_number or a combination"
+		default="0"
+        >
+		 <option value="0">{order_id}</option>
+		 <option value="1">{order_id}_{order_number}</option>
+		 <option value="2">{order_number}</option>
+		</param>
+		
+			<param
+        type="list"
+        name="universalga"
+        id="universalga"
+        label="Google Analytics Type" 
+        description="Select a type "
+		default="1"
+        >
+		 <option value="0">Legacy Analytics (ga.js)</option>
+		 <option value="1">Use Universal Analytics (analytics.js)</option>
+		 <option value="2">NEW: Use Global Site Tag (gtag.js)</option>
+		</param>
+		
+		
+		<param
+        type="list"
+        name="server2server"
+        id="server2server"
+        label="Use server to server order tracking instead of javascript tracking" 
+        description="Server to server tracking is more reliable, but may slow down the page load. If you need 100 percent accurrancy for your conversion rates, you may want to enable this. This feature uses php-ga library."
+		default="0"
+        >
+		 <option value="0">No</option>
+		 <option value="1">Yes</option>
+		 <option value="2">Both (server2server and javascript). Make sure your GA account handles duplicate transactions properly.</option>
+		</param>
+		
+		<param
+        type="list"
+        name="ec_type"
+        id="ec_type"
+        label="(Universal Analytics Only) Type of ecommerce tracking" 
+        description="Must be enabled at your GA account in section ecommerce. GTAG automatically uses enhanced ecommerce."
+		default="1"
+        >
+		 <option value="0">Enhanced Ecommerce (requires universal analytics.js)</option>
+		 <option value="1">Basic Ecommerce tracking </option>
+		</param>
+		
+		
+		<param
+        type="list"
+        name="addtocarttracking"
+        id="addtocarttracking"
+        label="Track Add To Cart (GTAG only)" 
+        description="Bind GA events to add to cart press"
+		default=""
+        >
+		 <option value="0">No</option>
+		 <option value="1">Yes</option>
+		 
+		</param>
+		
+		
+		
+		<param
+        type="list"
+        name="foreignlinkstracking"
+        id="foreignlinkstracking"
+        label="Track clicking links outside your site (GTAG only)" 
+        description="Bind GA events to track links that leave to outside your site"
+		default=""
+        >
+		 <option value="0">No</option>
+		 <option value="1">Yes</option>
+		 
+		</param>
+		
+		<param
+        type="list"
+        name="use_datalayer"
+        id="use_datalayer"
+        label="Generate dataLayer for Google Tag Manager (this feature was moved to: OPC Tracking - Google Tag Manager)" 
+        description="This feature was moved to: OPC Tracking - Google Tag Manager"
+		default="0"
+        >
+
+		 <option value="0">Disable</option>
+		</param>
+		
+		
+		<param
+        type="text"
+        name="google_adwords_id"
+        id="google_adwords_id"
+        label="(gtag only) Google Adwords Tracking ID"
+        description="Enter your GA Id which usually looks like AW-xxxxx, Visit your Adwords, navigate to the conversion code and find a line like this:   'send_to': 'AW-1049900000/dRirCK3m1AEQk6PT9AM'  The ID is AW-1049900000 "
+        size="80"
+		default=""
+        maxLength="255" />
+		
+		<param
+        type="text"
+        name="adwrods_conversion_id"
+        id="adwrods_conversion_id"
+        label="(gtag Only) Adwords Conversion Label"
+        description="Visit your Adwords, navigate to the conversion code and find a line like this:   'send_to': 'AW-1049900000/dRirCK3m1AEQk6PT9AM'  The label ID is dRirCK3m1AEQk6PT9AM "
+        size="100"
+		default=""
+        maxLength="2550" />
+		
+		<param
+        type="text"
+        name="page_url"
+        id="page_url"
+        label="Override Thank You page url"
+        description="Override the page url for thank you page for Google Analytics. Thank you page can be displayed on many URLs and thus it is strongly recommended to override it here"
+        size="80"
+		default="/thank-you"
+        maxLength="2550" />
+		
+		<param
+        type="text"
+        name="page_title"
+        id="page_title"
+        label="Override the page title, required when used with url override "
+        description="Override the page title for thank you page within GA."
+        size="80"
+		default="Order Confirmed"
+        maxLength="2550" />
+		
+		
+		<param
+        type="text"
+        name="page_url_cart"
+        id="page_url_cart"
+        label="(GTAG only) Override Cart page url"
+        description="Cart can be displayed on cca 10 to 20 different variations of the URL. To track a single URL it's recommended to override it here"
+        size="80"
+		default="/cart"
+        maxLength="2550" />
+		
+		<param
+        type="text"
+        name="page_title_cart"
+        id="page_title_cart"
+        label="Override the page title for the cart page"
+        description="Override the page title for the cart page within GA."
+        size="80"
+		default="OPC Cart"
+        maxLength="2550" />
+		
+		
+		
+			<param
+        type="list"
+        name="anon_ip"
+        id="anon_ip"
+        label="(GTAG Only) Anonymize User IP" 
+        description="Anonymize user IP if your law requires it"
+		default="0"
+        >
+		 <option value="0">No</option>
+		 <option value="1">Yes </option>
+		</param>
+		
+		
+					<param
+        type="list"
+        name="track_user_id"
+        id="track_user_id"
+        label="(GTAG Only) Track User ID" 
+        description="Will send user_id to GA (must be enabled in GA)"
+		default="0"
+        >
+		 <option value="0">No</option>
+		 <option value="1">Yes </option>
+		</param>
+		
+					<param
+        type="text"
+        name="sku_prefix"
+        id="sku_prefix"
+        label="SKU Prefix per your language"
+        description="Enter your SKU prefix"
+        size="80"
+		default=""
+		multilang="multilang"
+        maxLength="255" />
+
+		
+       			<param
+        type="text"
+        name="sku_suffix"
+        id="sku_suffix"
+        label="SKU Suffix per your language"
+        description="Enter your SKU suffix"
+        size="80"
+		default=""
+		multilang="multilang"
+        maxLength="255" />
+		
+			
+		
+       
+    
+</params>	
+</extension>
