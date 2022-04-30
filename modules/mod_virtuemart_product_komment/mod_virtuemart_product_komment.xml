@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0">
+  <name>Virtuemart Product Komment</name>
+  <creationDate>August 12 2016</creationDate>
+  <author>The Itera-Research Development Team</author>
+  <authorUrl>http://www.itera-research.com</authorUrl>
+  <copyright>Copyright (C) 2004 - 2016 Itera-Research Team. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>1.0.1</version>
+  <description>VIRTUEMART PRODUCT KOMMENT</description>
+  <files>
+    <filename module="mod_virtuemart_product_komment">mod_virtuemart_product_komment.php</filename>
+    <filename>helper.php</filename>
+    <folder>js</folder>
+  </files>
+  <config>
+  </config>
+</extension>

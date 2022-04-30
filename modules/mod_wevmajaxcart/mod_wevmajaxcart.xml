@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" method="upgrade">
+  <name>MOD_WEVMAJAXCART</name>
+  <creationDate>January 01 2019</creationDate>
+  <author>WEB EXPERT SERVICES LTD</author>
+  <authorUrl>https://www.web-expert.gr</authorUrl>
+  <copyright>Copyright (C) 2004 - 2019 Virtuemart Team. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>1.1.1</version>
+  <description>MOD_WEVMAJAXCART_DESC</description>
+  <files>
+    <filename module="mod_wevmajaxcart">mod_wevmajaxcart.php</filename>
+    <folder>assets</folder>
+    <folder>tmpl</folder>
+  </files>
+  <updateservers>
+    <server type="extension" name="VM3 Web-Expert AJAX Cart Update Site"><![CDATA[https://www.web-expert.gr/updates/mod_wevmajaxcart.xml]]></server>
+  </updateservers>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_wevmajaxcart.sys.ini</language>
+		<language tag="en-GB">language/en-GB.mod_wevmajaxcart.ini</language>
+    </languages>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field
+          name="moduleid_sfx"
+          type="text" default=""
+          label="Module ID Suffix"
+          description="A suffix to be applied to the ID of the module (table.moduletable), this allows individual module styling"
+        />
+        <field
+          name="moduleclass_sfx"
+          type="text"
+          default=""
+          label="Module Class Suffix"
+          description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling"
+        />
+        <field
+          name="layoutmod"
+          type="list"
+          default="0"
+          label="MOD_WEVMAJAXCART_LAYOUTMOD"
+          description="MOD_WEVMAJAXCART_LAYOUTMOD_DESC"
+          >
+          <option value="0">Current</option>
+          <option value="1">VM Cart Default Module</option>
+        </field>
+        <field
+          name="preloadcart"
+          type="list"
+          default="0"
+          label="MOD_WEVMAJAXCART_PRELOAD_CART"
+          description="MOD_WEVMAJAXCART_PRELOAD_CART_DESC"
+          >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </field>
+        <field
+          name="show_price"
+          type="list"
+          default="1"
+          label="MOD_WEVMAJAXCART_SHOW_PRICE"
+          description="MOD_WEVMAJAXCART_SHOW_PRICE_DESC"
+          >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </field>
+        <field
+          name="show_product_list"
+          type="list"
+          default="1"
+          label="MOD_WEVMAJAXCART_SHOW_LIST"
+          description="MOD_WEVMAJAXCART_SHOW_LIST_DESC"
+          >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </field>
+      </fieldset>
+      <fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+        />
+      </fieldset>
+    </fields>
+  </config>
+</extension>

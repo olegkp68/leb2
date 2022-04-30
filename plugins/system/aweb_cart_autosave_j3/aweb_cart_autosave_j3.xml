@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.04" group="system" method="upgrade">
+    <name>Cart AutoSave for VirtueMart 3 aWeb_Cart_Autosave</name>
+    <author>aWebSupport Team</author>
+    <creationDate>2016-08-30</creationDate>
+    <copyright>awebsupport.com</copyright>
+    <authorEmail>contact@awebsupport.com</authorEmail>
+    <authorUrl>http://awebsupport.com/</authorUrl>
+    <version>1.04</version>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <description>Cart Autosave</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> 
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+    <files>
+        <filename plugin="aweb_cart_autosave_j3">aweb_cart_autosave_j3.php</filename>     
+		<filename>install.mysql.utf8.sql</filename>
+		<filename>uninstall.mysql.utf8.sql</filename>
+        <folder>sql</folder> 
+    </files>  
+</extension>

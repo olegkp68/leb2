@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="3" type="plugin" group="system" method="upgrade">
+    <name>Base Custom Fields for All</name>
+    <creationDate>2020-10-30</creationDate>
+  	<author>breakdesigns.net</author>
+	<authorUrl>https://www.breakdesigns.net</authorUrl>
+	<copyright>Copyright(c) 2014-2020 breakdesigns.net</copyright>
+	<license>GNU/GPL v.2</license>
+    <version>1.2.1</version>
+     <description>
+		 <![CDATA[
+		 <p>The plugin is used as a base for our vm custom plugins. </p>
+		 <p>We suggest to keep the plugin disabled, as some issues were reported with the proper language detection, in multi-lingual sites.<br>
+		 After all, the plugin is not used by the Joomla's plugin system (does not have plugin triggers inside).<br>
+		 Hence it makes no difference if it is enabled or disabled.</p>
+    ]]></description>
+
+    <install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.sql</file>
+		</sql>
+	</install>
+
+    <uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<update> <!-- Runs on update; New in 1.6 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!--Runs on install/uninstall/update -->
+	<scriptfile>script.php</scriptfile>
+
+	<files>
+		<filename plugin="customfieldsforallbase">customfieldsforallbase.php</filename>
+		<filename>bootstrap.php</filename>
+		<filename>script.php</filename>
+		<folder>Block</folder>
+		<folder>Model</folder>
+		<folder>sql</folder>
+		<folder>view</folder>
+	</files>
+</extension>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="installer" method="upgrade">
+	<name>PLG_INSTALLER_LOGINASUSER</name>
+	<author>Web357 (Yiannis Christodoulou)</author>
+	<creationDate>21 Mar 2019</creationDate>
+	<copyright>Copyright (C) 2009-2019 Web357. All rights reserved.</copyright>
+	<license>GNU/GPLv3, http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>support@web357.com</authorEmail>
+	<authorUrl>https://www.web357.com/</authorUrl>
+	<version>3.3.2</version>
+	<description>This plugin helps admin users to login to the front-end as a specific user. It is useful for websites where the admin user needs to check if a user can see their order(s) correctly, if a form was filled out correctly, or any issues with a user's personal details, etc. The Admin user will be accessing all this information as the external User in order to replicate any issues and assist the user.</description>
+	
+	<files>
+		<folder>language</folder>
+		<filename plugin="loginasuser">loginasuser.php</filename>
+		<filename>script.install.helper.php</filename>
+	</files>
+	
+	<scriptfile>script.install.php</scriptfile>
+
+	<updateservers><server type="extension" priority="1" name="Login as User (pro version)"><![CDATA[https://updates.web357.com/loginasuser/loginasuser_pro.xml]]></server></updateservers>
+	
+</extension>

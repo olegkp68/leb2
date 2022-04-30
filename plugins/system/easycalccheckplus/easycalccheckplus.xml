@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" version="3.9" group="system" method="upgrade">
+    <name>PLG_SYSTEM_EASYCALCCHECKPLUS</name>
+    <version>3.3.0.0-FREE</version>
+    <creationDate>2021-05-03</creationDate>
+    <license>https://www.gnu.org/licenses/gpl</license>
+    <copyright>Copyright 2021 Viktor Vogel. All rights reserved.</copyright>
+    <author>Viktor Vogel</author>
+    <authoremail>admin@kubik-rubik.de</authoremail>
+    <authorurl>https://kubik-rubik.de/</authorurl>
+    <description>PLG_SYSTEM_EASYCALCCHECKPLUS_XML_DESCRIPTION</description>
+    <variant>free</variant>
+    <files>
+        <filename plugin="easycalccheckplus">easycalccheckplus.php</filename>
+        <filename plugin="easycalccheckplus">index.html</filename>
+        <folder plugin="easycalccheckplus">src</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_easycalccheckplus.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_easycalccheckplus.sys.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.sys.ini</language>
+    </languages>
+    <scriptfile>src/Script.php</scriptfile>
+    <updateservers>
+        <server type="extension" priority="1" name="PLG_SYSTEM_EASYCALCCHECKPLUS">https://check.kubik-rubik.de/updates/easycalccheckplus.xml</server>
+    </updateservers>
+    <config>
+        <fields name="params" addfieldpath="/plugins/system/easycalccheckplus/src/fields">
+            <fieldset name="PLG_SYSTEM_EASYCALCCHECKPLUS_CHECKS">
+                <field type="krdonationcodecheck"/>
+                <field name="internalchecksOutputTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_INTERNALCHECKS_OUTPUT"/>
+                <field name="typeCalc" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_CALCCHECK" description="PLG_SYSTEM_EASYCALCCHECKPLUS_CALCCHECK_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="operator" type="list" showon="typeCalc:1" default="2" label="PLG_SYSTEM_EASYCALCCHECKPLUS_OPERATOR" description="PLG_SYSTEM_EASYCALCCHECKPLUS_OPERATOR_DESC">
+                    <option value="0">+</option>
+                    <option value="1">-</option>
+                    <option value="2">PLG_SYSTEM_EASYCALCCHECKPLUS_RANDOM</option>
+                </field>
+                <field name="operand" type="list" showon="typeCalc:1" default="2" label="PLG_SYSTEM_EASYCALCCHECKPLUS_OPERAND" description="PLG_SYSTEM_EASYCALCCHECKPLUS_OPERAND_DESC">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </field>
+                <field name="negative" type="list" showon="typeCalc:1" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_NEGATIVE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_NEGATIVE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="convertToString" type="list" showon="typeCalc:1" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_CONVERT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_CONVERT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="maxValue" type="text" showon="typeCalc:1" default="20" label="PLG_SYSTEM_EASYCALCCHECKPLUS_MAXIMUMVALUE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_MAXIMUMVALUE_DESC"/>
+                <field name="typeHidden" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HIDDENFIELD" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HIDDENFIELD_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="typeTime" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TIMEHIDDEN" description="PLG_SYSTEM_EASYCALCCHECKPLUS_TIMEHIDDEN_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="typeTimeSec" type="text" showon="typeTime:1" default="5" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TIMEHIDDENSEC" description="PLG_SYSTEM_EASYCALCCHECKPLUS_TIMEHIDDENSEC_DESC"/>
+                <field name="question" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTION" description="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="questions" type="subform" showon="question:1" formsource="plugins/system/easycalccheckplus/src/fields/question.xml" multiple="true" layout="joomla.form.field.subform.repeatable" groupByFieldset="true" label="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONS" description=""/>
+                <field name="reCaptchaTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_RECAPTCHA"/>
+                <field name="recaptcha" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHA" description="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHA_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="recaptchaTheme" type="list" showon="recaptcha:1" default="light" label="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHA_THEME" description="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHA_THEME_DESC">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </field>
+                <field name="recaptchaPublicKey" type="text" showon="recaptcha:1" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHAPUBLICKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHAPUBLICKEY_DESC"/>
+                <field name="recaptchaPrivateKey" type="text" showon="recaptcha:1" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHAPRIVATEKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_RECAPTCHAPRIVATEKEY_DESC"/>
+                <field name="hcaptchaTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_HCAPTCHA"/>
+                <field name="hcaptcha" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="hCaptchaTheme" type="list" showon="hcaptcha:1" default="light" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_THEME" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_THEME_DESC">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </field>
+                <field name="hcaptchaSiteKey" type="text" showon="hcaptcha:1" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_SITEKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_SITEKEY_DESC"/>
+                <field name="hcaptchaSecret" type="text" showon="hcaptcha:1" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_SECRET" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HCAPTCHA_SECRET_DESC"/>
+            </fieldset>
+            <fieldset name="PLG_SYSTEM_EASYCALCCHECKPLUS_FORMS">
+                <field type="krdonationcodecheck"/>
+                <field name="coreFormsTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_CORE"/>
+                <field name="userRegistration" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_USERREGISTRATION" description="PLG_SYSTEM_EASYCALCCHECKPLUS_USERREGISTRATION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="userLogin" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_USERLOGIN" description="PLG_SYSTEM_EASYCALCCHECKPLUS_USERLOGIN_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="userLoginAttempts" type="text" showon="userLogin:1" default="3" size="10" label="PLG_SYSTEM_EASYCALCCHECKPLUS_USERLOGINATTEMPTS" description="PLG_SYSTEM_EASYCALCCHECKPLUS_USERLOGINATTEMPTS_DESC"/>
+                <field name="contact" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_CONTACTFORM" description="PLG_SYSTEM_EASYCALCCHECKPLUS_CONTACTFORM_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="mailtoContent" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_MAILTO_CONTENT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_MAILTO_CONTENT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="3rdpartyFormsTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_3RDPARTY"/>
+                <field name="aicontactsafe" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_AICONTACTSAFE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_AICONTACTSAFE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="alfcontact" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_ALFCONTACT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_ALFCONTACT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="communitybuilder" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_COMMUNITYBUILDER" description="PLG_SYSTEM_EASYCALCCHECKPLUS_COMMUNITYBUILDER_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="dfcontact" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_DFCONTACT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_DFCONTACT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="easybookreloaded" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_EASYBOOKRELOADED" description="PLG_SYSTEM_EASYCALCCHECKPLUS_EASYBOOKRELOADED_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="foxcontact" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_FOXCONTACT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_FOXCONTACT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="flexicontact" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_FLEXICONTACT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_FLEXICONTACT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="flexicontactplus" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_FLEXICONTACTPLUS" description="PLG_SYSTEM_EASYCALCCHECKPLUS_FLEXICONTACTPLUS_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="iproperty" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_IPROPERTY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_IPROPERTY_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="jomsocial" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_JOMSOCIAL" description="PLG_SYSTEM_EASYCALCCHECKPLUS_JOMSOCIAL_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="kunena" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_KUNENA" description="PLG_SYSTEM_EASYCALCCHECKPLUS_KUNENA_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="phocaguestbook" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_PHOCAGUESTBOOK" description="PLG_SYSTEM_EASYCALCCHECKPLUS_PHOCAGUESTBOOK_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="virtuemart" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_VIRTUEMART" description="PLG_SYSTEM_EASYCALCCHECKPLUS_VIRTUEMART_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="PLG_SYSTEM_EASYCALCCHECKPLUS_SETTINGS">
+                <field type="krdonationcodecheck"/>
+                <field name="outputTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_OUTPUT"/>
+                <field name="encode" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_ENCODE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_ENCODE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="autofillValues" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_KEEPVALUES" description="PLG_SYSTEM_EASYCALCCHECKPLUS_KEEPVALUES_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="warnReference" type="list" showon="autofillValues:0" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_WARNINGREFERENCE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_WARNINGREFERENCE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="onlyGuests" type="list" default="1" label="PLG_SYSTEM_EASYCALCCHECKPLUS_ONLYGUESTS" description="PLG_SYSTEM_EASYCALCCHECKPLUS_ONLYGUESTS_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="blockIpTitle" type="krTitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_BLOCKIP"/>
+                <field name="blockIp" type="krproinput" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP_DESC"/>
+                <field name="blockIpCount" type="krproinput" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP_COUNT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP_COUNT_DESC"/>
+                <field name="blockIpSeconds" type="krproinput" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP_SECONDS" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKIP_SECONDS_DESC"/>
+                <field name="backendTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_BACKEND"/>
+                <field name="backendProtection" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BACKENDPROTECTION" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BACKENDPROTECTION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="token" type="text" showon="backendProtection:1" default="" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TOKEN" description="PLG_SYSTEM_EASYCALCCHECKPLUS_TOKEN_DESC"/>
+                <field name="urlFalseToken" type="text" showon="backendProtection:1" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_URLFALSETOKEN" description="PLG_SYSTEM_EASYCALCCHECKPLUS_URLFALSETOKEN_DESC"/>
+                <field name="internalChecksTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_INTERNALCHECKS"/>
+                <field name="sqlInjectionLfi" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_SQLINJECTIONANDLOCALFILEINCLUSION" description="PLG_SYSTEM_EASYCALCCHECKPLUS_SQLINJECTIONANDLOCALFILEINCLUSION_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="expertTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_EXPERT"/>
+                <field name="blockDirectSubmissions" type="krproinput" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKDIRECTSUBMISSIONS" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BLOCKDIRECTSUBMISSIONS_DESC"/>
+                <field name="customCall" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_CUSTOMCALL" description="PLG_SYSTEM_EASYCALCCHECKPLUS_CUSTOMCALL_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="stringAlternative" type="textarea" default="" filter="raw" label="PLG_SYSTEM_EASYCALCCHECKPLUS_STRINGALTERNATIVE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_STRINGALTERNATIVE_DESC" rows="3" cols="25"/>
+            </fieldset>
+            <fieldset name="PLG_SYSTEM_EASYCALCCHECKPLUS_ANTISPAMSERVICES">
+                <field type="krdonationcodecheck"/>
+                <field name="antispamNoregistrationtitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_ANTISPAM_NOREGISTRATION"/>
+                <field name="stopForumSpam" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_STOPFORUMSPAM" description="PLG_SYSTEM_EASYCALCCHECKPLUS_STOPFORUMSPAM_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="antispamFreeregistrationTitle" type="krtitle" label="PLG_SYSTEM_EASYCALCCHECKPLUS_TITLE_ANTISPAM_FREEREGISTRATION"/>
+                <field name="honeyPot" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HONEYPOT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HONEYPOT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="honeyPotKey" type="text" showon="honeyPot:1" default="" label="PLG_SYSTEM_EASYCALCCHECKPLUS_HONEYPOTKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_HONEYPOTKEY_DESC"/>
+                <field name="akismet" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_AKISMET" description="PLG_SYSTEM_EASYCALCCHECKPLUS_AKISMET_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="akismetKey" type="text" showon="akismet:1" default="" label="PLG_SYSTEM_EASYCALCCHECKPLUS_AKISMETKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_AKISMETKEY_DESC"/>
+                <field name="botScout" type="list" default="0" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BOTSCOUT" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BOTSCOUT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="botScoutKey" type="text" showon="botScout:1" default="" label="PLG_SYSTEM_EASYCALCCHECKPLUS_BOTSCOUTKEY" description="PLG_SYSTEM_EASYCALCCHECKPLUS_BOTSCOUTKEY_DESC"/>
+            </fieldset>
+            <fieldset name="donation">
+                <field type="krdonationcodecheck" name="donation"/>
+                <field name="donation_code" type="text" default="" size="40" label="KR_DONATION_CODE" description="KR_DONATION_CODE_DESC"/>
+                <field type="krprobutton" name="easycalccheckplus"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

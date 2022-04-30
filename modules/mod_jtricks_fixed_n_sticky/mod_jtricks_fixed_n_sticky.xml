@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" method="upgrade" client="site">
+	<name>Fixed-n-Sticky</name>
+	<author>Pluginaria.com</author>
+	<creationDate>March 2016</creationDate>
+	<copyright>Copyright (C) 2013-2016 Pluginaria.com.</copyright>
+	<license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<authorEmail>feedback@pluginaria.com</authorEmail>
+	<authorUrl>www.pluginaria.com</authorUrl>
+	<version>1.5.2</version>
+	<description>
+		This module allows fixing any other modules on screen within a module container (sidebar).
+		Whenever possible, position:fixed is used, otherwise
+	</description>
+	<files>
+		<filename module="mod_jtricks_fixed_n_sticky">mod_jtricks_fixed_n_sticky.php</filename>
+		<filename module="mod_jtricks_fixed_n_sticky">module_renderer.php</filename>
+		<filename module="mod_jtricks_fixed_n_sticky">fixed_n_sticky-1.5.js</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="moduleDebug" type="radio" default="0" label="Debug" description="Show debug information.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+                </field>
+				<field name="position" type="text" size="30" default="fixed" label="Module position to provide" description=""/>
+				<field name="spacer1" type="spacer" hr="true" />
+				<field name="targetTop" type="text" default="" label="Distance from the top of the window" description=""/>
+				<field name="targetLeft" type="text" default="" label="Distance from the left border of the window" description=""/>
+                <field name="updateParentHeight" type="radio" default="0"
+                    label="Auto-adjust column height for short pages in confined mode."
+                                       description="">
+                	<option value="0">No</option>
+        			<option value="1">Yes</option>
+                </field>
+        		<field name="confinementAreaClass" type="text" default=""
+                               label="If height auto-adjust stops moving, confinement area class"
+                               description=""/>
+                <field name="confinementAreaId" type="text" default=""
+                               label="or confinement area id"
+                               description=""/>
+			</fieldset>
+			<fieldset name="responsivedesign" label="Responsive design">
+                <field name="responsiveSmallScreenAction" type="list" default="stop"
+                       label="Small screen/window action"
+                       description="What to do when small screen is detected.">
+                	<option value="normal">Normal operation</option>
+        			<option value="stop">Stop moving</option>
+                </field>
+                <field name="responsiveSmallScreenMaxWidth" type="text" default="480"
+                               label="Max screen/window width to consider it small"
+                               description=""/>
+			</fieldset>
+			<fieldset name="advancedstyle" label="Advanced style modificators">
+                <field name="zIndex" type="text" default="100"
+                               label="Container z-index"
+                               description=""/>
+				<field name="cssOverride" type="textarea" default="" label="CSS style overrides (will be placed into html HEAD)" description="" rows="16" cols="40"/>
+				<field name="containerClass" type="text" default="" label="Class for floating div container" description=""/>
+				<field name="moduleStyle" type="text" default="" label="Module inclusion style (template-dependant)" description=""/>
+                <field name="prelude" type="textarea" default="" label="HTML prelude for modules" description="Additional HTML code that will be rendered before all modules." rows="2" cols="40"/>
+                <field name="finale" type="textarea" default="" label="HTML finale for modules" description="Additional HTML code that will be rendered after all modules." rows="2" cols="40"/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option	value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option	value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

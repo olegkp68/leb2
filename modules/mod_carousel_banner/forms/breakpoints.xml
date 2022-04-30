@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field name="breakpoint" type="number" label="MOD_CAROUSELBANNER_BREAKPOINT_LABEL" description="MOD_CAROUSELBANNER_BREAKPOINT_DESC" />
+    <field name="col" type="number" label="MOD_CAROUSELBANNER_COLUMN_LABEL" description="MOD_CAROUSELBANNER_COLUMN_DESC" />
+    <field name="gutter" type="number" label="MOD_CAROUSELBANNER_GUTTER_LABEL" description="MOD_CAROUSELBANNER_GUTTER_DESC" />
+    <field name="edgepadding" type="number" label="MOD_CAROUSELBANNER_EDGE_PADDING_LABEL" description="MOD_CAROUSELBANNER_EDGE_PADDING_DESC" />
+    <field name="note" type="text" label="MOD_CAROUSELBANNER_NOTE_LABEL" description="" />
+</form>
+
