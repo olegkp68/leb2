@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" client="site" method="upgrade" requires="/components/com_virtuemart">
+	<name>RuposTel Quiz Module</name>
+	<author>www.rupostel.com</author>
+	<creationDate>20110107</creationDate>
+	<copyright>(C) rupostel.com</copyright>
+	<license>Commercial</license>
+	<authorEmail>info@rupostel.com</authorEmail>
+	<authorUrl>http://www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description><![CDATA[
+XLS Quiz Module by <a href="http://www.rupostel.com/">rupostel.com</a> team. 
+	]]>
+	</description>
+	<files>
+		<filename module="mod_quiz">mod_quiz.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		
+	</files>
+	
+	<config>
+	 <fields name = "params" addfieldpath="/modules/mod_quiz/fields">
+	   <fieldset name="basic">
+		<field
+            name="cache"
+            type="list"
+            default="0"
+            label="Joomla Caching"
+            description="">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+		
+		 </fieldset>
+ 
+ <fieldset name="import" label="Import&amp;Export">
+		<field name="uploaddata" type="ajaxuploadfield" label="Overwrite data with this import" description="Upload new XLS file" data-label="Upload new XLSX..." data-cmd="uploadxls" data-status="true" />
+		<field name="downloaddata" type="ajaxfield" label="Download" description="Download Current XLSX" data-label="Download current XLSX..." data-cmd="downloaddata"  data-isdownload="true" />
+		
+		<field name="downloadstats" type="ajaxfield" label="Download Stats" description="Download usage stats" data-label="Download stats..." data-cmd="downloadstats"  data-isdownload="true" />
+	   
+		</fieldset>
+		
+		
+	</fields>
+	</config> 
+	
+	
+</extension>

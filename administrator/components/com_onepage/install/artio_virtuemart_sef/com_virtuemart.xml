@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6.0" type="sef_ext" requires="/components/com_virtuemart,/components/com_sef">
+	<name>VIRTUEMART</name>
+	<author>RuposTel.com</author>
+	<creationDate>27. January 2014</creationDate>
+	<copyright>http://rupostel.com</copyright>
+	<license></license>
+	<authorEmail>seo@rupostel.com</authorEmail>
+	<authorUrl>http://rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>SEO for Virtuemart</description>
+	<files>
+		<filename sef_ext="virtuemart">com_virtuemart.php</filename>
+		<filename>com_virtuemart_helper.php</filename>
+	</files>
+	
+	   <form>
+        <fieldset name="Extension">
+		    <field name="details_path" type="radio" class="btn-group" default="3" label="Product details path" description="Set desired path calculated from VM categories.">
+		      <option value="1">Return longest category path found</option>
+		      <option value="2">Return shortest category path found</option>
+			  <option value="3">Return top category found</option>
+			  <option value="4">Return deepest category found</option>
+			  <option value="5">Return URL per #__virtuemart_product_extras.sef_path</option>
+		    </field>
+        </fieldset>
+    </form>
+	
+</extension>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="2.5" method="upgrade" group="vmcoupon">
+	<name>PLG_VMCOUPON_OPCCOUPON</name>
+	<creationDate>April 2019</creationDate>
+	<author>Stan Scholtz</author>
+	<copyright>Copyright (C) RuposTel.com - All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>dev@rupostel.com.com</authorEmail>
+	<authorUrl>http://rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>OPC Coupons for Virtuemart</description>
+	<files>
+		<filename plugin="opccoupon">opccoupon.php</filename>
+		<folder>assets</folder>
+		<folder>fields</folder>
+		<folder>language</folder> 
+		<folder>helpers</folder> 
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/vmcoupon/opccoupon/fields">
+				
+				<field
+					name="order_amount"
+					type="text"
+					label="Order amount incl.tax"
+					description="Set order amount to provide discount"
+				/>
+				
+				<field
+					name="productID"
+					type="text"
+					label="Free product ID"
+					description="Set free product ID to provide under the order amount threashold"
+				/>
+				
+				<field
+					name="discount_percent"
+					type="text"
+					label="Discount perc."
+					description="Set amount of discount above order total threashold"
+				/>
+				
+				
+				<field  type="ajaxfieldselect" name="order_statuses" multiple="multiple" default="" label="Final Order Satus" data-sql="select `order_status_name` as `keyname`, `order_status_code` as `keyvalue` from `#__virtuemart_orderstates` where 1=1" data-cmd="ajaxfieldselect" data-defaultlabel="Any" data-defaultvalue="C" data-ajaxbackend="com_virtuemart" data-plugingroup="vmcoupon" />
+				
+				<field
+					name="limit_days"
+					type="text"
+					label="Number of days to block"
+					description="Number of days when the coupon cannot be resued per final statuses"
+				/>
+				
+				<field name="platform" type="dirlist" default="example" label="Choose coupon system" description="Choose coupon system defined in /plugins/vmcoupon/opccoupon/platform" path="/plugins/vmcoupon/opccoupon/platform" />
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

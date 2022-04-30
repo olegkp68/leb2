@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3" method="upgrade">
+	<name>Custom Fields For All Package</name>
+	<creationDate>2020-12-03</creationDate>
+	<packagename>customfieldsforall</packagename>
+	<version>4.1.1</version>
+	<url>https://breakdesigns.net/</url>
+	<author>breadkesigns</author>
+	<description><![CDATA[<h3>Custom Fields For All Package<i style="font-size:12px"> (v.4.1.1)</i></h3>
+    <span><img src="../plugins/vmcustom/customfieldsforall/assets/images/logo_90.png"/></span>
+    <p style="margin-top:5px; font-size:12px; font-weight:0;">The multi-purpose custom fields for Virtuemart</p>
+    <p><a href="https://breakdesigns.net/extensions/joomla/custom-fields-for-all/documentation#installation" target="_blank">Please check our Manual to see how to proceed further</a>
+    ]]></description>
+
+    <files>
+		<file type="plugin" id="customfieldsforallbase" client="system">customfieldsforallbase.zip</file>
+		<file type="plugin" id="customfieldsforall" client="vmcustom">customfieldsforall.zip</file>
+	</files>
+
+	<!--Runs on install/uninstall/update -->
+	<scriptfile>script.php</scriptfile>
+</extension>

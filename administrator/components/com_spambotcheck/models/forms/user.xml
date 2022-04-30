@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+		description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+		readonly="true"  
+	/>
+		
+	<field name="user_id"  type="text" class="" label="COM_SPAMBOTCHECK_FIELD_USER_ID_LABEL"
+		description ="COM_SPAMBOTCHECK_FIELD_USER_ID_DESC" size="10" default="0"
+	/>
+	
+	<field name="ip"  type="text" class="" label="COM_SPAMBOTCHECK_FIELD_IP_LABEL"
+		description ="COM_SPAMBOTCHECK_FIELD_IP_DESC" size="50" default="0"
+	/>
+	
+	<field name="hits" type="text" label="JGLOBAL_HITS"
+		description="COM_SPAMBOTCHECK_FIELD_FIELD_HITS_DESC" class="readonly" size="6"
+		readonly="true" filter="unset" 
+	/>
+				
+	<field name="suspicious" type="list" label="COM_SPAMBOTCHECK_FIELD_SUSPICIOUS_LABEL"
+		description="COM_SPAMBOTCHECK_FIELD_SUSPICIOUS_DESC" class="inputbox"
+		filter="intval" size="1" default="0"
+	>
+		<option value="1">
+			COM_SPAMBOTCHECK_SUSPICIOUS</option>
+		<option value="0">
+			COM_SPAMBOTCHECK_NOT_SUSPICIOUS</option>
+	</field>
+	<field name="trust" type="list" label="COM_SPAMBOTCHECK_FIELD_TRUST_LABEL"
+		description="COM_SPAMBOTCHECK_FIELD_TRUST_DESC" class="inputbox"
+		filter="intval" size="1" default="0"
+	>
+		<option value="1">
+			COM_SPAMBOTCHECK_DISTRUST</option>
+		<option value="0">
+			COM_SPAMBOTCHECK_TRUST</option>
+	</field>
+	
+	<field name="note" type="textarea"
+		label="COM_SPAMBOTCHECK_FIELD_NOTE_LABEL" description="COM_SPAMBOTCHECK_FIELD_NOTE_DESC"
+		class="inputbox" rows="3" cols="30" 
+	/>
+</form>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="file" version="2.5" method="upgrade" >	
+	<name>NoCache and SQL Cache Storage handlers for Joomla</name>
+	
+	<author><![CDATA[RuposTel.com]]></author>
+	<creationdate>1.1.2016</creationdate>
+	<copyright><![CDATA[RuposTel.com]]></copyright>
+	<license>GNU/GPL</license>
+	<authoremail></authoremail>
+	<authorurl>http://www.rupostel.com</authorurl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>nocache plugin disables caching for Joomla or any 3rd party extension. sql cache uses mysql to store the cache entires. to change the cache handler, use the Joomla Global configuration </description>
+	<element>nocache</element>
+	<fileset>
+	<files target="libraries/src/Cache/Storage">
+			<filename >NocacheStorage.php</filename>
+	</files>
+	<files target="libraries/joomla/cache/storage">
+			<filename >sql.php</filename>
+			<filename >nocache.php</filename>
+	</files>
+	</fileset>
+</extension>

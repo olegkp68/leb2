@@ -1,0 +1,42 @@
+.cf_flt_wrapper label {
+	display: inline; 
+}
+a.filter_link, label > input[type="checkbox"].productfilter_selector {
+	margin-top: 0px; 
+	line-height: 20px; 
+}
+div.cf_wrapper_inner label {
+	margin-right: 10px; 
+}
+
+div.allwrap {
+	position: relative;
+}
+div.allwrap button.filter_button {
+	position: absolute;
+	bottom: 5px; 
+	right: 5px; 
+	background-color: #4a4a4a !important;
+}
+span.selected_filter.btn, span.group_title.btn {
+background: none; 
+background-color: transparent !important;
+border: 1px solid #e72324 !important; 
+color: black !important; 
+line-height: 26px; 
+vertical-align: middle; 
+cursor: auto !important;
+margin-right: 5px; 
+box-sizing: border-box; 
+height: 38px; 
+}
+body span.group_title.btn {
+	border: 1px solid #4a4a4a !important; 
+}
+span.selected_filter.btn > a,span.selected_filter.btn > a:hover, span.selected_filter.btn > a:active {
+	padding-left: 5px; 
+	font-size: 18px; 
+	text-decoration: none; 
+}
+
+div.reset_all_div { display: none; }

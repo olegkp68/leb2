@@ -1,0 +1,168 @@
+html div.modulecartsaver input[type="text"].form-control.cart_name_input {
+	border-width: 1px;
+	margin-bottom: 0; 
+}
+div.cartname_list .listtoggler {
+	cursor:pointer;
+}
+div.cart_list {
+	width:100%;
+}
+
+a.drop_named_cart {
+	color: #7d4343;
+}
+
+div.cart_list > div {
+	line-height: 1.5em; 
+	font-size: 1em; 
+	vertical-align: middle;
+}
+div.cart_list i {
+	font-size: 1.5em; 
+}
+div.namedcart_row {
+	width: 100%; 
+	box-sizing: border-box; 
+	padding-right: 0%; 
+	display: flex; 
+	flex-wrap: wrap; 
+}
+
+
+a.load_named_cart > i { 
+width: 30px; 
+min-width: 25px; 
+}
+a.load_named_cart > span{ 
+min-width: 70%; 
+}
+a.drop_named_cart { 
+min-width: 25px; 
+}
+
+a.load_named_cart {
+	min-width: 60%;
+	max-width: 60%; 
+}
+
+.cartname_list {
+	padding-top: 10px; 
+	padding-bottom: 10px; 
+}
+
+
+/*checkbox via fontawesome */
+div.mergecheckbox input[type='checkbox'] {display:none;}
+/* unchecked */
+div.mergecheckbox input[type='checkbox'] + label:before { 
+  font-family:"Font Awesome 5 Free";
+  content: "\f0c8";
+  font-size: 20px; 
+  font-size: 20px;
+	line-height: 25px; 
+	vertical-align: middle; 
+	display: inline-block; 
+	padding-right: 5px; 
+}
+
+/* checked */
+div.mergecheckbox input[type='checkbox']:checked + label:before 
+{
+	font-family:"Font Awesome 5 Free";
+	
+	content: "\f14a";
+	font-size: 20px;
+	line-height: 25px; 
+	vertical-align: middle; 
+	display: inline-block; 
+	padding-right: 5px; 
+}
+div.mergecheckbox,div.mergecheckbox label, div.mergecheckbox input {
+	line-height: 25p;
+	vertical-align: middle; 
+	height: 25px; 
+	margin: 0; 
+	display: inline-block; 
+	
+	
+}
+div.mergecheckbox {
+	padding-bottom: 15px; 
+}
+
+a:hover.load_named_cart,a:active.load_named_cart,a:focus.load_named_cart {
+  text-decoration: none !important; 
+} 
+
+div.namedcart_row:hover {
+	 background-color: #cdcdcd; 
+}
+div.namedcart_row { 
+ padding-top: 5px; 
+ padding-bottom: 5px; 
+ line-height: 25px; 
+ vertical-align: middle; 
+}
+div.modulecartsaver a, div.modulecartsaver a.btn {
+	margin-top: 3px; 
+	margin-bottom: 3px; 
+}
+div.modulecartsaver a.btn > i, div.modulecartsaver a.share_named > i { 
+  padding-right: 5px; 
+}
+
+div.modulecartsaver form.is_not_empty .show_on_input, div.modulecartsaver disabledform.is_not_empty .show_on_input {
+	display: inline-block; 
+}
+div.modulecartsaver form.is_empty .show_on_input, div.modulecartsaver disabledform.is_empty .show_on_input {
+	display: none !important; 
+}
+
+div.modulecartsaver form.is_empty .hide_on_input, div.modulecartsaver disabledform.is_empty .hide_on_input {
+	display: inline-block; 
+}
+div.modulecartsaver form.is_empty .cartname_list.hide_on_input, div.modulecartsaver disabledform.is_empty .cartname_list.hide_on_input {
+	display: block; 
+}
+
+div.modulecartsaver form.is_not_empty .hide_on_input, div.modulecartsaver disabledform.is_not_empty .hide_on_input {
+	display: none !important; 
+}
+input.cart_name_input {
+	clear: both;
+}
+div.share_menu {
+	display: none; 
+}
+div.share_menu, div.share_menu > div {
+	
+	width: 100%; 
+	float: left; 
+	clear: both; 
+	flex-basis: 100%;
+}
+div.namedcart_row .menuicon {
+	min-width: 30px; 
+	padding-left: 0px; 
+	padding-right: 5px; 
+	width: 30px; 
+	box-sizing: border-box; 
+   
+}
+a.load_named_cart  { display: inline; }
+
+.share_menu > div {
+	padding-left: 30px; 
+	line-height: 2.5em; 
+}
+.cartsavertoolbox > a {
+	line-height: 2em; 
+	vertical-align: middle; 
+}
+.cartsavertoolbox > a > i {
+	font-size: 2em; 
+	padding-right: 10px; 
+}
+
+div#vmMainPageOPC div.moduletable, div.modulecartsaver, div#vmMainPageOPC div.modulecartsaver  { box-sizing: border-box; }

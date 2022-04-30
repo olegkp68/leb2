@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="1.7" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+
+	<name>plg_system_opcnumbering</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>March 2015</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description>OPC - One Page Checkout Order and Invoice Numbering Plugin</description>
+
+	<files>
+
+		<filename plugin="opcnumbering">opcnumbering.php</filename>
+		<filename>index.html</filename>
+
+	</files>
+
+</extension>
+

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" client="administrator" method="upgrade">
+	<name>Logged in users</name>
+	<author>Carsten Engel</author>
+	<creationDate>june 2014</creationDate>
+	<copyright>(C) 2011-2014 Carsten Engel. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.pages-and-items.com</authorUrl>
+	<version>2.0.1</version>
+	<description>This administrator module shows number of users logged in at the frontend and backend of the website.</description>
+	<files>
+		<filename module="mod_loggedinusers">mod_loggedinusers.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>	
+		<language tag="af-ZA">language/af-ZA.mod_loggedinusers.ini</language>
+		<language tag="af-ZA">language/af-ZA.mod_loggedinusers.sys.ini</language>
+		<language tag="ar-EG">language/ar-EG.mod_loggedinusers.ini</language>
+		<language tag="ar-EG">language/ar-EG.mod_loggedinusers.sys.ini</language>
+		<language tag="be-BE">language/be-BE.mod_loggedinusers.ini</language>
+		<language tag="be-BE">language/be-BE.mod_loggedinusers.sys.ini</language>
+		<language tag="bg-BG">language/bg-BG.mod_loggedinusers.ini</language>
+		<language tag="bg-BG">language/bg-BG.mod_loggedinusers.sys.ini</language>
+		<language tag="ca-ES">language/ca-ES.mod_loggedinusers.ini</language>
+		<language tag="ca-ES">language/ca-ES.mod_loggedinusers.sys.ini</language>
+		<language tag="cs-CZ">language/cs-CZ.mod_loggedinusers.ini</language>
+		<language tag="cs-CZ">language/cs-CZ.mod_loggedinusers.sys.ini</language>
+		<language tag="cy-GB">language/cy-GB.mod_loggedinusers.ini</language>
+		<language tag="cy-GB">language/cy-GB.mod_loggedinusers.sys.ini</language>
+		<language tag="da-DK">language/da-DK.mod_loggedinusers.ini</language>
+		<language tag="da-DK">language/da-DK.mod_loggedinusers.sys.ini</language>
+		<language tag="de-DE">language/de-DE.mod_loggedinusers.ini</language>
+		<language tag="de-DE">language/de-DE.mod_loggedinusers.sys.ini</language>
+		<language tag="el-GR">language/el-GR.mod_loggedinusers.ini</language>
+		<language tag="el-GR">language/el-GR.mod_loggedinusers.sys.ini</language>
+		<language tag="en-GB">language/en-GB.mod_loggedinusers.ini</language>
+		<language tag="en-GB">language/en-GB.mod_loggedinusers.sys.ini</language>
+		<language tag="es-ES">language/es-ES.mod_loggedinusers.ini</language>
+		<language tag="es-ES">language/es-ES.mod_loggedinusers.sys.ini</language>
+		<language tag="et-EE">language/et-EE.mod_loggedinusers.ini</language>
+		<language tag="et-EE">language/et-EE.mod_loggedinusers.sys.ini</language>
+		<language tag="fa-IR">language/fa-IR.mod_loggedinusers.ini</language>
+		<language tag="fa-IR">language/fa-IR.mod_loggedinusers.sys.ini</language>
+		<language tag="fi-FI">language/fi-FI.mod_loggedinusers.ini</language>
+		<language tag="fi-FI">language/fi-FI.mod_loggedinusers.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR.mod_loggedinusers.ini</language>
+		<language tag="fr-FR">language/fr-FR.mod_loggedinusers.sys.ini</language>
+		<language tag="ga-IE">language/ga-IE.mod_loggedinusers.ini</language>
+		<language tag="ga-IE">language/ga-IE.mod_loggedinusers.sys.ini</language>
+		<language tag="gl-ES">language/gl-ES.mod_loggedinusers.ini</language>
+		<language tag="gl-ES">language/gl-ES.mod_loggedinusers.sys.ini</language>
+		<language tag="he-IL">language/he-IL.mod_loggedinusers.ini</language>
+		<language tag="he-IL">language/he-IL.mod_loggedinusers.sys.ini</language>
+		<language tag="hi-IN">language/hi-IN.mod_loggedinusers.ini</language>
+		<language tag="hi-IN">language/hi-IN.mod_loggedinusers.sys.ini</language>
+		<language tag="hr-HR">language/hr-HR.mod_loggedinusers.ini</language>
+		<language tag="hr-HR">language/hr-HR.mod_loggedinusers.sys.ini</language>
+		<language tag="ht-NG">language/ht-NG.mod_loggedinusers.ini</language>
+		<language tag="ht-NG">language/ht-NG.mod_loggedinusers.sys.ini</language>
+		<language tag="hu-HU">language/hu-HU.mod_loggedinusers.ini</language>
+		<language tag="hu-HU">language/hu-HU.mod_loggedinusers.sys.ini</language>
+		<language tag="id-ID">language/id-ID.mod_loggedinusers.ini</language>
+		<language tag="id-ID">language/id-ID.mod_loggedinusers.sys.ini</language>
+		<language tag="is-IS">language/is-IS.mod_loggedinusers.ini</language>
+		<language tag="is-IS">language/is-IS.mod_loggedinusers.sys.ini</language>
+		<language tag="it-IT">language/it-IT.mod_loggedinusers.ini</language>
+		<language tag="it-IT">language/it-IT.mod_loggedinusers.sys.ini</language>
+		<language tag="ja-JP">language/ja-JP.mod_loggedinusers.ini</language>
+		<language tag="ja-JP">language/ja-JP.mod_loggedinusers.sys.ini</language>
+		<language tag="ko-KR">language/ko-KR.mod_loggedinusers.ini</language>
+		<language tag="ko-KR">language/ko-KR.mod_loggedinusers.sys.ini</language>
+		<language tag="lt-LT">language/lt-LT.mod_loggedinusers.ini</language>
+		<language tag="lt-LT">language/lt-LT.mod_loggedinusers.sys.ini</language>
+		<language tag="lv-LV">language/lv-LV.mod_loggedinusers.ini</language>
+		<language tag="lv-LV">language/lv-LV.mod_loggedinusers.sys.ini</language>
+		<language tag="mk-MK">language/mk-MK.mod_loggedinusers.ini</language>
+		<language tag="mk-MK">language/mk-MK.mod_loggedinusers.sys.ini</language>
+		<language tag="ms-MY">language/ms-MY.mod_loggedinusers.ini</language>
+		<language tag="ms-MY">language/ms-MY.mod_loggedinusers.sys.ini</language>
+		<language tag="mt-MT">language/mt-MT.mod_loggedinusers.ini</language>
+		<language tag="mt-MT">language/mt-MT.mod_loggedinusers.sys.ini</language>
+		<language tag="nl-NL">language/nl-NL.mod_loggedinusers.ini</language>
+		<language tag="nl-NL">language/nl-NL.mod_loggedinusers.sys.ini</language>
+		<language tag="no-NO">language/no-NO.mod_loggedinusers.ini</language>
+		<language tag="no-NO">language/no-NO.mod_loggedinusers.sys.ini</language>
+		<language tag="pl-PL">language/pl-PL.mod_loggedinusers.ini</language>
+		<language tag="pl-PL">language/pl-PL.mod_loggedinusers.sys.ini</language>
+		<language tag="pt-BR">language/pt-BR.mod_loggedinusers.ini</language>
+		<language tag="pt-BR">language/pt-BR.mod_loggedinusers.sys.ini</language>
+		<language tag="pt-PT">language/pt-PT.mod_loggedinusers.ini</language>
+		<language tag="pt-PT">language/pt-PT.mod_loggedinusers.sys.ini</language>
+		<language tag="ro-RO">language/ro-RO.mod_loggedinusers.ini</language>
+		<language tag="ro-RO">language/ro-RO.mod_loggedinusers.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU.mod_loggedinusers.ini</language>
+		<language tag="ru-RU">language/ru-RU.mod_loggedinusers.sys.ini</language>
+		<language tag="sk-SK">language/sk-SK.mod_loggedinusers.ini</language>
+		<language tag="sk-SK">language/sk-SK.mod_loggedinusers.sys.ini</language>
+		<language tag="sl-SI">language/sl-SI.mod_loggedinusers.ini</language>
+		<language tag="sl-SI">language/sl-SI.mod_loggedinusers.sys.ini</language>
+		<language tag="sq-AL">language/sq-AL.mod_loggedinusers.ini</language>
+		<language tag="sq-AL">language/sq-AL.mod_loggedinusers.sys.ini</language>
+		<language tag="sr-RS">language/sr-RS.mod_loggedinusers.ini</language>
+		<language tag="sr-RS">language/sr-RS.mod_loggedinusers.sys.ini</language>
+		<language tag="sv-SE">language/sv-SE.mod_loggedinusers.ini</language>
+		<language tag="sv-SE">language/sv-SE.mod_loggedinusers.sys.ini</language>
+		<language tag="sw-TZ">language/sw-TZ.mod_loggedinusers.ini</language>
+		<language tag="sw-TZ">language/sw-TZ.mod_loggedinusers.sys.ini</language>
+		<language tag="th-TH">language/th-TH.mod_loggedinusers.ini</language>
+		<language tag="th-TH">language/th-TH.mod_loggedinusers.sys.ini</language>
+		<language tag="tl-PH">language/tl-PH.mod_loggedinusers.ini</language>
+		<language tag="tl-PH">language/tl-PH.mod_loggedinusers.sys.ini</language>
+		<language tag="tr-TR">language/tr-TR.mod_loggedinusers.ini</language>
+		<language tag="tr-TR">language/tr-TR.mod_loggedinusers.sys.ini</language>
+		<language tag="uk-UA">language/uk-UA.mod_loggedinusers.ini</language>
+		<language tag="uk-UA">language/uk-UA.mod_loggedinusers.sys.ini</language>
+		<language tag="vi-VN">language/vi-VN.mod_loggedinusers.ini</language>
+		<language tag="vi-VN">language/vi-VN.mod_loggedinusers.sys.ini</language>
+		<language tag="yi-IL">language/yi-IL.mod_loggedinusers.ini</language>
+		<language tag="yi-IL">language/yi-IL.mod_loggedinusers.sys.ini</language>
+		<language tag="zh-CN">language/zh-CN.mod_loggedinusers.ini</language>
+		<language tag="zh-CN">language/zh-CN.mod_loggedinusers.sys.ini</language>
+		<language tag="zh-TW">language/zh-TW.mod_loggedinusers.ini</language>
+		<language tag="zh-TW">language/zh-TW.mod_loggedinusers.sys.ini</language>
+	</languages>	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="show_loggedin_frontend"
+					type="radio"
+					default="1"
+					label="MOD_LOGGEDINUSERS_SHOW_FRONTEND"
+					description="MOD_LOGGEDINUSERS_SHOW_FRONTEND_DESC">
+					<option
+						value="0">JNo</option>
+					<option
+						value="1">JYes</option>
+				</field>
+				<field
+					name="show_loggedin_backend"
+					type="radio"
+					default="1"
+					label="MOD_LOGGEDINUSERS_SHOW_BACKEND"
+					description="MOD_LOGGEDINUSERS_SHOW_BACKEND_DESC">
+					<option
+						value="0">JNo</option>
+					<option
+						value="1">JYes</option>
+				</field>
+				<field
+					name="activity_time"
+					type="text"
+					label="MOD_LOGGEDINUSERS_TIME"
+					default="30"
+					/>
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />					
+				<field name="spacer1" type="spacer" class="text" label="MOD_LOGGEDINUSERS_PUBLISH_TO" />
+				<field name="spacer2" type="spacer" class="text" label="'status'" />					
+			</fieldset>			
+		</fields>
+	</config>
+	
+	<updateservers>
+		<server type="extension" priority="1" name="mod_loggedinusers"><![CDATA[http://www.pages-and-items.com/updateserver.php?ext=loggedinusers&]]></server>
+	</updateservers>
+</extension>

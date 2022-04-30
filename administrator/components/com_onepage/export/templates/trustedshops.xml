@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opcexport" method="upgrade" >	
+    <name>OPC Export - TrustedShops Triggerer</name>
+    <creationDate>Mar 2018</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description><![CDATA[Setup your cron to run
+<pre>
+php7.3 /administrator/components/com_onepage/cli.php --task=load --class=trustedshops --override_jroot=/your_path_to_joomla_root_without_trailing_slash --debug=1 --myurl=https://your_joomla_url_ending_with_trailing_slash/ --return_status_json=0 
+</pre><br />
+The script will check for orders X days ago and send notification to trusted shops at the same hour. This script can send only 1 email per cron job and thus if you configure the cron to run every 5 minutes it can send only up to 24*60/5 notifications per day. <br />
+Debug modes: <br />
+When debug is disabled, notification is send to trusted shops only <br />
+When debug is set to send email only to vendor, days parameter is used as a maximum days count and hour check is also disabled. To switch to production #__onepage_trustedshops have to be manually cleared.<br />
+When debug is set to send email to both vendor and customer, both days parameter and hour is used and this option can be used in production as well
+<br />
+To adjust styling you can adjust com_onepage email frontend view, layout default.<br />
+We suggest that number of days is divisible by 7 so that customer receives the email on the same day of week as he made the order<br />
+You can check design of your email also at frontend at https://yourdomain.com/index.php?option=com_onepage&view=email
+
+	   ]]></description> 
+    <files>
+        <filename>trustedshops.php</filename>
+    </files>
+	<params addfieldpath="/administrator/components/com_content/models/fields">
+	   <param name="days" label="Send after sale email after N days" description="Set number of days after which the after sale email will be sent" type="text" default="300"/>
+	   <param name="reminderdays" label="Reminder days offset" description="Set number of days after the script was run to set Reminder Date which triggers the email to customer. If you use zero, the email will be sent asap by trusted shops." type="text" default="0"/>
+	   
+	   <param multilang="multilang" name="tsid" label="TrustedShopID" description="" type="text" default="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+	   
+	  
+	   
+	   <param name="username" label="Username" description="API username" type="text" />
+	   <param name="password" label="Password" description="API password" type="text" />
+	   
+   	   <param name="template" label="Template" description="Set TS template - see API for details" type="list" default="DEFAULT_TEMPLATE">	
+	    <option value="DEFAULT_TEMPLATE">DEFAULT_TEMPLATE</option>
+		<option value="BEST_PRACTICE">BEST_PRACTICE</option>
+		<option value="CREATING_TRUST">CREATING_TRUST</option>
+		<option value="CUSTOMER_SERVICE">CUSTOMER_SERVICE</option>
+		
+	   </param>
+	   
+	   
+	   <param name="email_subject" label="Email subject" description="Insert email subject or language constant" default="TrustedShops Triggerer Sent" type="text" />
+	   <param name="debug" label="Debug" description="In debug mode, emails are sent to vendor only and it searches next closest day to the number of days selected" type="list" default="0">	
+	    <option value="0">Disabled (default)</option>
+		<option value="1">Enabled - no notificatoin, email will be sent to vendor</option>
+		<option value="2">Enabled - notification sent to trusted shops, email will be sent to vendor</option>
+	   </param>
+	   
+	   
+	   <param name="emails" label="Debug Emails" description="Set debug emails separated by comma" type="text" />
+	</params>
+	
+	
+</extension>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+	<name>plg_system_postloader</name>
+	<author>RuposTel s.r.o.</author>
+	<creationDate>January 2019</creationDate>
+	<copyright>RuposTel s.r.o.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@rupostel.com</authorEmail>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>This plugin rewrites your iframes to be loaded after they are in viewport of your customer (developed for vimeo videos).</description>
+	<files>
+		<filename plugin="postloader">postloader.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="rewrite_tags"
+					type="text"
+					label="Post load these tags (iframe,img)"
+					description="Separated by a comma with no spaces"
+					default="iframe,img"
+				/>
+				
+				<field
+					name="only_sitemap"
+					type="list"
+					label="Use this plugin only for sitemap (no postload)"
+					description="When enabled, this plugin will store images and URLs in the database but will not rewrite buffer to postload images"
+					default="0">
+					<option value="0">JNo</option>
+					<option value="2">JYes</option>
+				</field>
+				
+				
+				<field
+					name="rewrite_webp"
+					type="list"
+					label="Rewrite jpg and png into webp on supported browsers"
+					description="Will rename jpg and png files into webp"
+					default="0">
+					<option value="0">JYes</option>
+					<option value="2">JNo</option>
+				</field>
+				
+				
+				<field name="mynote" type="note" label="WebP Read First" description="When webp support in this plugin is enabled you should generate webp via cron per all existing images in your directories. You can use this script to generate it: https://www.rupostel.com/svn3/towebp.sh or proceed with https://www.digitalocean.com/community/tutorials/how-to-create-and-serve-webp-images-to-speed-up-your-website If you do not have root access to your server, ask your hosting to install cwebp for you." /> 
+				
+				<field
+					name="generate_sitemap"
+					type="list"
+					label="Add images to sitemap DB"
+					description="Since this plugin rewrites images, other standard plugins cannot detect them and thus you may need to use custom sitemap with this plugin"
+					default="0">
+					<option value="0">JYes</option>
+					<option value="2">JNo</option>
+				</field>
+				<field type="note" label="Sitemap XML Link" description="{https://yourdomain.com}/index.php?option=com_ajax&#x26;plugin=Sitemappostloader&#x26;group=system&#x26;format=xml" />
+				<field type="note" label="Sitemap Text Link" description="{https://yourdomain.com}/index.php?option=com_ajax&#x26;plugin=Sitemappostloader&#x26;group=system&#x26;format=raw" />
+
+				<field name="mynote2" type="note" label="Sitemap Information" description="This plugin stores all detected images in source code that are being rewritten within #__onepage_imagesitemap. " />
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+ 

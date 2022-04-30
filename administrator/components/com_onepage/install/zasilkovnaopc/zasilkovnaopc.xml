@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="vmshipment" method="upgrade" requires="/components/com_virtuemart">
+	<name>OPC Zasilkovna VM3</name>
+	<element>zasilkovnaopc</element>
+	<creationDate>2020-07-09</creationDate>
+	<author>Zásilkovna s.r.o.</author>
+	<authorEmail>zasilkovnaopc@rupostel.com</authorEmail>
+	<authorUrl>http://www.rupostel.com/</authorUrl>
+	<copyright>(c) RuposTel.com</copyright>
+	<license>GPLv3</license>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<releaseDate>2020-02-24</releaseDate>
+	<description><![CDATA[Zasilkovna.cz VM3 shipment plugin (RuposTel OPC Edicia). Jedná sa extrémne optimalizovanú verziu Zasilkovny ktora nevyzaduje vykonny pocitac na zobrazenie pobociek v checkout-e (pri objednávke), podporuje aj nové krajiny zasílkovny (Maďarsko a Francúzsko). Pre tvorbu štítkov môžete použiť oficiálny plugin od Zasílkovny alebo <a href="https://www.minijoomla.org/extensions/virtuemart-extensions/balikobot" target="_blank">Balikobot plugin pre Virtuemart od spoločnosti Minion</a> ]]></description>
+
+    
+    <files>
+		<filename plugin="zasilkovnaopc">zasilkovnaopc.php</filename>
+		<folder>assets</folder>
+		<folder>helpers</folder>
+		<folder>fields</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+		<folder>zasilkovnaopc</folder>
+    </files> 
+    <vmconfig>
+	 <fields name="params" addfieldpath="/plugins/vmshipment/zasilkovnaopc/fields">
+	     <fieldset name="basic">
+		<field name="shipment_logos" type="vmfiles" directory="/images/stories/virtuemart/shipment"
+                        label="VMSHIPMENT_WEIGHT_COUNTRIES_LOGOS"
+                       size="40"
+                       default="" hide_default="1" hide_none="true"
+                       stripext="0" exclude="index.html"
+                       description="VMSHIPMENT_WEIGHT_COUNTRIES_LOGOS_DESC"/>
+		<field name="country" type="vmzasilkovnacountries" default="" label="PLG_VMSHIPMENT_ZASILKOVNA_COUNTRIES" description="PLG_VMSHIPMENT_ZASILKOVNA_COUNTRIES" multiple="multiple" />
+		<field name="packet_price_czk" type="text" size="10" default="" label="Cena za dopravu" description="Cena za dopravu"/>	
+		<field name="packet_price_eur" type="text" size="10" default="" label="Cena za dopravu pre SK" description="Cena za dopravu SK v EUR"/>	
+		<field name="free_shipping_treshold_czk" type="text" size="10" default="-1" label="Minimální cena objednavky pro dopravu zdarma(vypnuto = -1)" description="Minimální cena objednavky pro dopravu zdarma"/>	
+		<field name="tax_id" type="vmtaxes" scope="com_virtuemart"  label="VMSHIPMENT_WEIGHT_COUNTRIES_TAX" description="VMSHIPMENT_WEIGHT_COUNTRIES_TAX_DESC" />
+		<field name="dobierky" type="paymentszas" label="Vyberte ktore plat. moduly su dobierky" />
+		<field name="zasilkovna_api_pass" type="text" default="" label="API Key" description="API Key"/>	
+		<field name="zasilkovna_eshop_domain" type="text"  default="" label="API Eshop Domain" description="Domain"/>	
+		<field name="weight_start" type="text" size="10" default=""
+                       label="VMSHIPMENT_WEIGHT_COUNTRIES_WEIGHT_START"
+                       description="VMSHIPMENT_WEIGHT_COUNTRIES_WEIGHT_START_DESC"/>
+		<field name="weight_treshold" type="text" size="10" default="-1" label="Maximální váha objednávky v kg (vypnuto = -1)" description="Maximální váha objednávky"/>		
+		
+		<field name="weight_unit" type="vmweightunit" size="10" default=""
+                       label="VMSHIPMENT_WEIGHT_COUNTRIES_WEIGHT_UNIT"
+                       description="VMSHIPMENT_WEIGHT_COUNTRIES_WEIGHT_UNIT_DESC"/>
+					   
+		<field name="chyba" type="text" size="10" default="Vyberte prosím pobočku pre Zasílkovnu" label="Text v prípade že nie je vybraná žiadna pobočka."
+               description=""/>
+	    <field name="generate" type="generatezas" label="Pobočky" description="" />
+	   
+		</fieldset>	
+    </fields>
+    </vmconfig>
+ 	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="cronkey"
+					type="text"
+					label="Cron URL Key"
+					description="Set a secret key to allow URL generated branches"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+	
+</extension>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmshipment" method="upgrade" requires="/components/com_virtuemart" >
+    <name>JP Shipping - Shipping per product</name>
+    <creationDate>Jan 24 2019</creationDate>
+    <author>Efusionsoft Development Team</author>
+    <authorUrl>http://www.efusionsoft.com</authorUrl>
+    <copyright>Copyright (C) 2012-2013 Efusionsoft Team. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>Virtuemart shipping plugin for standard and product wise shipping. Modified by RuposTel.com for VM3 and Joomla 3 compatibility. You can install BE template overrides included in the plugin to put shipping custom field at the first tab in product edit at BE. Original author: Efusionsof.com, based on weight shipping plugin.</description>
+    <languages>
+	 <language tag="en-GB">en-GB.plg_vmshipment_jpshipping.ini</language>
+	 <language tag="en-GB">en-GB.plg_vmshipment_jpshipping.sys.ini</language>
+    </languages>
+    <files>
+		
+		<filename plugin="jpshipping">jpshipping.php</filename>
+		<folder>product</folder>
+		
+	</files>
+	
+	
+	<vmconfig>
+	  
+	 <fields name="params" addpath="/administrator/components/com_virtuemart/fields">
+	 
+	   <fieldset name="template">
+                <field name="shipment_logos" type="vmfiles" multiple="true" directory="/images/virtuemart/shipment"
+                        label="VMSHIPMENT_JPSHIPPING_LOGOS"
+                       size="40"
+                       default="" hide_default="1" hide_none="true"
+                       stripext="0" exclude="index.html"
+                       description="VMSHIPMENT_JPSHIPPING_LOGOS_DESC"/>
+            </fieldset>
+			
+	 <fieldset name="rupostel_postnord" >
+	
+	 
+	
+	
+	
+	<field name="countries" type="vmcountries"  scope="com_virtuemart" default="" label="VMSHIPMENT_JPSHIPPING_COUNTRIES" description="VMSHIPMENT_JPSHIPPING_COUNTRIES_DESC"/>
+	<field name="zip_start" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_ZIP_START" description="VMSHIPMENT_JPSHIPPING_ZIP_START_DESC"/>
+	<field name="zip_stop" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_ZIP_STOP" description="VMSHIPMENT_JPSHIPPING_ZIP_STOP_DESC"/>
+	<field name="weight_start" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_WEIGHT_START" description="VMSHIPMENT_JPSHIPPING_WEIGHT_START_DESC"/>
+	<field name="weight_stop" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_WEIGHT_STOP" description="VMSHIPMENT_JPSHIPPING_WEIGHT_STOP_DESC"/>
+	<field name="weight_unit" type="vmweightunit" size="10" default="" label="VMSHIPMENT_JPSHIPPING_WEIGHT_UNIT" description="VMSHIPMENT_JPSHIPPING_WEIGHT_UNIT_DESC"/>
+	<field name="nbproducts_start" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_NBPRODUCTS_START" description="VMSHIPMENT_JPSHIPPING_NBPRODUCTS_START_DESC"/>
+	<field name="nbproducts_stop" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_NBPRODUCTS_STOP" description="VMSHIPMENT_JPSHIPPING_NBPRODUCTS_STOP_DESC"/>
+	<field name="orderamount_start" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_ORDERAMOUNT_START" description="VMSHIPMENT_JPSHIPPING_ORDERAMOUNT_START_DESC"/>
+	<field name="orderamount_stop" type="text" size="10" default="" label="VMSHIPMENT_JPSHIPPING_ORDERAMOUNT_STOP" description="VMSHIPMENT_JPSHIPPING_ORDERAMOUNT_STOP_DESC"/>
+	<field name="categories" value_field="category_name" type="vmcategories" multiple="true" size="10" default="" label="VMSHIPMENT_WEIGHT_CATEGORIES"
+                       description="VMSHIPMENT_WEIGHT_CATEGORIES_DESC"/>
+                <field name="blocking_categories" value_field="category_name" type="vmcategories" multiple="true" size="10" default="" label="VMSHIPMENT_WEIGHT_BLOCKING_CATEGORIES"
+                       description="VMSHIPMENT_WEIGHT_BLOCKING_CATEGORIES_DESC"/>
+	
+	
+	<field name="cost" type="text"   label="VMSHIPMENT_JPSHIPPING_COST" description="VMSHIPMENT_JPSHIPPING_COST_DESC" />
+	<field name="package_fee" type="text"   label="VMSHIPMENT_JPSHIPPING_PACKAGE_FEE" description="VMSHIPMENT_JPSHIPPING_PACKAGE_FEE_DESC" />
+	<field name="tax_id" type="vmtaxes" scope="com_virtuemart"  label="VMSHIPMENT_JPSHIPPING_TAX" description="VMSHIPMENT_JPSHIPPING_TAX_DESC" />
+	<field name="free_shipment" type="text"    label="VMSHIPMENT_JPSHIPPING_FREE_SHIPPING_AMOUNT" description="VMSHIPMENT_JPSHIPPING_FREE_SHIPPING_AMOUNT_DESC" />
+    
+	<field name="shipping_field_id" type="text"   label="Custom Shipping Field Id" description="Enter the id of custom created field for shipping override(you can see it on the custom field listing)" />
+	
+	</fieldset>
+	
+	</fields>
+	</vmconfig>
+	
+   
+
+</extension>

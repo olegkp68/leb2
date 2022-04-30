@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5.0" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+    <name>PLG_SYSTEM_PRODUCTTABS</name>
+    <creationDate>June 2016</creationDate>
+    <author>RuposTel.com</author>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <copyright>Copyright (C) 2004-2014 RuposTel.com.</copyright>
+    <license>Commercial</license>
+    <version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description><![CDATA[System - Product Tabs (OPC)<br />To render the tabs at custom position, use this code at your /templates/YOUR JOOMLA TEMPLATE/html/com_virtuemart/productdetails/default.php: <br /><code>$dispatcher = JDispatcher::getInstance(); <br />	$html = ''; <br />  $dispatcher->trigger('plgGetProductTabs', array( $this->product, &$html)); <br />	echo $html; </code>]]></description>
+    <languages folder="language/en-GB/">
+        <language tag="en-GB" >en-GB.plg_system_producttabs.ini</language>
+		 <language tag="en-GB" >en-GB.plg_system_producttabs.sys.ini</language>
+		
+    </languages>
+    <files>
+        <filename plugin="producttabs">producttabs.php</filename>
+		  
+		   <folder >assets</folder>
+		   <folder >language</folder>
+		   <folder >tmpl</folder>
+		   <folder >fields</folder>
+    </files>
+	
+	 <config>
+        <fields name="params" addfieldpath="/plugins/system/producttabs/fields">
+            <fieldset name="basic">
+				<field name="framework" type="list"  default="" label="PLG_SYSTEM_PRODUCTTABS_FRAMEWORK" description="PLG_SYSTEM_PRODUCTTABS_FRAMEWORK" >
+				 <option value="">default</option>
+				 <option value="uikit">UI Kit</option>
+				 <option value="bootstrap">Bootstrap</option>
+				</field>
+				
+				<field name="loadframework" type="list"  default="1" label="PLG_SYSTEM_PRODUCTTABS_LOADFRAMEWORK" description="PLG_SYSTEM_PRODUCTTABS_LOADFRAMEWORK_DESC" >
+				 			<option
+				value="0">JNo</option>
+			<option
+				value="1">JYes</option>
+
+				</field>
+				
+				
+				
+				
+				
+				
+				
+				
+				<field name="defaultclass" type="text"  default="" label="PLG_SYSTEM_PRODUCTTABS_DEFAULTCLASS" description="PLG_SYSTEM_PRODUCTTABS_DEFAULTCLASS_DESC" ></field>
+				
+				
+				<field name="rederingtype" type="list"  default="" label="PLG_SYSTEM_PRODUCTTABS_RENDERINGTYPE" description="" >
+				 <option value="">PLG_SYSTEM_PRODUCTTABS_RENDERINGTYPE1</option>
+				 <option value="2">PLG_SYSTEM_PRODUCTTABS_RENDERINGTYPE2</option>
+				 <option value="3">PLG_SYSTEM_PRODUCTTABS_RENDERINGTYPE3</option>
+				 <option value="4">PLG_SYSTEM_PRODUCTTABS_RENDERINGTYPE4</option>
+				  
+				</field>
+				
+				 <field name="customordering" type="uikitorderable" default="PLG_SYSTEM_PRODUCTTABS_ORDERING_REVIEWS,PLG_SYSTEM_PRODUCTTABS_ORDERING_NOTIFY,PLG_SYSTEM_PRODUCTTABS_ORDERING_RECOMMEND,PLG_SYSTEM_PRODUCTTABS_ORDERING_RELATED,PLG_SYSTEM_PRODUCTTABS_ORDERING_SOLD,PLG_SYSTEM_PRODUCTTABS_ORDERING_DETAILS,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB1,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB2,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB3,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB4,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB5,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB6,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB7,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB_OTHER,PLG_SYSTEM_PRODUCTTABS_ORDERING_CUSTOMFIELDS"  values="PLG_SYSTEM_PRODUCTTABS_ORDERING_REVIEWS,PLG_SYSTEM_PRODUCTTABS_ORDERING_NOTIFY,PLG_SYSTEM_PRODUCTTABS_ORDERING_RECOMMEND,PLG_SYSTEM_PRODUCTTABS_ORDERING_RELATED,PLG_SYSTEM_PRODUCTTABS_ORDERING_SOLD,PLG_SYSTEM_PRODUCTTABS_ORDERING_DETAILS,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB1,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB2,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB3,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB4,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB5,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB6,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB7,PLG_SYSTEM_PRODUCTTABS_ORDERING_TAB_OTHER,PLG_SYSTEM_PRODUCTTABS_ORDERING_CUSTOMFIELDS" label="PLG_SYSTEM_PRODUCTTABS_ORDERING_LABEL" description="PLG_SYSTEM_PRODUCTTABS_ORDERING_LABEL_DESC"/>		
+				
+				
+ </fieldset>
+ <fieldset name="new_tab" label="New tab for All">
+   <field  type="text" name="new_tab_title" default="" label="Tab Title" />
+   <field  type="text" name="new_tab_sdesc" default="" label="Tab Short Description" />
+   <field  type="editor" name="new_tab_desc" default="" label="Tab Long Description" filter="raw" />
+   <field  type="ajaxfieldselect" name="virtuemart_category_id" default="0" label="Virtuemart Category" data-sql="select `category_name` as `keyname`, `c`.`virtuemart_category_id` as `keyvalue` from `#__virtuemart_categories_{VMLANG}` as `c`, `#__virtuemart_categories` as `cat` where `cat`.`published` = 1 and `cat`.`virtuemart_category_id` = `c`.`virtuemart_category_id`" data-cmd="ajaxfieldselect" data-defaultlabel="Any" data-defaultvalue="0" />
+    
+   <field name="overwrite_existing" type="checkbox" label="Overwrite existing tab content if title and category matches" description="If checked, this will overwrite the data in already existing tabs" value="1" />
+   
+   <field name="tab_ordering" type="number" label="Tab ordering" description="Set tab ordering within the custom product tabs" default="99" />
+   
+   <field name="createtab" type="ajaxfield" label="Update all products" description="Will create table and triggerer" data-label="Update All Products" data-cmd="createtab"  />
+  
+   
+ </fieldset>
+ 
+ <fieldset name="import" label="Import&amp;Export">
+  
+	<field name="exportnote" type="note" label="Import Specifications" description="Exported product descriptions, product names, SKUs, MPNs are just informative, they will not be updated during the import. You can use them to create a new tab content by copying them into tabcontent column in XLS. Leave empty first column (data ID) to create a new entry. Fallbacks are automatically created per all languages for new entries. Use two step import to create matching IDs for your language translations. Translations against primary language are paired by data ID in extra2 column which is equal to ID of the primary language item. Primary language is detected as default language for frontend." data-label="Download tab data with product SKUs..." data-cmd="downloaddatasku"  data-isdownload="true" />   
+   <field name="downloaddata" type="ajaxfield" label="Download" description="Will create table and triggerer" data-label="Download all tab data..." data-cmd="downloaddata"  data-isdownload="true" />
+   <field name="with_empty" type="checkbox" label="Include all products even without tabs" description="When checked the product tab export will create empty lines for products without data" value="1" />
+   
+   <field name="uploaddata" type="ajaxuploadfield" label="Overwrite data with this import" description="Will create table and triggerer" data-label="Upload new tab data..." data-cmd="uploaddata" data-status="true" />
+   
+   <field name="skunote" type="note" label="Import Specifications" description="Import data are not compatible with export data in this section when you are using multilanguage. You must make sure that you import either exactly 1 row per product or exactly number of languages rows per products (i.e. 4 rows if there are 4 languages). Matching of missing data IDs is done per tab name. Ordering of whole group is always updated by the last item imported. Using empty tabname will clear the entry. All data of this plugin are stored in #__producttabs." data-label="Download tab data with product SKUs..." data-cmd="downloaddatasku"  data-isdownload="true" />
+   
+   <field name="downloaddatasku" type="ajaxfield" label="Download with SKU" description="Download existing Data" data-label="Download tab data with product SKUs..." data-cmd="downloaddatasku"  data-isdownload="true" />
+   
+   <field name="uploaddatasku" type="ajaxuploadfield" label="Overwrite data with this import (with SKU)" description="Use exactly same format as SKU export. Empty tabname and non empty ID removes the dataline." data-label="Upload new tab data..." data-cmd="uploaddatasku" data-status="true" />
+   
+ </fieldset>
+ 
+        </fields>
+    </config>
+	
+</extension>

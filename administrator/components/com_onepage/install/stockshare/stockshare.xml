@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+
+	<name>plg_system_stockshare</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>Feb 2017</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description><![CDATA[RuposTel Stock Sharing plugin. Use sheet format as at this public CSV https://docs.google.com/spreadsheets/d/e/2PACX-1vQGAKvvGhzSear5a6VV8uyX49PyF8vdRVBwnxvKqby0pC6O-YA7AwCjH0a3w-pS77rk9pu66cYPvmHQ/pub?output=csv After any change in Google Spreadsheet click File -> Publish to Web -> Sheet1 -> Comma separated values -> Publish and copy the link to this configuration <br />
+	<h2>Required triggerers for your template overrides</h2><br />
+	<b>Insert into</b><br />
+	/templates/YOUR TEMPLATE/html/com_virtuemart/category/default.php<br />
+	<code>$dispatcher = JEventDispatcher::getInstance(); <br />$dispatcher->trigger('plgUpdateCategoryProducts', array(&$this->products)); <br /></code><br />
+    <b>Insert into</b><br />
+	/templates/YOUR TEMPLATE/html/com_virtuemart/productdetails/default.php<br />
+	/templates/YOUR TEMPLATE/html/com_virtuemart/productdetails/default_addtocart.php<br />
+	
+	<code>$dispatcher = JEventDispatcher::getInstance();<br />$dispatcher->trigger('plgUpdateProductObject', array(&$this->product)); <br />
+	</code><br />
+	 <b>Insert into</b><br />
+	/templates/YOUR TEMPLATE/html/com_virtuemart/sublayouts/addtocart.php<br />
+	<code>$dispatcher = JEventDispatcher::getInstance();<br />$dispatcher->trigger('plgUpdateProductObject', array(&$viewData['product']));  <br />
+	</code><br />
+	If these templates overrides do not exists yet on your system, copy them from: <br />
+	/components/com_virtuemart/views/productdetails/tmpl/default.php<br />
+	/components/com_virtuemart/views/productdetails/tmpl/default_addtocart.php<br />
+	/components/com_virtuemart/sublayouts/addtocart.php<br />
+	/components/com_virtuemart/views/category/tmpl/default.php<br />
+	<br />
+	<b>Testing the results</b><br />
+	To see the current stock level of the product in a group, use Front end view, not the backend views which do not have to be accurate. The frontend updates the product per the group stock information<br />
+	<b>Modify this file at an appropriate place</b><br />
+	/templates/YOUR TEMPLATE/html/com_virtuemart/productdetails/default.php<br />
+	
+	<textarea style="width:100%;min-height:200px" rows="10" readonly="readonly">
+$user = JFactory::getUser();
+$isroot = $user->authorise('core.admin');
+if (!empty($isroot)) { 
+echo '<h2>Stock</h2><br />'; 
+echo 'product_in_stock:'.$this->product->product_in_stock.'<br/>';
+echo 'product_ordered:'.$this->product->product_ordered.'<br/>;		
+echo 'mpn:'.$this->product->product_mpn.'<br />'; 
+}
+	</textarea>
+	
+	
+	]]></description>
+
+	<files>
+		<filename plugin="stockshare">stockshare.php</filename>
+		<filename>index.html</filename>
+		<folder>fields</folder>
+		<folder>sql</folder>
+		<folder>language</folder>
+		
+
+	</files>
+	
+	  <languages folder="language/en-GB/">
+        <language tag="en-GB" >en-GB.plg_system_stockshare.ini</language>
+		 <language tag="en-GB" >en-GB.plg_system_stockshare.sys.ini</language>
+		
+    </languages>
+	
+	<config>
+	<fields name="params" addfieldpath="/plugins/system/stockshare/fields">
+
+			
+		
+
+		<fieldset name="basic" label="Filter" >
+		<field 
+           name="google_csv_url"
+           type="text"
+           label="Enter a CSV google spreadsheet URL"
+           description="Input filter variables separated by comma which you do not want to log. Default: password,password2,opc_password,cc_number,cc_num"
+		   default="https://docs.google.com/spreadsheets/d/e/2PACX-1vQGAKvvGhzSear5a6VV8uyX49PyF8vdRVBwnxvKqby0pC6O-YA7AwCjH0a3w-pS77rk9pu66cYPvmHQ/pub?output=csv"
+		   />
+		  <field name="loadgoogle" type="ajaxfield" label="Load Google CSV (MPN groups) into products" description="This will load the above CSV into your product table MPN field" data-label="Load MPNs without stock data" data-cmd="loadmpns" />
+		  
+		  <field name="loadgooglestock" type="ajaxfield" label="Load MPNs and Stock" description="This will load the above CSV into your product table MPN field and product_in_stock field" data-label="Load MPNs with stock data from CSV" data-cmd="loadstock" />
+		  
+		   <field name="downloadmpnsstock" type="ajaxfield" label="Download all MPNs and Stock data" description="This will create XLS file that you can edit in Excel and copy into google spreadsheet" data-label="Download data in XLS" data-cmd="downloadstock" data-isdownload="true"/>
+		   
+		    <field name="uploadxls" type="ajaxuploadfield" label="Upload stock XLS,XLXS file" description="No need to use Google, upload your XLS directly" data-label="Upload..." data-cmd="uploadxls" data-status="false" />
+		   
+		   
+		   <field name="installtrig" type="ajaxfield" label="Install SQL Triggerer" description="Will create table and triggerer" data-label="Run SQL" data-cmd="createtrig" data-status="true" />
+		   
+		   <field name="uninstalltrig" type="ajaxfield" label="Uninstall SQL Triggerer" description="Will create table and triggerer" data-label="Run SQL" data-cmd="droptrig" data-status="true" />
+		   
+		   <field name="installsku" type="ajaxfield" label="Index product_sku" description="Will add either unique or just index to product_sku. Please re-add index after a VM update." data-label="Run SQL - Install product_sku index" data-cmd="installskuindex" data-status="true" />
+		   
+		   <field name="installmpn" type="ajaxfield" label="Index product_mpn" description="Will add index on product_mpn. Please re-add index after a VM update." data-label="Run SQL - Install product_mpn index" data-cmd="installmpnindex" data-status="true" />
+		  
+		</fieldset>
+
+
+		
+	</fields>
+	</config>
+		
+</extension>
+

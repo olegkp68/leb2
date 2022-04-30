@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fieldset name="about" label="About Web357" addfieldpath="/plugins/system/web357framework/elements">
+		
+		<!-- BEGIN: About Web357 -->
+		<field type="header" name="W357FRM_HEADER_ABOUT_WEB357"  label="W357FRM_HEADER_ABOUT_WEB357" />
+		<field name="about" id="about" type="about" label="" addfieldpath="/plugins/system/web357framework/elements" />
+		<!-- END: About Web357 -->
+		
+	</fieldset>
+
+</form>

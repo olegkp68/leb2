@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opcexport" method="upgrade" >	
+    <name>OPC Export - Sherpaan.nl Order Synchronization</name>
+    <creationDate>Mar 2018</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>Configuration for Sherpaan.nl</description>
+    <files>
+        <filename>sherpa.php</filename>
+    </files>
+	<params addfieldpath="/administrator/components/com_onepage/export/templates/sherpa/fields" addpath="/administrator/components/com_onepage/export/templates/sherpa/fields">
+	  <param
+        type="text"
+        name="secret_key"
+        id="secret_key"
+        label="Sherpa Communication Security Code"
+        description="Insert your security code: fffff-eeee-ffff-eeee-9999 "
+        size="350"
+		placeholder="fffff-eeee-ffff-eeee-9999" 
+		default=""
+        >
+		 
+		</param>
+		
+		 <param
+        type="text"
+        name="ApplicationId"
+        id="ApplicationId"
+        label="Sherpa ApplicationId (provided by Sherpa)"
+        description=""
+        size="10"
+		placeholder="000" 
+		default=""
+        >
+		 
+		</param>
+		
+		
+		 <param
+        type="text"
+        name="error_email"
+        id="error_email"
+        label="Send an email with an error to"
+        description="Set an email address to send any errors during the communication with Sherpa"
+        size="100"
+		placeholder="test@example.com" 
+		default=""
+        >
+		 
+		</param>
+		
+		
+			<param
+        type="text"
+        name="CustomerCodePrefix"
+        id="CustomerCodePrefix"
+		
+		
+        label="Shop prefix"
+        description="Choose a Prefix that will be used with UserID, Order Reference, Shipping and Discount invoice lines which will indentify this Shop. Leave empty if you send data only from one shop"
+        size="250"
+		default=""
+		
+        >
+		 
+		</param>
+		
+		<param
+        type="text"
+        name="shop_code"
+        id="shop_code"
+        label="Default Shop code"
+        description="All order transactions from this eshop will be associated with this shop code in Sherpa"
+        size="10"
+		placeholder="SHOP01" 
+		default=""
+        >
+		 
+		</param>
+		
+		
+		<param
+        type="vmmultilang"
+        name="shop_code_lang"
+        id="shop_code_lang"
+        label="Shop code per Order Language"
+        description=""
+        size="10"
+		placeholder="SHOPNL" 
+		default=""
+		multiple="multiple"
+        >
+		 
+		</param>
+		
+		
+	  <param
+        type="text"
+        name="soap_url"
+        id="soap_url"
+        label="Sherpa Soap URL"
+        description=""
+        size="350"
+		placeholder="Example: https://services2.sherpaan.nl/000/Sherpa.asmx" 
+		default="https://services2.sherpaan.nl/000/Sherpa.asmx"
+        >
+		 
+		</param>
+		
+		<param type="text" name="ApplicationId" id="ApplicationId" label="ApplicationId" default="" size="100" />
+		
+		<param
+        type="paymentpair"
+        name="paymentpair"
+        id="paymentpair"
+		filter-tab-type="payment"
+		mytype="payment"
+		list="me"
+		soapmethod="PaymentMethodList"
+		soapelement="PaymentMethodCode"
+        label="Pair Virtuemart Payments to your Sherpa Payments"
+        description="First fill the security code, click save and then use this function to pair your sherpa payment methods. If you change payment methods in VM or in Sherpa you will need to revisit this page."
+        size="250"
+		default=""
+		multiple="multiple"
+        >
+		 
+		</param>
+		
+		
+	
+		
+		
+		<param
+        type="paymentpair"
+        name="shipmentpair"
+        id="shipmentpair"
+		mytype="shipment"
+		list="reversed"
+		soapmethod="ParcelServiceList"
+		filter-tab-type="shipment"
+        label="Pair Virtuemart Shipment methods to your Sherpa Parcel Configuration"
+        description="First fill the security code, click save and then use this function to pair your sherpa data."
+        size="250"
+		default=""
+		multiple="multiple"
+        >
+		 
+		</param>
+		
+		
+		<param
+        type="statuspair"
+        name="statuspair"
+        id="statuspair"
+        label="Pair Virtuemart Order Status to Sherpa Order Status (must match case and the complete string)"
+        description="Order status pairing is used to update VM status or order when status changes in Sherpa or vice versa when status changes in VM it updates status in Sherpa. Note that update from VM to Sherpa can be done only per Global order statuses configured above."
+        size="250"
+		default=""
+		multiple="multiple"
+        >
+		 
+		</param>
+		
+		<param
+        type="customstatus"
+        name="customstatus"
+        id="customstatus"
+        label="Set Virtuemart Order status code for Custom Works (Painting)"
+        description="Set virtuemart order status for custom works such as painting, do not forget to pair it with Sherpa status above and attach it to global statuses within this config."
+        size="1"
+		default=""
+		
+        >
+		 
+		</param>
+		
+			<param
+        type="warehouse"
+        name="warehouse"
+        id="warehouse"
+		soapmethod="WarehouseList"
+		
+        label="Choose your warehouse for your products"
+        description=""
+        size="250"
+		default=""
+		
+        >
+		 
+		</param>
+		
+		<param type="list" name="debug" id="debug" label="Debug" description="" default="0">
+		  <option value="0">No</option>
+		   <option value="1">Yes</option>
+		</param>
+		
+		
+		<param
+        type="klarnapair"
+        name="klarnapair"
+        id="shipment_special"
+		mytype="payment"
+		list="reversed"
+		soapmethod="ParcelServiceList"
+		
+        label="Payment and order total above X"
+        description="Choose payment, minimum order total and selected sherpa shipping data."
+        size="250"
+		default=""
+		multiple="multiple"
+        >
+		 
+		</param>
+		
+		
+	</params>
+</extension>

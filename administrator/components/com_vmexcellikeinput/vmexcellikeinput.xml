@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade" >
+<name>COM_VMEXCELLIKEINPUT</name>
+<!-- The following elements are optional and free of formatting conttraints -->
+<creationDate>2014-01-21</creationDate>
+<author>http://holest.com/</author>
+<authorEmail>info@holest.com/</authorEmail>
+<authorUrl>http://holest.com/</authorUrl>
+<copyright>Holest Engineering 2014</copyright>
+<license>GPL2 - General Public License, Version 2</license>
+<version>2.1.23</version>
+<description>Excel-like product manager for VirtueMart. It lets you change basic product parameters: price, price override, published, featured, stock, alias , SKU, name, categories, manufacturer, short description very fast by working with spreadsheet behaving same like Excel</description>
+<files folder="site">
+<filename>index.html</filename>
+<filename>vmexcellikeinput.php</filename>
+</files> 
+<install> 
+	<sql>
+		<file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+	</sql>
+</install>
+<uninstall>
+	<sql>
+		<file driver="mysql" charset="utf8">uninstall.mysql.utf8.sql</file>
+	</sql>
+</uninstall>
+<scriptfile>installer.script.php</scriptfile>
+<languages>
+		<language tag="en-GB">en-GB.com_vmexcellikeinput.ini</language>
+			<language tag="en-GB">en-GB.com_vmexcellikeinput.sys.ini</language>
+			<language tag="sr-RS">sr-RS.com_vmexcellikeinput.ini</language>
+			<language tag="sr-RS">sr-RS.com_vmexcellikeinput.sys.ini</language>
+			<language tag="sr-YU">sr-YU.com_vmexcellikeinput.ini</language>
+			<language tag="sr-YU">sr-YU.com_vmexcellikeinput.sys.ini</language>
+			<language tag="de-DE">de-DE.com_vmexcellikeinput.ini</language>
+			<language tag="de-DE">de-DE.com_vmexcellikeinput.sys.ini</language>
+			<language tag="it-IT">it-IT.com_vmexcellikeinput.ini</language>
+			<language tag="it-IT">it-IT.com_vmexcellikeinput.sys.ini</language>
+			<language tag="fr-FR">fr-FR.com_vmexcellikeinput.ini</language>
+			<language tag="fr-FR">fr-FR.com_vmexcellikeinput.sys.ini</language>
+			<language tag="el-GR">el-GR.com_vmexcellikeinput.ini</language>
+			<language tag="el-GR">el-GR.com_vmexcellikeinput.sys.ini</language>
+			<language tag="ru-RU">ru-RU.com_vmexcellikeinput.ini</language>
+			<language tag="ru-RU">ru-RU.com_vmexcellikeinput.sys.ini</language>
+</languages>
+<administration>
+        <menu>COM_VMEXCELLIKEINPUT_MNU</menu>
+		<files folder="admin">
+				<filename>index.html</filename>
+				<filename>install.mysql.utf8.sql</filename>
+				<filename>uninstall.mysql.utf8.sql</filename>
+				<filename>vmexcellikeinput.php</filename>
+				<folder>assets</folder>
+				<folder>handsontable</folder>
+				<folder>lib</folder>
+				<folder>plugins</folder>
+				<folder>utils</folder>
+		</files>
+		<languages>
+			<language tag="en-GB">en-GB.com_vmexcellikeinput.ini</language>
+			<language tag="en-GB">en-GB.com_vmexcellikeinput.sys.ini</language>
+			<language tag="sr-RS">sr-RS.com_vmexcellikeinput.ini</language>
+			<language tag="sr-RS">sr-RS.com_vmexcellikeinput.sys.ini</language>
+			<language tag="sr-YU">sr-YU.com_vmexcellikeinput.ini</language>
+			<language tag="sr-YU">sr-YU.com_vmexcellikeinput.sys.ini</language>
+			<language tag="de-DE">de-DE.com_vmexcellikeinput.ini</language>
+			<language tag="de-DE">de-DE.com_vmexcellikeinput.sys.ini</language>
+			<language tag="it-IT">it-IT.com_vmexcellikeinput.ini</language>
+			<language tag="it-IT">it-IT.com_vmexcellikeinput.sys.ini</language>
+			<language tag="fr-FR">fr-FR.com_vmexcellikeinput.ini</language>
+			<language tag="fr-FR">fr-FR.com_vmexcellikeinput.sys.ini</language>
+			<language tag="el-GR">el-GR.com_vmexcellikeinput.ini</language>
+			<language tag="el-GR">el-GR.com_vmexcellikeinput.sys.ini</language>
+			<language tag="ru-RU">ru-RU.com_vmexcellikeinput.ini</language>
+			<language tag="ru-RU">ru-RU.com_vmexcellikeinput.sys.ini</language>
+		</languages>
+</administration>
+<updateservers>
+	<server type="extension" priority="1" name="Product excel-like manager 2.x.x for Virtuemart">http://www.holest.com/dist/vmexcellikeinput/update_udf.xml</server>
+</updateservers>
+</extension>

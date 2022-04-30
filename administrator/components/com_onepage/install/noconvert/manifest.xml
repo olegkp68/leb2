@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="file" version="2.5" method="upgrade" requires="/components/com_virtuemart">	
+	<name>No Convert (Currency Exchange module for VM which does no remote calls)</name>
+	<author><![CDATA[RuposTel.com]]></author>
+	<creationdate>1.1.2016</creationdate>
+	<copyright><![CDATA[RuposTel.com]]></copyright>
+	<license>GNU/GPL</license>
+	<authoremail></authoremail>
+	<authorurl>http://www.rupostel.com</authorurl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>Currency Converter Plugin which does not do currency conversion and returns the original amount. After insatllation enable in Virtuemart - Configuration - Currency converter module</description>
+	<element>noconvert</element>
+	<fileset>
+	<files target="administrator/components/com_virtuemart/plugins/currency_converter">
+			<filename >noconvert.php</filename>
+			<filename >noconvert.xml</filename>
+	</files>
+	</fileset>
+</extension>

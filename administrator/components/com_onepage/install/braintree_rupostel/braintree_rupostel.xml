@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="plugin" group="vmpayment" method="upgrade" requires="/components/com_virtuemart">
+    <name>BrainTree Payment plugin by RuposTel.com for VM3</name>
+    <creationDate>January 14 2020</creationDate>
+    <author>RuposTel.com</author>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <copyright>Copyright (C) 2004-2014 RuposTel.com. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <element>brantree_rupostel</element>
+    <files>
+	
+	<filename plugin="braintree_rupostel">braintree_rupostel.php</filename>
+	<filename >index.html</filename>
+	<folder>braintree_rupostel</folder>
+	<folder>language</folder>
+    </files>
+	<languages >
+	<language tag="en-GB">language/en-GB/en-GB.plg_vmpayment_braintree_rupostel.ini</language>
+	<language tag="en-AU">language/en-GB/en-GB.plg_vmpayment_braintree_rupostel.ini</language>
+    </languages>
+	<vmconfig>
+    
+    
+    <fields name="params" >
+
+    <fieldset name="config" addfieldpath="/plugins/vmpayment/braintree_rupostel/braintree_rupostel/fields">
+	
+	
+	
+	
+	
+	<field type="vmtitle" default="BrainTree Parameters" level="level1" />
+	<field type="note" label="Configure your keys in Joomla plugin section of this plugin" description="" />
+	
+	
+	<field name="methodtype" type="list" default="0" label="Choose BrainTree Payment Method" description="Select BrainTree method for this payemnt method instance. Create a new Virtuemart payment method per each BrainTree method.">
+	    <option value="card">Credit Card</option>
+	    <option value="googlePay">Google Pay</option>
+		<option value="applePay">Apple Pay</option>
+		<option value="paypal">Paypal</option>
+	</field>
+	
+	<field name="sandbox" type="radio" default="1" label="Sandbox Mode" description="Enable sandbox mode">
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</field>
+	
+	<field name="kount" type="radio" default="0" label="Enable Kount" description="Enable Kount Fraud Protection">
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</field>
+	
+	<field name="threed" type="radio" default="1" label="Enable 3D Secure" description="Enable 3D secure">
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</field>
+	
+	<field name="prefillzip" type="radio" default="0" label="Prefill ZIP" description="Prefill Postal code form user entered address into credit card form if enabled at BrainTree">
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</field>
+	
+	<field  type="text" default="Pay" name="pay_btn" label="Credit Card Confirm Order Button" description="Set your text or language constant here" />
+	
+	<field name="always_open" type="radio" default="0" label="BraintTree method always opened" description="">
+	    <option value="0">Hide Credit Card area until a click</option>
+	    <option value="1">Always display credit card inputs</option>
+	</field>
+	
+	<field name="webhooklink" type="webhooklink" label="Webhook Link" description="" />
+
+	
+	 
+	<field type="list" name="current_method_api" default="credit_card">
+	  <option value="credit_card">Credit Card Drop In</option>
+	</field>
+	
+       
+		
+
+		
+		
+
+	<field  type="vmtitle" default="VMPAYMENT_AUTHORIZENET_ORDER_STATUS_PARAMS" level="level1" />
+	<field name="payment_approved_status" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_APPROVED" description="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_SUCCESS_DESC" />
+	<field name="payment_declined_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_DECLINED" description="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_INVALID_DESC" />
+	<field name="payment_held_status" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_HELD" description="VMPAYMENT_AUTHORIZENET_ORDERSTATUS_CANCEL_DESC" />
+	<field name="payment_dispute_status" type="vmorderstate" scope="com_virtuemart" default="X" label="Payment Dispute Opened Status" description="Set order status of the order once an opened dispute is detected" />
+	
+        <field  type="vmtitle" default="VMPAYMENT_AUTHORIZENET_TEMPLATE_PARAMS" level="level1" />
+        <field name="payment_logos" type="vmfiles"   label="VMPAYMENT_AUTHORIZENET_LOGOS"
+                       description="VMPAYMENT_AUTHORIZENET_LOGOS_DESC"
+                       directory="/images/virtuemart/payment"
+                       default="default" hide_default="1" hide_none="1"
+                       stripext="0" exclude=""/>
+        <field	name="cvv_images" type="vmfiles" label="VMPAYMENT_AUTHORIZENET_CVVIMAGES" multiple="true"
+                  description="VMPAYMENT_AUTHORIZENET_CVVIMAGES_DESC"
+                  directory="/images/stories/virtuemart/payment"
+                  default="default" hide_default="1" hide_none="1"
+                  stripext="0"  exclude="^_" />
+
+        <field  type="vmtitle" default="VMPAYMENT_AUTHORIZENET_OPTION_PARAMS" level="level1" />
+        <field name="countries" type="vmcountries"  scope="com_virtuemart" default="" label="VMPAYMENT_AUTHORIZENET_COUNTRIES_DESC" description="VMPAYMENT_AUTHORIZENET_COUNTRIES_DESC"/>
+	<field name="min_amount" type="text"  label="VMPAYMENT_AUTHORIZENET_MIN_AMOUNT" description="VMPAYMENT_AUTHORIZENET_MIN_AMOUNT_DESC" />
+	<field name="max_amount" type="text"  label="VMPAYMENT_AUTHORIZENET_MAX_AMOUNT" description="VMPAYMENT_AUTHORIZENET_MAX_AMOUNT_DESC" />
+	<field name="cost_per_transaction" type="text"  label="VMPAYMENT_AUTHORIZENET_COST_PER_TRANSACTION" description="VMPAYMENT_AUTHORIZENET_COST_TRANSACTION_DESC" />
+	<field name="cost_percent_total" type="text"  label="VMPAYMENT_AUTHORIZENET_COST_PERCENT_TOTAL" description="VMPAYMENT_AUTHORIZENET_COST_TOTAL_DESC" />
+        <!--param name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_AUTHORIZENET_PAYMENT_CURRENCY"
+               description="VMPAYMENT_AUTHORIZENET_PAYMENT_CURRENCY_DESC"/>
+        <field name="email_currency" type="list" default="vendor" label="VMPAYMENT_AUTHORIZENET_EMAIL_CURRENCY"
+               description="VMPAYMENT_AUTHORIZENET_EMAIL_CURRENCY_DESC">
+            <option value="vendor">VMPAYMENT_AUTHORIZENET_EMAIL_CURRENCY_VENDOR</option>
+            <option value="payment">VMPAYMENT_AUTHORIZENET_EMAIL_CURRENCY_PAYMENT</option>
+        </param -->
+	<field name="tax_id" type="vmtaxes" scope="com_virtuemart"  label="VMPAYMENT_AUTHORIZENET_TAX" description="VMPAYMENT_AUTHORIZENET_TAX_DESC" />
+       
+        <field name="log_webhook" type="radio" default="1" label="Log Webhooks" description="" >
+            <option value="0">COM_VIRTUEMART_NO</option>
+            <option value="1">COM_VIRTUEMART_YES</option>
+        </field>
+		
+		<field name="log_response" type="radio" default="0" label="Transaction Log" description="Choose what to log from BrainTree Replies" >
+            <option value="0">Only transaction ID (production site)</option>
+            <option value="1">Full Reply (debug)</option>
+			<option value="2">Full Reply without partial credit card details (initial production)</option>
+        </field>
+		
+		<field name="confirm_redirect" type="text"  label="Confirmed Redirect" description="Enter an URL to redirect after sucessfull payment. Leave empty to display standard plugin template." />
+		
+    </fieldset>
+	</fields>
+	</vmconfig>
+ <config>
+                <fields name="params">
+                        <fieldset name="basic" addfieldpath="/plugins/vmpayment/braintree_rupostel/braintree_rupostel/fields">
+						<field name="sandbox_merchant_id" type="text" size="70" default="" label="Sandbox Merchant ID" description=""/>
+	<field name="sandbox_public_key" type="text" size="70" default="" label="Sandbox Public Key" description=""/>
+	<field name="sandbox_private_key" type="text" size="70" default="" label="Sandbox Private Key" description=""/>
+	
+	<field name="merchant_id" type="text" size="70" default="" label="Merchant ID" description=""/>
+	<field name="public_key" type="text" size="70" default="" label="Public Key" description=""/>
+	<field name="private_key" type="text" size="70" default="" label="Private Key" description=""/>
+	<field name="note" type="note" label="Note" description="Create a new merchant ID per each accepted currency. Conversion during the payment is not supported. If you add new currency to virtuemart, please reconfigure the plugin here." />
+	<field name="sandbox_currency_merchant_id" type="currencypair" multiple="multiple" default="" label="Sandbox Currency to Merchant ID" description=""/>
+	<field name="currency_merchant_id" type="currencypair" multiple="multiple" default="" label="Currency to Merchant Account ID" description="Note that Merchant Account ID is not the same thing as Merchant ID"/>
+                         </fieldset>
+				</fields>
+</config>				
+</extension>

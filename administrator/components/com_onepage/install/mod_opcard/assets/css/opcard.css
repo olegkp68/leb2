@@ -1,0 +1,38 @@
+/* Opcard module css */
+
+.moduleOPcard .notification {
+	margin-bottom:15px;
+}
+.moduleOPcard .cardLabel{
+	float:left;
+	width:33%;
+	height:30px;
+	}
+
+.moduleOPcard .cardLabel span{
+	float: right;
+	height:30px;
+	line-height:30px;
+}
+
+.moduleOPcard .cardForm {
+	float:left;
+	height:30px;
+}
+.moduleOPcard span.name_cardholder{
+	line-height: 15px;
+	width: 150px;
+}
+.moduleOPcard .missing span{
+color: red;
+}
+.moduleOPcard .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

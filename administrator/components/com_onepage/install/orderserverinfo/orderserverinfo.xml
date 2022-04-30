@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="1.7" type="plugin" group="vmpayment" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+
+	<name>plg_vmpayment_orderserverinfo</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>December 2017</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description>This plugin logs _SERVER super global variable into a separate table upon each order. Information can be then used to investigate customer IP, Browser information or domain at which the customer did the order (multi domain shops). Make sure this plugins order is before any enabled Virtuemart Payment plugins, so it executes per each order properly. Visit plugin configuration in Joomla plugins and click save to install tables. PLEASE DO NOT INCLUDE THIS PLUGIN IN YOUR VIRTUEMART PLUGINS. LEAVE THIS PLUGIN ENABLED WITHIN YOUR JOOMLA PLUGINS ONLY.</description>
+
+	<files>
+
+		<filename plugin="orderserverinfo">orderserverinfo.php</filename>
+		<filename >orderserverinfo.xml</filename>
+		<filename>index.html</filename>
+		<folder>fields</folder>
+	</files>
+   <config>
+	 <fields name="params" addfieldpath="/plugins/vmpayment/orderserverinfo/fields">
+	   <fieldset name="basic">
+	  
+	  <field name="tablecreated" type="createtable" size="50" default="" label="Table Create Status" description=""/>
+	  
+	  <field name="log_post" type="list" default="0" label="Log $_POST" description="">
+	    <option value="0">JNO</option>
+		<option value="1">JYES</option>
+	  </field>
+	  
+	  <field name="log_get" type="list" default="0" label="Log $_GET" description="">
+	    <option value="0">JNO</option>
+		<option value="1">JYES</option>
+	  </field>
+	  
+	  <field name="log_server" type="list" default="" label="Log $_SERVER" description="">
+	    <option value="1">JYES</option>
+		<option value="0">JNO</option>
+		
+	  </field>
+	  
+	    <field name="log_cookie" type="list" default="0" label="Log $_COOKIE" description="">
+	   
+		<option value="0">JNO</option>
+		 <option value="1">JYES</option>
+		
+	  </field>
+	  
+	  <field name="log_extra" type="list" default="0" label="Log Extra data" description="">
+	    <option value="0">JNO</option>
+		<option value="1">JYES</option>
+	  </field>
+		  
+		  
+	  
+	  </fieldset>
+	  
+	</fields>
+	</config>
+</extension>
+

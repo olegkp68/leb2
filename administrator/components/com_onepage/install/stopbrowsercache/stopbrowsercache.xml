@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+
+	<name>plg_system_stopbrowsercache</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>Feb 2017</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description><![CDATA[This plugin adds timestamp to your loaded CSS and JS in your head and thus it forces browser refresh of scripts after they are changed on disk]]></description>
+
+	<files>
+		<filename plugin="stopbrowsercache">stopbrowsercache.php</filename>
+		<filename>index.html</filename>
+		
+		
+
+	</files>
+	<config>
+		<fields name="params">
+		
+			<fieldset name="basic">
+	<field
+					name="ignore_search"
+					type="text"
+					label="Ignore"
+					description="Insert keywords separated by comma that will be searched within links and if found this plugin will not append modify date to the link. Example: woff,woff2"
+					default=""
+					
+					
+				/>
+	</fieldset>
+	</fields>
+	</config>
+	
+		
+</extension>
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="1.5" type="package" group="opcexport" method="upgrade" >	
+    <name>OPC Export - Mailchimp list per product in the cart</name>
+    <creationDate>Mar 2017</creationDate>
+    <author>RuposTel.com</author>
+	<copyright>(C) 2013 RuposTel.com</copyright>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <version>1.0.0</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>Mailchimp list per category, manufacturer or product of a product in the cart. Requires OPC mailchimp registration plugin.</description>
+    <files>
+        <filename>mailchimp.php</filename>
+    </files>
+
+<params addfieldpath="/administrator/components/com_onepage/export/templates/mailchimp/fields" addpath="/administrator/components/com_onepage/export/templates/mailchimp/fields">
+		<param
+        type="mailchimplist"
+		filter-tab-type="category"
+        name="listcategory"
+        id="listcategory"
+        label="Choose mailchimp list per Category"
+        description=""
+        
+		
+        
+	/>
+	
+	<param
+        type="mailchimplist"
+		filter-tab-type="product"
+        name="listproduct"
+        id="listproduct"
+        label="Choose mailchimp list per Product"
+        description=""
+       
+		
+        
+	/>
+	
+	<param
+        type="mailchimplist"
+		filter-tab-type="manufacturer"
+        name="listmanufacturer"
+        id="listmanufacturer"
+        label="Choose mailchimp list per Manufacturer"
+        description=""
+       
+		
+        
+	/>
+		
+			
+		
+       
+    
+</params>	
+</extension>

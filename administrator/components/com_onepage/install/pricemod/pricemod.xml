@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="1.7" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+
+	<name>plg_system_pricemod</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>March 2015</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description>OPC - Product Price Modification plugin. This plugins is intended to be used with Multivariant childs where quantity price is calculated per whole group of a multivariant. If child A has special price from 12pcs while only 6pcs is in the cart while child B has special price from 15pcs and there is 9pcs of child B in the cart, child A price will use unit quantity price above 12pcs and child B unit quantity price above 15pcs since sum of child A and child B is equal or larger then 12 for child A and 15 for child B. </description>
+
+	<files>
+
+		<filename plugin="pricemod">pricemod.php</filename>
+		<filename>index.html</filename>
+
+	</files>
+	
+	<config>
+        <fields name="params" >
+            <fieldset name="basic">
+				<field name="debug" type="list"  default="0" label="Debug" description="See javascript console" >
+				 <option value="0">Disabled</option>
+				 <option value="1">Enabled</option>
+				 
+				</field>
+			
+				<field name="highsg" type="list"  default="0" label="Force only highest ID Shopper Group" description="If a product price has 0, non zero and higher shopper group IDs assgined, only the highest shopper group ID price will be used (contracted prices). Each shopper group price should have it's own quantity ranges if needed." >
+				 <option value="0">Disabled</option>
+				 <option value="1">Enabled</option>
+				 
+				</field>
+				
+				
+				<field name="ignq" type="list"  default="0" label="Ignore step quantiy if product is in stock in larger amount than 1 step." >
+				 <option value="0">Disabled</option>
+				 <option value="1">Enabled</option>
+				 
+				</field>
+				
+				<field name="quantity_exception" type="textarea" cols="80" rows="20"  default="" label="Ignore internal stock for step quantiy for these products SKUs (each on new line)." >
+
+				 
+				</field>
+				
+			</fieldset>
+		</fields>
+		
+		
+	</config>
+
+</extension>
+

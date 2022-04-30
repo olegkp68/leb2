@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="2.5" method="upgrade" group="system">
+	<name>PLG_OPCBONUS</name>
+	<creationDate>April 2019</creationDate>
+	<author>Stan Scholtz</author>
+	<copyright>Copyright (C) RuposTel.com - All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>dev@rupostel.com.com</authorEmail>
+	<authorUrl>http://rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>OPC Bonus Product for Virtuemart</description>
+	<files>
+		<filename plugin="opcbonus">opcbonus.php</filename>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+				<field
+					name="order_amount"
+					type="text"
+					label="Order amount incl.tax"
+					description="Set order amount to provide bonus product"
+				/>
+				
+				<field
+					name="productID"
+					type="text"
+					label="Free product ID"
+					description="Set free product ID to provide above the order amount threashold"
+				/>
+				
+				
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

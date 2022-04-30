@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="captcha" method="upgrade">
+	<name>plg_captcha_opc_captcha</name>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<creationDate>March 2019</creationDate>
+	<author>RuposTel.com</author>
+	<authorEmail>admin@rupostel.com</authorEmail>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<copyright>Copyright (C) 2005 - 2019 RuposTel.com</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<description>OPC Captcha Plugin</description>
+	<files>
+		<filename plugin="opc_captcha">opc_captcha.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+		
+			<fieldset name="basic">
+				
+				
+				
+				<field
+					name="error_msg"
+					type="text"
+					label="Error message"
+					description="Set error message to be shown, language constants are allowed."
+					default="Your IP location is not allowed to use this form. Please contact us directly by writing an email."
+					
+					
+				/>
+				
+				
+				
+				
+				<field
+					name="throw_exception"
+					type="list"
+					label="Throw Exception (J3.9.4+)"
+					description="Will throw exception instead of returning false value for spam (all extensions need to be compatible with J3.9.4 and later"
+					default="0"
+					
+					
+				>
+				  <option value="0">JNO</option>
+				  <option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="default_state"
+					type="list"
+					label="PLG_CAPTCHA_OPC_CAPTCHA_DEFAULT_STATE"
+					description="PLG_CAPTCHA_OPC_CAPTCHA_DEFAULT_STATE_DESC"
+					default="0"
+					
+					
+				>
+				  <option value="0">Allowed</option>
+				  <option value="1">Blocked</option>
+				</field>
+				
+				
+					<field
+					name="content_filter_disabled"
+					type="list"
+					label="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER"
+					description="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER_DESC"
+					default="0"
+					
+					
+				>
+				  <option value="0">JYES</option>
+				  <option value="1">JNO</option>
+				</field>
+				
+				
+				
+					<field
+					name="content_filter1"
+					type="textarea"
+					label="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER1"
+					description="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER1_DESC"
+					default="[url,[URL" />
+					
+					
+					<field
+					name="content_filter5"
+					type="textarea"
+					label="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER5"
+					description="PLG_CAPTCHA_OPC_CAPTCHA_CONTENT_FILTER1_DESC"
+					default="href=,href\=,href =,HREF=,HREF\=,href%3D" />
+				
+				
+			</fieldset>
+			<fieldset name="geo_ip_block">
+			
+			<field type="note" name="n1" label="PLG_CAPTCHA_OPC_CAPTCHA_GEONOTE" />
+			
+			<field
+					name="allowed_countries"
+					type="text"
+					label="Allowed countries"
+					description="Set list of ISO2 codes of countries separated by comma which CAN USE email forms"
+					default=""
+					
+				/>
+				
+				<field
+					name="disabled_countries"
+					type="text"
+					label="Disabled countries"
+					description="Set list of ISO2 codes of countries separated by comma which CANNOT USE email forms"
+					default=""
+					
+					
+				/>
+			</fieldset>
+			
+			
+			<fieldset name="DNS">
+			<field type="note" name="n1" label="PLG_CAPTCHA_OPC_CAPTCHA_GEONOTE2" />
+			<field
+					name="SPEWS_SORBS"
+					type="list"
+					label="l1.spews.dnsbl.sorbs.net"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="PROBLEMS_SORBS"
+					type="list"
+					label="problems.dnsbl.sorbs.net"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="SPAMHAUS"
+					type="list"
+					label="zen.spamhaus.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+				
+				
+				
+				<field
+					name="SPAMCOP"
+					type="list"
+					label="bl.spamcop.net"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+				
+				
+				
+				<field
+					name="DroneBL"
+					type="list"
+					label="dnsbl.dronebl.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="RBL_STOPFORUMSPAM"
+					type="list"
+					label="i.rbl.stopforumspam.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="RBL_STOPFORUMSPAM"
+					type="list"
+					label="i.rbl.stopforumspam.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="Tornevall"
+					type="list"
+					label="opm.tornevall.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="EFNet"
+					type="list"
+					label="rbl.efnetrbl.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="TOR"
+					type="list"
+					label="80.104.161.233.64.ip-port.exitlist.torproject.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+				<field
+					name="RBLDNSCOM"
+					type="list"
+					label="spam.rbl-dns.com"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			<field
+					name="BARRACUDA"
+					type="list"
+					label="b.barracudacentral.org"
+					description=""
+					default="0"
+					
+				>
+				<option value="1">Not used</option>
+				<option value="0">Enabled</option>
+				<option value="2">Force blocking</option>
+			</field>
+			
+			
+			</fieldset>
+			
+			<fieldset name="Debug">
+			<field type="note" name="n1" label="PLG_CAPTCHA_OPC_CAPTCHA_DEBUGNOTE" />
+			   <field
+					name="debug"
+					type="list"
+					label="Debug"
+					description="Will send you debug information for all forms triggering captcha so you can configure countries and other parameters"
+					default="0">
+				  <option value="0">JNO</option>
+				  <option value="1">JYES</option>
+				</field>
+				
+				<field 
+           name="filter_words"
+           type="text"
+           label="PLG_CAPTCHA_OPC_CAPTCHA_FILTER_LABEL"
+           description="PLG_CAPTCHA_OPC_CAPTCHA_FILTER_DESC"
+		   default="password,password2,opc_password,cc_number,cc_num"
+		   />
+		   
+		   <field 
+           name="spam_admin"
+           type="text"
+           label="PLG_CAPTCHA_OPC_CAPTCHA_ADMINEMAIL"
+           description="PLG_CAPTCHA_OPC_CAPTCHA_ADMINEMAIL_DESC"
+		   default=""
+		   placeholder="email@example.com"
+		   />
+		   
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

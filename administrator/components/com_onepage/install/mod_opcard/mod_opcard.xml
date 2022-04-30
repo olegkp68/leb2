@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>RuposTel OPcard module</name>
+	<author>RuposTel</author>
+	<creationDate>2013</creationDate>
+	<copyright>Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>MOD_OPCARD_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_opcard">mod_opcard.php</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>languages</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		
+		<filename>mod_opcard.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_opcard.ini</language>
+		<language tag="en-GB">en-GB.mod_opcard.sys.ini</language>
+		<language tag="sk-SK">sk-SK.mod_opcard.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_MENU" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="weight"
+					type="text"
+					label="MOD_OPCARD_WEIGHT_TEXT_LABEL"
+					description="MOD_OPCARD_WEIGHT_TEXT_DESC" 
+					/>
+				<field
+					name="notification"
+					type="textarea"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					rows="15" 
+					/>
+				<field
+					name="weight_18"
+					type="text"
+					label="MOD_OPCARD_WEIGHT18_TEXT_LABEL"
+					description="MOD_OPCARD_WEIGHT_TEXT_DESC" 
+					/>
+				<field
+					name="check_notification18" 
+					type="textarea"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL_18"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					rows="15" 
+					cols="45" />
+				<field
+					name="weight_21"
+					type="text"
+					label="MOD_OPCARD_WEIGHT21_TEXT_LABEL"
+					description="MOD_OPCARD_WEIGHT_TEXT_DESC" 
+					/>
+				<field
+					name="check_notification21" 
+					type="textarea"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL_21"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					rows="15" 
+					cols="45" />	
+				<field
+					name="weight_perm"
+					type="text"
+					label="MOD_OPCARD_WEIGHT_PERM_TEXT_LABEL"
+					description="MOD_OPCARD_WEIGHT_TEXT_DESC" 
+					/>
+				<field
+					name="perm_notification" 
+					type="textarea"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL_PERM"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					rows="15" 
+					cols="45" />	
+				<field
+					name="control"
+					type="hidden"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					value=""
+					 />
+				<field
+					name="attr1"
+					type="hidden"
+					label="MOD_OPCARD_DEFINE_TEXT_LABEL"
+					description="MOD_OPCARD_DEFINE_TEXT_DESC" 
+					value=""
+					 />
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

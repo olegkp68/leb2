@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart,/components/com_onepage">
+	<name>plg_system_opctrackingsystem</name>
+	<author>RuposTel s.r.o.</author>
+	<creationDate>January 2015</creationDate>
+	<copyright>RuposTel s.r.o.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@rupostel.com</authorEmail>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>One Page Checkout tracking system plugin. This plugin triggers tracking event on your product, category, cart or thank you pages. This plugin can only be configured with OPC Component backend and does not require OPC checkout to be enabled.</description>
+	<files>
+		<filename plugin="opctrackingsystem">opctrackingsystem.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+    <language tag="en-GB">en-GB.plg_system_opctrackingsystem.ini</language>
+    <language tag="en-GB">en-GB.plg_system_opctrackingsystem.sys.ini</language>
+	</languages>
+</extension>
+ 

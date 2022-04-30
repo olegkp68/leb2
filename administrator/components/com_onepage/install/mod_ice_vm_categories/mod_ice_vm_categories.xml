@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" client="site" method="upgrade">
+<name>IceVMCategories</name>
+    <creationDate>March 2012</creationDate>
+    <author>IceTheme</author>
+    <authorEmail>support@icetheme.com</authorEmail>
+    <authorUrl>http://www.icetheme.com</authorUrl>
+    <copyright>(C) 2008 - 2012 IceTheme. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
+    <version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>
+	<![CDATA[ Enhanced Virtuemart Categories module with CSS based dropdown and the abilitty to load thumbs from the category images. Based on IceTheme.com module. ]]>
+	</description>
+	<files>
+		<filename module="mod_ice_vm_categories">mod_ice_vm_categories.php</filename>
+        <folder>libs</folder>
+        <folder>assets</folder>
+		<filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>mod_ice_vm_categories.xml</filename>
+        <filename>index.html</filename>
+		<filename>CHANGELOG.php</filename>
+		<filename>LICENSE.php</filename>
+		<folder>language</folder>
+	</files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_ice_vm_categories.ini</language>
+    </languages>     
+    <config>
+        <fields name="params">
+            <fieldset name="basic">  
+                <field name="show_image" type="radio" default="1" label="SHOW_IMAGE" description="SHOW_IMAGE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+				<field name="image_width" type="text" default="20" label="IMAGE_MAIN_WIDTH" description="IMAGE_MAIN_WIDTH_DESC" size="5" />
+				<field name="image_heigth" type="text" default="20" label="IMAGE_MAIN_HEIGHT" description="IMAGE_MAIN_HEIGHT_DESC" size="5" />
+				
+				<field name="" type="spacer" default="" label="" description="" />
+				<field name="" type="spacer" default="" label="" description="" />
+					
+					
+                <field name="sort" type="list" default="id" label="SORT" description="SORT_DESC">
+                    <option value="id">ID</option>
+                    <option value="name">NAME</option>
+                    <option value="order">ORDERING</option>                        
+                </field>                
+                <field name="ordering" type="radio" default="asc" label="ORDERING" description="ORDERING_DESC">
+                    <option value="asc">ASCENDING</option>
+                    <option value="desc">DESCENDING</option>
+                </field>               
+				
+                <field name="showcounter" type="radio" default="0" label="COUNTER" description="COUNTER_DESC">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				<field name="show_my_sg_prices" type="radio" default="0" label="Show Link to Own Pricelist" description="">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				
+				<field name="show_my_sg_prods" type="radio" default="0" label="Show Link to Own Products" description="">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				
+				<field name="show_my_sg_prods_and_prices" type="radio" default="0" label="Show Link to Own Products and Own Pricelists" description="">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				
+				<field name="show_vypredaj" type="radio" default="0" label="Show Link to Sale products in each top category" description="">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				
+				<field name="show_akcia" type="radio" default="0" label="Show Link to Featured products in each top category" description="">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+				
+				<field name="" type="spacer" default="" label="" description="" />
+				<field name="" type="spacer" default="" label="" description="" />
+				
+                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />   
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+						<option value="1">Cache enabled</option>
+						<option value="2">Ajax cache</option>
+				</field>  
+				<field name="topcats" type="text" default="" label="Top Categories" description="Set list of top categories to display in menu separated by a comma ordered as needed. Use this option to reorder top categories." />
+            </fieldset> 
+        </fields>
+    </config>     
+</extension>

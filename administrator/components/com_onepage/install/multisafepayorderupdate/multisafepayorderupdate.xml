@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="captcha" method="upgrade">
+	<name>plg_vmpayment_multisafepayorderupdate</name>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<creationDate>March 2019</creationDate>
+	<author>RuposTel.com</author>
+	<authorEmail>admin@rupostel.com</authorEmail>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<copyright>Copyright (C) 2005 - 2019 RuposTel.com</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<description>MultiSafePay Virtuemart to MSP order update plugin. If you use Klarna via MSP you need to update MSP with shipping information. This plugin updates order status at MSP when you set Shipped status in Virtuemart.</description>
+	<files>
+		<filename plugin="multisafepayorderupdate">multisafepayorderupdate.php</filename>
+		<filename>index.html</filename>
+		<folder>API</folder>
+	</files>
+	<config>
+		<fields name="params">
+		
+			<fieldset name="basic">
+				
+				
+				
+				<field
+					name="api_key"
+					type="text"
+					label="API Key"
+					description=""
+					default=""
+					
+					
+				/>
+				
+				
+				
+				
+				<field
+					name="api_url"
+					type="text"
+					label="API url (Live or Staging)"
+					description="Use https://testapi.multisafepay.com/v1/json for TEST API, see API Docs https://docs.multisafepay.com/api/ "
+					default="https://api.multisafepay.com/v1/json"
+					
+					
+				>
+				  
+				</field>
+				
+				<field
+					name="shipped_state"
+					type="text"
+					label="Shipped Order Status Code"
+					description="Set Virtuemart Shipped order status code"
+					default="S"
+					
+					
+				>
+				  
+				</field>
+				
+		   
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

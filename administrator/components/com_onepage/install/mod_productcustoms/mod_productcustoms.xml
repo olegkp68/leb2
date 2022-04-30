@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" client="site" method="upgrade" requires="/components/com_virtuemart">
+	<name>RuposTel Product Customs</name>
+	<author>www.rupostel.com</author>
+	<creationDate>20110107</creationDate>
+	<copyright>(C) rupostel.com</copyright>
+	<license>Commercial</license>
+	<authorEmail>info@rupostel.com</authorEmail>
+	<authorUrl>http://www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description><![CDATA[
+Product Customs Module <a href="http://www.rupostel.com/">rupostel.com</a> team. 
+	]]>
+	</description>
+	<files>
+		<filename module="mod_productcustoms">mod_productcustoms.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>helpers</folder>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+	</files>
+	
+	<config>
+	 <fields name = "params" addfieldpath="/modules/mod_productcustoms/fields">
+	   <fieldset name="basic">
+		<field
+            name="cache"
+            type="list"
+            default="0"
+            label="Joomla Caching"
+            description="">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+		
+		
+		<field
+            name="customs_with_childs"
+            type="customswithchilds"
+            default="0"
+            label="Choose custom fields that will show child products as well"
+            description=""
+			multiple="multiple"
+			>
+            
+        </field>
+		
+		<field
+            name="use_group_names"
+            type="list"
+            default="0"
+            label="Use custom group names"
+            description="">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+	   
+	   
+	   
+		<field
+            name="default_category"
+            type="text"
+            default=""
+            label="Choose default category ID when no filter is used"
+            description="If you need ordering for default results set category ID here"
+			
+			>
+            
+        </field>
+		
+		
+		 
+	   <field
+            name="show_sale_tab"
+            type="list"
+            default="0"
+            label="Show sale tab"
+            description="">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+		
+		<field
+            name="size_order"
+            type="text"
+            default="XXS,XS,S,S/M,M,L,L/XL,XL,2XL,2XL/3XL,3XL,4XL,4XL/5XL,5XL,6XL,7XL"
+            label="Set size ordering"
+            description="Adjust the list per your real values in filters"
+			
+			>
+            
+        </field>
+		
+		<field
+            name="size_tabs"
+            type="text"
+            default="Veľkosť,Veľkosť zorníkov,Size"
+            label="Size ordering tabs in filter"
+            description="Set size names separated by comma, language contants allowed"
+			
+			>
+            
+        </field>
+		
+		
+		
+			<field
+            name="debug"
+            type="list"
+            default="0"
+            label="Debug"
+            description="Will display queries in js console">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+	   
+	   
+	   <field
+            name="filter_on_button"
+            type="list"
+            default="0"
+            label="Show submit button in filter"
+            description="This disables automatic filter and will require customer to click filter button">
+            <option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+        </field>
+		
+		<field
+            name="chosenmethod"
+            type="list"
+            default="0"
+            label="Choose between POST/GET"
+            description="Choose either POST or GET for filter module. POST does not (yet) support back button.">
+            <option value="POST">POST</option>
+			<option value="GET">GET</option>
+			<option value="LINK">Link - use associated link</option>
+        </field>
+		
+		
+		<field
+            name="my_itemid"
+            type="text"
+            default=""
+            label="Set default com_rupsearch Itemid (should be associated to com_rupsearch)"
+            description="This is an Itemid where the page will be redirected when last filter is unselected.">
+            
+        </field>
+		
+		
+		<field
+            name="filter"
+            type="text"
+            default=""
+            label="Do not show these virtuemart_custom_id's "
+            description="Set custom_id's which should be filtered by the module display"
+			
+			>
+            
+        </field>
+		<field
+            name="ignorecats"
+            type="text"
+            default=""
+            label="Ignored VM categories "
+            description="Category IDs separated by comma"
+			
+			>
+            
+        </field>
+	   
+		</fieldset>
+		
+		
+	</fields>
+	</config> 
+	
+	
+</extension>

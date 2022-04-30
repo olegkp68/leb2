@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fieldset name="description" label="About Login as User" addfieldpath="/plugins/system/web357framework/elements">
+
+		<!-- BEGIN: Description -->
+		<field type="header" name="W357FRM_HEADER_DESCRIPTION" label="W357FRM_HEADER_DESCRIPTION" />
+		<field name="description" id="description" type="description" extension_type="plugin" extension_name="loginasuser" real_name="Login as any User" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+		<!-- END: Description -->
+		
+		<!-- BEGIN: Version Check -->
+		<field type="header" name="W357FRM_HEADER_VERSION_CHECK" label="W357FRM_HEADER_VERSION_CHECK" />
+		<field name="info" id="info" type="info" extension_type="plugin" extension_name="loginasuser" real_name="Login as any User" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+		<!-- END: Version Check -->
+		
+		<!-- BEGIN: JED Review -->
+		<field name="jedreview" id="jedreview" type="jedreview" extension_type="component" extension_name="loginasuser" real_name="Login as any User" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+		<!-- END: JED Review -->
+	
+	</fieldset>
+
+</form>

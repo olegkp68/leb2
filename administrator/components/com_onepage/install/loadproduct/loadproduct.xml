@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="content" method="upgrade" requires="/components/com_virtuemart">
+	<name>plg_content_loadproduct</name>
+	<author>RupostEl.com</author>
+	<creationDate>November 2005</creationDate>
+	<copyright>Copyright (C) 2005 - 2015 RuposTel.com.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@rupostel.com</authorEmail>
+	<authorUrl>www.rupostel.com</authorUrl>
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+	<description>Joomla 3 and VM3 plugin to load a product at the bottom of an article. To configure, see product tab at the article content page. This plugin requires mod_virtuemart_product_multi module which is used to render the product style. If a product is associated to an article, the VM product details page will get automatically redirected to the corresponding Joomla Article. This plugin and mod_virtuemart_product_multi can be used as a simple substitution of the whole VM product details page.</description>
+	<files>
+		<filename plugin="loadproduct">loadproduct.php</filename>
+		<folder>loadproduct</folder>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

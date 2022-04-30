@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension type="package" version="3.9.0" method="upgrade">
+	<name>pkg_spambotcheck</name>
+	<packagename>spambotcheck</packagename>
+	<version>3.1.0</version>
+	<loggerName>spambotcheck</loggerName>
+	<author>Aicha &amp; Ingmar Vack, vi-solutions</author>
+	<creationDate>February 2022</creationDate>
+	<authorEmail>contact@vi-solutions.de</authorEmail>
+	<authorUrl>https://www.vi-solutions.de</authorUrl>
+	<copyright>Copyright (C) vi-solutions. All rights reserved.</copyright>
+	<license>GNU/GPLv3 or later</license>
+	<description>PKG_SPAMBOTCHECK_PACKAGE_DESCRIPTION</description>
+	<scriptfile>script.php</scriptfile>
+	<files folder="packages">
+		<file type="plugin" group="user" id="spambotcheck">spambotcheck_j3.9.0_3.1.0.zip</file>
+		<file type="component"           id="com_spambotcheck">com_spambotcheck_j3.9.0_3.1.0.zip</file>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.pkg_spambotcheck.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.pkg_spambotcheck.ini</language>
+		<language tag="de-DE">de-DE/de-DE.pkg_spambotcheck.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.pkg_spambotcheck.ini</language>
+	</languages>
+	<updateservers>
+		<server type="extension" priority="1" name="spambotcheck">https://www.vi-solutions.de/updates/spambotcheck/extension.xml</server>
+	</updateservers>
+</extension>

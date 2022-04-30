@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<opchikaconfig>
+  <field name="disable_check" default="0" transform="boolval" />
+  <field name="disable_op" default="0" transform="boolval" />
+  <field name="opc_debug" default="0" transform="boolval" />
+  <field name="agreed_notchecked" default="0" transform="boolval" />
+  <field name="opc_link_type" default="0" transform="intval" />
+  <field name="opc_auto_coupon" default="" transform="word" />
+  <field name="do_not_show_opcregistration" default="0" transform="boolval" />
+  <field name="opc_lang_orig" default="" transform="cmd" />
+  <field name="rupostel_email" default="" transform="user" />
+  <field name="opc_registration_name" default="" transform="user" />
+  <field name="opc_registration_company" default="" transform="user" />
+  <field name="opc_registration_hash" default="0_0" transform="cmd" />
+  <field name="opc_registration_username" default="" transform="user" />
+  <field name="disable_op" default="disable" transform="boolval" />
+  <field name="opc_acy_id" default="2" transform="intval" />
+  <field name="default_acy_checked" default=""  transform="boolval"  />
+  <field name="default_italian_checked" default=""  transform="boolval"  />
+  <field name="opc_registraton_type" default="OPTIONAL_REGISTRATION" transform="cmd"  />
+  <field name="op_usernameisemail" default="0" tranform="boolval" />
+  <field name="double_email" default="0" tranform="boolval" />
+  <field name="op_no_display_name" default="0" tranform="boolval" />
+  <field name="op_create_account_unchecked" default="0" tranform="boolval" />
+  <field name="opc_acymailing_checkbox" default="0" tranform="boolval" />
+  <field name="opc_italian_checkbox" default="0" tranform="boolval" />
+  <field name="opc_payment_refresh" default="0" tranform="boolval" />
+  <field name="selected_template" default="clean_simple2" tranform="file" />
+</opchikaconfig>

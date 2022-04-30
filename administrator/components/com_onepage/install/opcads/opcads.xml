@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+
+	<name>plg_system_opcads</name>
+
+	<author>RuposTel s.r.o.</author>
+
+	<creationDate>December 2011</creationDate>
+
+	<copyright>RuposTel s.r.o.</copyright>
+
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+
+	<authorEmail>admin@rupostel.com</authorEmail>
+
+	<authorUrl>www.rupostel.com</authorUrl>
+
+	<version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+
+	<description>RuposTel Advertising Banner based on Simple Modal jQuery</description>
+	<languages>
+        <language folder="language/en-GB" tag="en-GB">en-GB.plg_system_opcads.ini</language>
+		<language folder="language/en-GB" tag="en-GB">en-GB.plg_system_opcads.sys.ini</language>
+    </languages>
+	<files>
+		<filename plugin="opcads">opcads.php</filename>
+		<filename>assets/index.html</filename>
+		<filename>assets/js/jquery.js</filename>
+		<filename>assets/js/jquery.simplemodal.js</filename>
+		<filename>assets/js/index.html</filename>
+		<filename>assets/css/jquery.simplemodal.css</filename>
+		<filename>assets/css/index.html</filename>
+		<filename>index.html</filename>
+
+	</files>
+	<config>
+	<fields name="params">
+
+			<fieldset name="basic">
+		<field	name="jquery" type="radio"
+			default="0"
+			description="Load jQuery. Do not enable this option if your site already loads jQuery."
+			label="Load inbuilt jQuery 1.6"
+		>
+			<option
+				value="0">JNo</option>
+			<option
+				value="1">JYes</option>
+		</field>
+		<field name="cookietime" type="text" default="86400" label="Cookie Lifetime in seconds" description="Cookie lifetime in seconds" />
+		</fieldset>
+		
+		<fieldset 
+     name="config" 
+     label="Function" >
+	  <field
+		   name="functiontype"
+           type="list"
+		   default="0"
+           label="Behavior"
+           description="Choose plugin behavior mode">
+		    <option value="0">MODE1: One time display per cookie timeout per any page</option>
+			<option value="1">MODE2: Display after X seconds when a certain pages are visited and apply a coupon code, cookie timeout tells how often it can be shown to a customer</option>
+		</field>
+		
+		<field 
+           name="use_pwe"
+           type="text"
+           label="Use PWE popup (insert javascript code to open the popup)"
+           description="Example input: pwebBox297.toggleBox(1), If used, simple modal will not be loaded"
+		   default=""
+		  />
+		  
+		  <field 
+           name="seconds"
+           type="text"
+           label="MODE2:Set number of seconds after which the popup will be shown to the customer"
+           description=""
+		   default=""
+		  />
+		  
+		  <field 
+           name="urls"
+           type="textarea"
+           label="MODE2:Set URLs separated by new line which will trigger the time counter. Input can include any fragment of URL"
+           description=""
+		   default=""
+		   cols="100"
+		   rows="5"
+		  />
+		  
+		    <field 
+           name="coupon"
+           type="text"
+           label="MODE2:Coupon code to apply automatically after the popup was shown"
+           description=""
+		   default=""
+		  />
+		  
+		  <field 
+           name="maxresolution"
+           type="text"
+           label="Set maximum resolution for which the plugin will be used"
+           description="media query CSS resolution applies: 750 mobiles, 1050 tablets, empty value means any resolution - mobile, tablet or desktop"
+		   default=""
+		  />
+		  
+		  <field type="note" 
+				label="Extra"
+				description="This module can show popups linked with any element that contains data-popup-rendermodulebyid=&quot;1&quot; where 1 is an ID of published frontend module. same can be done with articles data-popup-renderarticlebyid=&quot;1&quot; where 1 is an article ID. if multilanguage is used, it will be automatically switched to paired language. Examples of usage: &lt;pre&gt;&amp;lt;button data-popup-rendermodulebyid=&amp;quot;1&amp;quot;&amp;gt;Show popup...&amp;lt;/button&amp;gt;&lt;/pre&gt;"
+		 />
+		<field 
+           name="popupurlsuffix"
+           type="text"
+           label="Popup URL suffix"
+           default=""
+           description="set somethig like &amp;tmpl=component if you want to add component wrappers" />
+		  
+		  </fieldset>
+		<fieldset 
+     name="request" 
+     addfieldpath="/administrator/components/com_content/models/fields" label="Article" >
+     <field 
+           name="article_id"
+           type="modal_article"
+           label="Select an Article"
+           
+           description="Select an Article to render to the pop-up."/>
+		</fieldset>
+
+		<fieldset name="Image" label="Image settings (optional)" >
+		<field 
+           name="image_link"
+           type="text"
+           label="Image link"
+           
+           description="Set a full url to an image."/>
+		<field 
+           name="image_width"
+           type="text"
+           label="Image width in px"
+           required="false"
+           description="Set a full width of the image."/>
+		<field 
+           name="image_height"
+           type="text"
+           label="Image height in px"
+           
+           description="Set a full height of the image."/>
+		  
+		<field 
+           name="url"
+           type="text"
+           label="URL"
+           
+           description="Set a full url where the link should point."/>
+		
+		  
+		</fieldset>
+			<fieldset name="Debug" label="Debug" >
+		<field 
+           name="debug"
+           type="checkbox"
+		   value="1"
+		   default="0"
+           label="Debug"
+           
+           description="Enable to see the banner all the time."/>
+		  
+		</fieldset>
+
+
+		
+	</fields>
+	</config>
+	
+	
+</extension>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5.0" type="plugin" group="system" method="upgrade" requires="/components/com_virtuemart">
+    <name>plg_vmaddtabs</name>
+	<element>plg_vmaddtabs</element>
+    <creationDate>November 09 2015</creationDate>
+    <author>RuposTel.com</author>
+    <authorUrl>http://www.rupostel.com</authorUrl>
+    <copyright>Copyright (C) 2006-2016 RuposTel.com.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>10.401.2077</version>
+
+	<license_key>0f11262a2a4e779e0d140ab9b0244fa4_13155</license_key>
+    <description>System - OPC Affiliate Category Pairing Tabs in Virtuemart Backend</description>
+ 
+    <files>
+        <filename plugin="vmaddtabs">vmaddtabs.php</filename>
+		  <filename >xmlcategory.php</filename>
+		  <filename >googlehelper.php</filename>
+		   <folder >assets</folder>
+		   <folder >language</folder>
+		   <folder >tabs</folder>
+    </files>
+ 
+</extension>
