@@ -1,0 +1,52 @@
+/* ======================================================
+# Login as User for Joomla! - v3.3.2
+# -------------------------------------------------------
+# For Joomla! CMS
+# Author: Web357 (Yiannis Christodoulou)
+# Copyright (©) 2009-2019 Web357. All rights reserved.
+# License: GNU/GPLv3, http://www.gnu.org/licenses/gpl-3.0.html
+# Website: https:/www.web357.com/
+# Demo: https://demo.web357.com/?item=loginasuser
+# Support: support@web357.com
+# Last modified: 21 Mar 2019, 01:46:39
+========================================================= */
+
+/* CSS Style for Login as User link. */
+table td.login_as_user {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+table td.login_as_user:last-child {
+  margin-bottom: 0;
+}
+table td.login_as_user a {
+	display: inline-block;
+	padding: 5px;
+	margin: 0px !important;
+	border: 1px dotted #ccc;
+	
+}
+
+/* BEGIN: Link Animation (Only for Demo Page) */
+/*.login_as_user_link {
+	transition: all 0.2s;
+	padding: 20px 40px;
+	animation: pulse 2s ease infinite;
+}
+.login_as_user_link:hover {
+	border: 1px dotted #000;
+}
+@keyframes pulse {
+  0% {
+	transform: scale(1);
+  }
+
+  50% {
+	transform: scale(1.1);
+  }
+
+  100% {
+	transform: scale(1);
+  }
+}*/
+/* END: Link Animation */

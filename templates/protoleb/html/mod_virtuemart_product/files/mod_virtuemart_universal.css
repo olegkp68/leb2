@@ -1,0 +1,83 @@
+/* Module style */
+.mod_vm_universal_link { text-align:center; }
+div.mod_vm_universal_link a { display:inline !important; }
+.mod_vm_universal_1,
+.mod_vm_universal_2{
+float: left; width: 94%; height: 200px; border: 1px solid #ccc; margin:0px;  margin-top: 5px; padding: 5px;}
+div#advert2{ margin-top: 0px;}
+
+#advert2 .mod_vm_universal_1  {
+float: left; width: 47%; height: 200px; border: 1px solid #ccc; margin:0px; margin-top: 5px; padding: 5px;}
+#advert2 .mod_vm_universal_2  {
+float:right; width: 47%; height: 200px; border: 1px solid #ccc; margin:0px; margin-top: 5px; padding: 5px;}
+#spez-predl span.mod_vm_title {display: block;text-align: center !important; color:#c4013d;}
+span.mod_vm_price{ color:#666666;}
+
+.mod_vm_universal_1 a#modul,
+.mod_vm_universal_2 a#modul {color:#666666;}
+
+.mod_vm_universal_1 span.mod_vm_title,
+.mod_vm_universal_1 a,
+.mod_vm_universal_1 span {display: block;text-align: center !important;}
+.mod_vm_universal_1 img.discount {position: absolute; margin: 20px 0px 0px 0px !important;}
+
+.mod_vm_universal_2 span.mod_vm_title,
+.mod_vm_universal_2 a,
+.mod_vm_universal_2 span {display: block;text-align: center !important;}
+.mod_vm_universal_2 img.discount {position: absolute; margin: 20px 0px 0px 0px !important;}
+
+
+.mod_vm_title {font-weight: bold;}
+.clear {clear: both;}
+/* Mootools tooltip */
+.tool-title {display: none;}
+.tool-tip {float: left; width: 200px !important; background-color: #EFEFEF !important; padding: 5px !important;border: 1px solid #c4013d !important;}
+.tool-text {margin:0 !important; color:#c4013d !important;background-color:#EFEFEF !important; padding: 5px 5px 5px 5px !important;}
+/* Jquery Tooltip */
+.tooltip {position: absolute; z-index: 999; left: -9999px;background-color: #dedede !important; padding: 5px;border: 1px solid #DB1919 !important; width: 250px;}
+.tooltip p {margin:0; color:#fff;background-color:#191919; padding: 5px 5px 5px 5px;}
+
+
+/*********************************************/
+/*.mod_vm_universal_vivasan  {
+	float: none; 
+	width: 200px; 
+	border: 1px solid #ccc; 
+	margin: 5px; 
+	padding: 5px;
+	text-align: center;
+}
+
+.mod_vm_universal_title_vivasan {
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+	}
+.mod_vm_universal_image_vivasan {
+	margin-bottom: 5px;
+	}
+.mod_vm_universal_readmore_vivasan {
+	text-align: center;
+	margin-bottom: 1px;
+	}
+.mod_vm_universal_sku_vivasan {
+	margin-bottom: 5px;
+	}
+.mod_vm_universal_price_vivasan {
+	text-align: center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	color: red;
+	margin-bottom: 5px;
+	}
+.mod_vm_universal_text_vivasan {
+	text-align: center;
+	font-size: 12px;
+	font-weight: normal;
+	color: black;
+	}
+.mod_vm_universal_discount_vivasan {
+	position: absolute; 
+	margin: 0px !important;
+}*/

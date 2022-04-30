@@ -1,0 +1,121 @@
+#corb{ width: 100%;}
+body{color:red!important}
+div.mod_vm_original{
+margin: 5px;
+padding: 5px;
+float: left;
+width: 92%;
+height: 200px;
+border: 1px solid #ccc;}
+.mod_vm_title{display: block; text-align: center !important; color:#c4013d; margin:0px; padding:0px;}
+.minibild{float:left; width:100%; text-align: center !important; margin:0px; padding:0px;}
+.preis_des_mod{float:left; width:100%; text-align: center !important; color:#333333; margin:0px; padding:0px;}
+.addtocard_des_mod{ float:left; width:100%; height: 30px; text-align:center; margin:0px; padding:0px; margin-top:-15px;}
+input.addtocart_button_module { background: #c4013d; color:#FFFFFF; width:100px; height:20px; border:none;  cursor:pointer; cursor:hand;}
+
+
+
+
+/*.newsletterbutton{ width: 45%; border:3px solid #c4013d;}*/
+/*.newsletterbutton a{ color:#c4013d;}*/
+
+/*----------------------------------------------------------------------------------- Suche ---------------*/
+
+/*#knopf{ width:62px; height:29px; background:url(../images/suche-knopf.jpg);}
+#feld{width:181px; height:29px; margin-left: 62px; margin-top: -29px; background:url(../images/suche-feld.jpg);}*/
+
+#suche{
+	/*color:black;
+	font-weight:bold;*/
+}
+#suche a {
+	color:rgb(196, 1, 61);
+	border:1px solid rgb(196, 1, 61);
+	font-weight:bold;
+}
+#suche .button,
+#suche .button:hover {
+margin: 0px;
+padding: 0px;
+border:none;
+border-style:none;
+width:62px;
+height:29px;
+cursor:pointer;
+background:url(../images/suche-knopf.jpg) no-repeat left top;
+}
+
+#suche .inputbox{
+margin: 0px;
+padding: 0px;
+width:auto;
+height:auto;
+margin-left: 5px;
+color:#666666;
+}
+
+/*#searchbox{
+float:right;
+width:167px;
+height:31px;
+
+margin-top:34px;
+margin-right:10px;}
+
+#searchbox .inputbox{
+margin-left:20px;
+margin-top:-1px;
+background:none;
+border:0px;
+width:125px;
+color:#999999;}*/
+
+/*------------------------------------------- class="module" style="table" -------------*/
+/*.moduletable{
+margin-bottom:1em;
+padding:0 10px;
+overflow:hidden; }
+
+.moduletable h3 {
+margin: 0 -10px 5px;
+padding-left:5px;
+font-size: 120%;
+line-height: normal;
+text-transform: capitalize;
+font: normal 18px  "Segoe UI", Arial, Helvetica, sans-serif;
+background: #F2F0F0 url(../images/h3.gif) repeat-x left center;}
+
+.module p{overflow:hidden; padding:3px; }*/
+
+/*------------------------------------------- class="module" style="rounded" -------------*/
+/*.module{
+margin: 5px 0 10px;
+padding: 0;
+float: left;
+clear: both;
+width: 100%;
+color:#666666;
+height:100% !Important;height:1%;}
+
+.module h3,
+.module-norm h3{
+padding:0 5px;
+margin: -1px -4px 5px;
+font-size: 120%;
+color: #3B9CAC;
+line-height: normal;
+text-transform: capitalize;
+font: normal 18px  "Segoe UI", Arial, Helvetica, sans-serif;
+border-bottom:1px solid #e9e8e8;}
+
+.module {background:url(../images/br.gif) 100% 100% no-repeat;}
+.module div {background: url(../images/bl.gif) 0 100% no-repeat;height:100%;}
+.module div div {background: url(../images/tr.gif) 100% 0 no-repeat;}
+.module div div div {background: url(../images/tl.gif) 0 0 no-repeat; padding: 10px;}
+.module div div div div{ background: none; }
+
+.module-norm {background:url(../images/br.gif) 100% 100% no-repeat;}
+.module-norm div {background: url(../images/bl.gif) 0 100% no-repeat;height:100%;}
+.module-norm div div {background: url(../images/tr.gif) 100% 0 no-repeat;}
+.module-norm div div div {background: url(../images/tl.gif) 0 0 no-repeat; padding: 10px;}
+.module-norm div div div div{ background: none; }*/

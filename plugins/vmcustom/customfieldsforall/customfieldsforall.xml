@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="3" type="plugin" group="vmcustom" method="upgrade">
+    <name>Custom Fields for All</name>
+    <creationDate>2020-12-03</creationDate>
+  	<author>breadkesigns</author>
+	<authorUrl>https://www.breakdesigns.net</authorUrl>
+	<copyright>Copyright(c) 2014-2020 breakdesigns.net</copyright>
+	<license>GNU/GPL v.2</license>
+    <version>4.1.1</version>
+     <description><![CDATA[<h3>Custom Fields For All <i style="font-size:12px">(v.4.1.1)</i></h3>
+    <span><img src="../plugins/vmcustom/customfieldsforall/assets/images/logo_90.png"/></span>
+    <p style="margin-top:5px; font-size:12px; font-weight:0;">A multi-purpose custom field for Virtuemart</p>
+    <p><a href="https://breakdesigns.net/extensions/joomla/custom-fields-for-all/documentation#installation" target="_blank">Please check our Manual to see how to proceed further</a>
+    ]]></description>
+
+	<!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="Custom Fields For All">http://cdn.breakdesigns.net/release/customfieldsforall/update.xml</server>
+    </updateservers>
+
+    <files>
+        <filename plugin="customfieldsforall">customfieldsforall.php</filename>
+		<filename>bootstrap.php</filename>
+        <filename>index.html</filename>
+        <folder>assets</folder>
+        <folder>customfieldsforall</folder>
+        <folder>fields</folder>
+        <folder>helpers</folder>
+        <folder>tables</folder>
+        <folder>view</folder>
+    </files>
+
+	<languages folder="language">
+		<language tag="cs-CZ">cs-CZ/cs-CZ.plg_vmcustom_customfieldsforall.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_vmcustom_customfieldsforall.ini</language>
+		<language tag="el-GR">el-GR/el-GR.plg_vmcustom_customfieldsforall.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_vmcustom_customfieldsforall.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_vmcustom_customfieldsforall.sys.ini</language> 
+		<language tag="fr-FR">fr-FR/fr-FR.plg_vmcustom_customfieldsforall.ini</language>       	
+       	<language tag="nl-NL">nl-NL/nl-NL.plg_vmcustom_customfieldsforall.ini</language> 
+        <language tag="ru-RU">ru-RU/ru-RU.plg_vmcustom_customfieldsforall.ini</language>
+		<language tag="fr-FR">sk-SK/sk-SK.plg_vmcustom_customfieldsforall.ini</language>  
+		<language tag="sv-SE">sv-SE/sv-SE.plg_vmcustom_customfieldsforall.ini</language>
+	</languages>
+	<vmconfig>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/vmcustom/customfieldsforall/fields/j3">
+		        <field name="data_type" type="datatype" label="PLG_CUSTOMSFORALL_DATA_TYPE_LABEL" description="PLG_CUSTOMSFORALL_DATA_TYPE_DESC" default="string"/>
+		
+				<field name="display_type" default="button" type="displaytypes" label="PLG_CUSTOMSFORALL_DISPLAY_TYPE_LABEL" description="PLG_CUSTOMSFORALL_DISPLAY_TYPE_DESC"/> 
+		
+				<field name="is_required" type="radio" label="PLG_CUSTOMSFORALL_IS_REQUIRED_LABEL" description="PLG_CUSTOMSFORALL_IS_REQUIRED_DESC" default="0">
+		         	<option value="1">JYES</option>
+		         	<option value="0">JNO</option>
+		         </field>
+				
+		         <field name="is_price_variant" type="radio" label="PLG_CUSTOMSFORALL_IS_PRICE_VARIANT_LABEL" description="PLG_CUSTOMSFORALL_IS_PRICE_VARIANT_DESC" default="0">
+		         	<option value="1">JYES</option>
+		         	<option value="0">JNO</option>
+		         </field>
+		
+		         <field name="display_price" type="list" label="PLG_CUSTOMSFORALL_DISPLAY_PRICE_LABEL" description="PLG_CUSTOMSFORALL_DISPLAY_PRICE_DESC" default="tooltip">
+		         	<option value="tooltip">PLG_CUSTOMSFORALL_TOOLTIP</option>
+		         	<option value="label">PLG_CUSTOMSFORALL_LABEL_NAME</option>
+		         	<option value="0">PLG_CUSTOMSFORALL_NO</option>
+		         </field>
+		
+		         <field name="cf_val" type="customvalues" label="PLG_CUSTOMSFORALL_CUSTOMVALUE_LABEL" description="PLG_CUSTOMSFORALL_CUSTOMVALUE_DESC"/>
+			</fieldset>
+		</fields>
+	</vmconfig>
+	<config>
+	   <fields name="params">
+            <fieldset name="basic">
+	            <field name="update_dlid" type="text" default="" size="30"
+	            label="PLG_CUSTOMSFORALL_DOWNLOADID_LABEL" description="PLG_CUSTOMSFORALL_DOWNLOADID_DESC" />
+            </fieldset>
+         </fields>
+	</config>
+</extension>

@@ -1,0 +1,31 @@
+#site{
+width:86%;
+min-width:1024px;
+overflow:hidden;
+font-size:11px;}
+
+h3, a{ font-size:12px;}
+
+
+#suche{ float:left;}
+#suche .inputbox{ margin-bottom:5px; width: 140px;}
+
+#user-menu a.mainlevel,
+#user-menu a.mainlevel:hover,
+#user-menu a.mainlevel:active,
+#user-menu a.mainlevel:focus,
+#user-menu a.mainlevel#active_menu { font-size:11px;}
+
+/* Box left */
+#leftbody {	position:relative; width:20%; vertical-align:top; min-width: 300px;}
+/* Leere Spalte */
+#leerbody{ width: 1%;}
+/* Box center */
+#content {position:relative; width:54%; background:#FFFFFF; color:#666666; vertical-align:top;}
+/* Box right */
+#rightbody {position:relative;  width:24%; vertical-align:top;}
+
+
+.mod_vm_universal_1,
+.mod_vm_universal_2{
+float: left; width: 92%;}

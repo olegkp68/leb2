@@ -1,0 +1,95 @@
+﻿/*--------------------------------------------------------------- Allgemein --------------------------*/
+/*DEFAULT MODS*/
+a.mainlevel { 
+font-family:"Courier New", Courier, monospace;
+color:#999999; line-height: 120%;
+text-decoration: none; 
+background:none; margin-right: 5px; margin-left: 5px;}
+a.mainlevel:hover,
+a.mainlevel:active,
+a.mainlevel:focus {color: #999999; font-weight: bold;}
+a.mainlevel#active_menu {color: #999999; font-weight: bold;}
+
+a.sublevel {
+display: block;
+font-family:"Courier New", Courier, monospace;
+font-size:10px;
+color: #999999;
+padding: 0px 4px 0px 15px;
+text-decoration: none;}
+a.sublevel:hover, a.sublevel:active, a.sublevel:focus {color:  #999999; text-decoration: underline;}
+#active_menu {color:  #999999; font-weight: bold;}
+
+/*----------------------------------------------------------------------------------------------- untermenu -----------------*/
+div.untermenu{ float:right; color:#c4013d;}
+.untermenu a.mainlevel{text-transform:uppercase; color:#c4013d; font-weight:bold; font-size:13px;}
+.untermenu a.mainlevel:hover,
+.untermenu a.mainlevel:active,
+.untermenu a.mainlevel:focus{ text-transform:uppercase; text-decoration:underline;}
+.untermenu a.mainlevel#active_menu { text-transform:uppercase; color:#333333;}
+
+/*----------------------------------------------------------------------------------------------- user ----------------------*/
+div#user-menu{color:#333333;}
+#user-menu a.mainlevel{ color:#333333; font-weight: bold; text-decoration:underline; /*text-transform:uppercase;*/}
+#user-menu a.mainlevel:hover,
+#user-menu a.mainlevel:active,
+#user-menu a.mainlevel:focus{ text-transform:uppercase; text-decoration:inherit;}
+#user-menu a.mainlevel#active_menu { text-transform:uppercase; color:#c4013d;}
+
+
+/*------------------------------------------------------------------------------------------- leftmenu ----------------------*/
+#leftmenu{ margin: 0px; padding: 0px; width:100%;}
+#leftmenu td{ height: 28px; background:#c4013d; border-bottom:1px solid #f5f5f5; overflow:hidden; vertical-align:middle;}
+
+#leftmenu td a.mainlevel{
+display: block;
+padding-left: 5px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+text-transform:uppercase;
+color:#FFFFFF; line-height: 250%;
+text-decoration: none; 
+background:none; margin-right: 5px; margin-left: 5px;}
+#leftmenu a.mainlevel:hover,
+#leftmenu a.mainlevel:active,
+#leftmenu a.mainlevel:focus {color:#FFFFFF; font-weight: bold;}
+#leftmenu a.mainlevel#active_menu {color:#FFFFFF; font-weight: bold;}
+
+#leftmenu a.sublevel {
+display: block;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+text-transform:uppercase;
+color:#FFFFFF;
+padding: 0px 4px 0px 15px;
+text-decoration: none;}
+#leftmenu a.sublevel:hover,
+#leftmenu a.sublevel:active,
+#leftmenu a.sublevel:focus {color:#FFFFFF; text-decoration: underline;}
+#leftmenu #active_menu {color:#FFFFFF; font-weight: bold;}
+
+
+/*---------------------------------------------------------- topmenu ----------------------*/
+#topmenu{float:left; width:auto; height: 29px; }
+/* this is a z-index ie6 and ie7 bug fix */
+div#topmenu {position: relative; z-index: 50; }
+
+#topmenu ul {list-style:none; margin:0px; padding:0px; }
+#topmenu li {display: block; float: left; margin: 0; padding: 0; }
+
+#topmenu li a {display:block; float:left; font-weight: bold; font-size:10px; color:#333333;
+text-transform:uppercase; /*background: url(../images/activear.gif) no-repeat 100% 0;*/}
+
+#topmenu li a span {
+display: block;
+float:left;
+height:29px;
+line-height:28px;
+padding-top:0px;
+padding-bottom:0px;
+padding-left:14px;
+padding-right:15px;
+border-left:1px #FFFFFF outset;
+border-right: 1px #FFFFFF outset;
+/*background: url(../images/menupunkt.png) no-repeat 100% 0;*/}
+#topmenu li a:hover{color:#c4013d; text-decoration:none; border:1px #FFFFFF inset;}
+#topmenu li.active a{font-weight:bold; color:#c4013d; border:1px #FFFFFF inset;}

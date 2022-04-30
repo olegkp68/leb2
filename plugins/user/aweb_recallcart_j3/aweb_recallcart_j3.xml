@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.04" group="user" method="upgrade">
+    <name>Cart AutoSave for VirtueMart 3 aWeb_RecallCart</name>
+    <creationDate>2016-08-30</creationDate>
+	<author>aWebSupport Team</author>
+    <copyright>awebsupport.com</copyright>
+    <authorEmail>contact@awebsupport.com</authorEmail>
+    <authorUrl>http://awebsupport.com/</authorUrl>
+    <version>1.04</version>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <description>RecallCart</description>
+    <files>
+        <filename plugin="aweb_recallcart_j3">aweb_recallcart_j3.php</filename>  
+		<filename>index.html</filename>
+		<filename>LICENSE.txt</filename>		
+    </files>  
+	<config>
+		<fields name="params">
+			<fieldset name="aweb_debug" label="PARAMS">
+				<field name="aweb_debugmode" type="list" default="0" label="Debug mode" description="Turn debug mode on/off">
+				   <option value="0">off</option>
+				   <option value="1">on</option>
+				</field>			
+				<field name="aweb_manage_stock" type="list" default="0" label="Stock Checking" description="If you turn on, it will check the stock and decrease the value of the cart if needed">
+				   <option value="0">off</option>
+				   <option value="1">on</option>
+				</field>
+				<field name="aweb_overwrite_cart" type="list" default="0" label="Overwrite Cart" description="If you turn on, it will overwrite the saved cart during login if you have anything in your cart before login.">
+				   <option value="0">off</option>
+				   <option value="1">on</option>
+				</field>				
+				<field name="aweb_completed_status_flag" type="text" default="C" label="Completed flag" description="Your Complated flag value">
+				</field>
+			</fieldset>
+        </fields>
+    </config>
+
+</extension>

@@ -1,0 +1,80 @@
+
+
+#topmenu {
+	z-index: 999999 !important;
+}
+
+#vmCartModule {
+
+  width: 192px !important;
+  z-index: 1 !important;
+  background-color: #fff !important;
+}
+
+
+#sj-search-pro139.sj-search-pro-wrapper {
+    padding: 0 0 !important;
+
+}
+
+.sj-search-pro-wrapper .autosearch-input {
+    height: 25px !important;
+	width: 362px !important;
+    line-height: 20px;
+    padding: 0 10px;
+    border: 1px solid #C4013D !important;
+    background-color: #fff !important;
+
+}
+
+.sj-search-pro-wrapper .btn-default {
+    color: #fff !important;
+    background-color: #C4013D !important;
+}
+.sj-search-pro-wrapper .button-search {
+    height: 25px !important;
+	width: 60px !important;
+	margin-right: 40px !important;
+	border: 1px solid #C4013D !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+
+}
+
+.sj-search-pro-wrapper .btn {
+    padding: 0 0 !important;
+}
+
+.fa-search::before {
+    content: "\f002" !important;
+}
+.fa {
+    display: inline-block;
+        font-size: 16px !important;
+}
+
+.sj-search-pro-wrapper .dropdown-menu-sj .media-body {
+    padding: 5px !important;
+}
+.sj-search-pro-wrapper .media-body {
+    width: 420px !important;
+}
+
+.sj-search-pro-wrapper .dropdown-menu-sj {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    display: none;
+    float: left;
+    width: 420px !important;
+    padding: 5px 0px;
+    margin: 2px 0px 0px;
+    font-size: 14px;
+    text-align: left;
+    list-style: outside none none;
+    background-color: #fff !important;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+}

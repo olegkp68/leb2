@@ -1,0 +1,172 @@
+body {margin:0 auto; padding:0;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+text-align:center; /*center hack*/
+width: 100%;
+height: 100%;
+line-height: 130%;
+color:#999999;
+background:#f5f5f5;}
+
+/* Printable Page */
+body.contentpane {
+margin:0 auto; padding:0;
+width: 100%;
+height: 100%;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#999999;
+font-size:12px;
+line-height: 130%;
+margin: 1em 2em;}
+
+div.buttons_heading {margin: 0px !important;}
+.buttons_heading img{ width: 24px; height: 24px; margin:0; padding:0;}
+
+/**------------------------------------------------------------- Obere Teil --------**/
+#site{
+margin:0 auto;
+padding:0;
+width:76%;
+min-width:900px;
+overflow:hidden;
+text-align:left;
+font-size:12px;}
+
+table#top{height:80px; width:100%; overflow:hidden;}
+td#top-left{ position:relative; width:141px; height:80px; background:url(../images/top-left.png) top left no-repeat;}
+#logo{ position:relative; width:73px; height:50px; background:url(../images/logo.png) top left no-repeat;
+ margin-top:12px; margin-left: 34px;}
+/*#f5f5f5*/
+td#top-mitte{ position:relative; width:300px; background:#f5f5f5 url(../images/top-left2.png) top left no-repeat; vertical-align:top;}
+#tel-fax{ font-size:80%; padding-left: 5px; font-weight:bold; color:#333333;}
+td#top-right{position:relative; vertical-align:middle;}
+#banner{
+	float:right;
+	width:400px;
+	height:60px;
+	background-image:url(../images/Banner.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-right: 10px;
+}
+
+
+table#menumitte{
+height: 29px; width:100%; overflow:hidden; 
+background:url(../images/top-mitte-bg.jpg); background-repeat:repeat-x;}
+#user-menu{position:relative; vertical-align:middle; font-weight:bold; bottom: 0px; }
+ 
+#tags{ position:absolute; width: 100px; top: 1%; left: -20%; }
+#tags h1 a{text-indent:-7500px; display:block; width:300px; text-decoration:none;}
+
+
+/* Hauptteil */
+#mainbody { position:relative; width:100%; height:100%; margin-top:5px;}
+/* Box left */
+#leftbody {	position:relative; width:20.5%; vertical-align:top;}
+/* Leere Spalte */
+#leerbody{ width: 0.5%; background:#FFFFFF;}
+/* Box center */
+#content {position:relative; width:54%; background:#FFFFFF; color:#666666; vertical-align:top;}
+/* Box right */
+#rightbody {position:relative;  width:24.5%; vertical-align:top;}
+
+
+table.karte{ width: 100%;}
+/* Box bottom */
+#bottom{width:95%; margin:0 auto; text-align:center; padding-left:1%;}
+#bottom-dark{float:left; overflow:hidden;}
+
+#advert2 {
+margin: 0px;
+padding: 0px;
+margin-top: -25px;
+/*margin-left: 0.5%;*/
+}
+
+.td_start{
+margin: 0px;
+padding: 0px;
+border:3px double #c4013d;
+width: 100%;
+text-align:center;
+/*background:#f5f5f5;*/
+
+}
+.span_start{
+margin: 0px;
+padding: 0px;
+color:#c4013d;
+font-size: 14px;
+font-weight:bold;
+line-height: 150%;}
+
+td.spez-predl{
+margin: 0 auto;
+padding: 0px;
+/*margin-right: -3px;*/
+width: 100%;
+border:1px solid #FFFFFF;
+text-align:center;}
+
+span.spez-predl{
+margin: 0px;
+padding: 0px;
+font-size: 14px;
+font-weight:bold; 
+color:#FFFFFF;
+line-height: 150%;}
+
+#bottom {
+	position: relative;
+	width: 100%;
+}
+
+#hr_bottom {
+	position: relative;
+	background-color: #b9b9b9;
+	width: 100%;
+	height: 12px;
+}
+
+.footer_left{
+float:left;
+}
+.footer_right{
+float:right;
+margin-right: 12px;
+}
+
+
+/*#footer {
+clear:both;
+background:url(../images/fbg.gif) repeat-x left top;
+text-align:left;
+height:84px;
+overflow:hidden;}
+
+#footer-fl{background: url(../images/fl.gif) no-repeat left top; height:83px;}
+#footer-fr{background: url(../images/fr.gif) no-repeat right top; height:83px;}
+
+#copyright{height:83px;}
+#copyright-links{float:left; width:70%; margin-top:50px; padding-left:30px;}
+#footermenu{float:left; width:auto; margin-top:50px;}
+
+hr{ border:1px solid #999999;}*/
+
+/* RS-Form Formular */
+/*td.form1 input,
+input#Submit {
+font-family: Tahoma, Verdana, Arial;
+font-size: 12px;
+color:#FFFFFF;
+background-color: #666666;
+border: 1px outset #999999;
+padding: 1px 2px;
+}
+td.form1 input:hover,
+input#Submit:hover {
+border: 1px outset #333333;
+cursor:hand;
+cursor:pointer;}
+
+td.form11 a{ margin-left: 10px;}*/

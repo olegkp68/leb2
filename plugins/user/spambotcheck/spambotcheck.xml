@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9.0" type="plugin" group="user" method="upgrade">
+	<name>User - SpambotCheck</name>
+	<version>3.1.0</version>
+	<loggerName>spambotcheck</loggerName>
+	<author>Aicha &amp; Ingmar Vack, vi-solutions</author>
+	<creationDate>February 2022</creationDate>
+	<authorEmail>contact@vi-solutions.de</authorEmail>
+	<authorUrl>https://www.vi-solutions.de</authorUrl>
+	<copyright>(C) 2015 vi-solutions</copyright>
+	<license>https://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_USER_SPAMBOTCHECK_XML_DESCRIPTION</description>
+	<scriptfile>script.php</scriptfile>
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/install.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/uninstall.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 1.6 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<files>
+		<filename plugin="spambotcheck">spambotcheck.php</filename>
+		<filename>index.html</filename>
+		<folder>SpambotCheck</folder>
+		<folder>language</folder>
+		<folder>fields</folder>
+		<folder>sql</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="spbot_monitor_events" type="radio" default="RL" label="PLG_USER_SPAMBOTCHECK_EVENTS_TO_MONITOR" description="PLG_USER_SPAMBOTCHECK_EVENTS_TO_MONITOR_DESC" class="btn-group">
+					<option value="R">Registr.</option>
+					<option value="RL">Registration  + Login</option>
+				</field>
+				<field name="spbot_check_ip" type="radio" default="1" label="PLG_USER_SPAMBOTCHECK_Check_IP" description="PLG_USER_SPAMBOTCHECK_CHECK_IP_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_check_email" type="radio" default="1" label="PLG_USER_SPAMBOTCHECK_CHECK_EMAIL" description="PLG_USER_SPAMBOTCHECK_CHECK_EMAIL_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_username" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_CHECK_USERNAME" description="PLG_USER_SPAMBOTCHECK_CHECK_USERNAME_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spacer1" type="spacer" label="Black And White List Settings" description="Description" hr="true"/>
+				<field name="allow_generic_email_check" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_ALLOW_GENERIC_EMAIL" description="PLG_USER_SPAMBOTCHECK_ALLOW_GENERIC_EMAIL_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_whitelist_email" type="textarea" default="" label="PLG_USER_SPAMBOTCHECK_EMAIL_WHITELIST" description="PLG_USER_SPAMBOTCHECK_EMAIL_WHITELIST_DESC" rows="10" cols="5"/>
+				<field name="spbot_blacklist_email" type="textarea" default="" label="PLG_USER_SPAMBOTCHECK_EMAIL_BLACKLIST" description="PLG_USER_SPAMBOTCHECK_EMAIL_BLACKLIST_DESC" rows="10" cols="50"/>
+				<field name="spbot_bl_log_to_db" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_LOG_SPAMBOTS_BLACKLIST_TO_DB" description="PLG_USER_SPAMBOTCHECK_LOG_SPAMBOTS_BLACKLIST_TO_DB_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_whitelist_ip" type="text" default="" size="50" label="PLG_USER_SPAMBOTCHECK_IP_WHITELIST" description="PLG_USER_SPAMBOTCHECK_IP_WHITELIST_DESC"/>
+				<field name="spacer2" type="spacer" hr="true"/>
+				<field name="spbot_email_notifications" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_NOTIFY_ADMIN_VIA_EMAIL" description="PLG_USER_SPAMBOTCHECK_NOTIFY_ADMIN_VIA_EMAIL_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="email_notification_type" type="radio" default="R" label="PLG_USER_SPAMBOTCHECK_EMAIL_NOTIFICATION_TYPE" description="PLG_USER_SPAMBOTCHECK_EMAIL_NOTIFICATION_TYPE_DESC" class="btn-group">
+					<option value="R">Registr.</option>
+					<option value="L">Login</option>
+					<option value="RL">Registr. + Login</option>
+				</field>
+				<field name="spbot_log_to_db" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_LOG_SPAMBOT_TO_DB" description="PLG_USER_SPAMBOTCHECK_LOG_SPAMERS_TO_DB_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spacer3" type="spacer" hr="true"/>
+				<field name="spbot_stopforumspam" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_STOPFORUMSPAM" description="PLG_USER_SPAMBOTCHECK_STOPFORUMSPAM_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_stopforumspam_max_allowed_frequency" type="text" default="0" size="25" label="PLG_USER_SPAMBOTCHECK_ALLOWED_FREQUENCY" description="PLG_USER_SPAMBOTCHECK_STOPFORUMSPAM_FREQUENCY_DESC"/>
+				<field name="spacer4" type="spacer" hr="true"/>
+				<field name="spacer5" type="spacer" label="PLG_USER_SPAMBOTCHECK_PROJECTHONEYPOT_SPACER_LABEL" description="PLG_USER_SPAMBOTCHECK_PROJECTHONEYPOT_SPACER_DESC"/>
+				<field name="spbot_projecthoneypot" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_PROJECTHONEYPOT" description="PLG_USER_SPAMBOTCHECK_PROJECTHONEYPOT_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_projecthoneypot_api_key" type="text" default="" size="25" label="PLG_USER_SPAMBOTCHECK_DNS_PROJECTPHONEYPOT_KEY" description="PLG_USER_SPAMBOTCHECK_DNS_PROJECTPHONEYPOT_DESC"/>
+				<field name="spbot_projecthoneypot_max_allowed_threat_rating" type="text" default="0" size="25" label="PLG_USER_SPAMBOTCHECK_ALLOWED_THREAT_RATING" description="PLG_USER_SPAMBOTCHECK_PHP_THREAT_RATING_DESC"/>
+				<field name="spacer6" type="spacer" hr="true"/>
+				<field name="spbot_sorbs" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_DNS_SORBS" description="PLG_USER_SPAMBOTCHECK_DNS_SORBS_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="spbot_spamcop" type="radio" default="0" label="PLG_USER_SPAMBOTCHECK_DNS_SCAMPCOP" description="PLG_USER_SPAMBOTCHECK_DNS_SCAMPCOP_DESC" class="btn-group">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+			</fieldset>
+			<fieldset name="COMPONENT_OPTIONS" addfieldpath="/plugins/user/spambotcheck/fields">
+				<field type="componentparamdesc"/>
+				<field name="spbot_suspicious_time" type="integer" default="12" label="PLG_USER_SPAMBOTCHECK_SUSPICIOUS_TIME" description="PLG_USER_SPAMBOTCHECK_SUSPICIOUS_TIME_DESC" first="1" last="24" step="1"/>
+				<field name="spbot_allowed_hits" type="integer" default="3" label="PLG_USER_SPAMBOTCHECK_SUSPICIOUS_HITS" description="PLG_USER_SPAMBOTCHECK_SUSPICIOUS_HITS_DESC" first="1" last="10" step="1"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

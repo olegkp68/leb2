@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+	<name>Очищение сохраненной корзины</name>
+	<author>Stt</author>
+	<creationDate>Dec 2015</creationDate>
+	<copyright>(C) 2015 Stt. All rights reserved.</copyright>
+	<license>Commercial</license>
+	<authorEmail>stt_@yahoo.com</authorEmail>
+	<authorUrl>redozator.ru</authorUrl>
+	<version>3.0.0</version>
+	<description>Очищение сохраненной корзины после подтверждения заказа. Техподдержка: stt_@yahoo.com</description>
+	<files>
+		<filename plugin="sttcartudel">sttcartudel.php</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>

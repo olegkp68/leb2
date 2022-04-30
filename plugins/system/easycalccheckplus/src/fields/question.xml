@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="question-subform">
+        <field name="question" type="text" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONQ" description="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONQ_DESC"/>
+        <field name="answer" type="text" default="" size="40" label="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONA" description="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONA_DESC"/>
+        <field name="languageTag" type="language" client="site" default="en-GB" label="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONLANGUAGE" description="PLG_SYSTEM_EASYCALCCHECKPLUS_QUESTIONLANGUAGE_DESC"/>
+    </fieldset>
+</form>

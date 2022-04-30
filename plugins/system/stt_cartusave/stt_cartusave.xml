@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+        <name>stt_cartusave</name>
+        <author>stt</author>
+        <creationDate>Nov 2016</creationDate>
+        <copyright>Copyright (C) 2016 Stt. All rights reserved.</copyright>
+        <license>Commercial</license>
+        <authorEmail>stt_@yahoo.com</authorEmail>
+        <authorUrl>redozator.ru</authorUrl>
+        <version>3.0.3</version>
+        <description>Сохранение корзины для пользователя. Техподдержка: stt_@yahoo.com</description>
+        <files>
+            <filename plugin="stt_cartusave">stt_cartusave.php</filename>
+            <filename plugin="stt_cartusave">install.sql</filename>
+            <filename plugin="stt_cartusave">uninstall.sql</filename>
+        </files>
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">uninstall.sql</file>
+		</sql>
+	</uninstall>
+</extension>

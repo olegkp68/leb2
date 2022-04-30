@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_LOGINASUSER</name>
+	<author>Web357 (Yiannis Christodoulou)</author>
+	<creationDate>21 Mar 2019</creationDate>
+	<copyright>Copyright (C) 2009-2019 Web357. All rights reserved.</copyright>
+	<license>GNU/GPLv3, http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>support@web357.com</authorEmail>
+	<authorUrl>https://www.web357.com/</authorUrl>
+	<version>3.3.2</version>
+	<description>This plugin helps admin users to login to the front-end as a specific user. It is useful for websites where the admin user needs to check if a user can see their order(s) correctly, if a form was filled out correctly, or any issues with a user's personal details, etc. The Admin user will be accessing all this information as the external User in order to replicate any issues and assist the user.</description>
+	
+	<files>
+		<folder>assets</folder>
+		<folder>com_users_helper_files</folder>
+		<folder>elements</folder>
+		<folder>language</folder>
+		<filename plugin="loginasuser">loginasuser.php</filename>
+		<filename>index.html</filename>
+		<filename>script.install.helper.php</filename>
+	</files>
+	
+	<scriptfile>script.install.php</scriptfile>
+
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/web357framework/elements">
+			
+			<fieldset name="basic" label="Login as User - Parameters">
+
+				<!-- BEGIN: Version Check -->
+				<field type="header" label="W357FRM_HEADER_VERSION_CHECK" />
+				<field name="info" id="info" type="info" extension_type="plugin" extension_name="loginasuser" real_name="PLG_SYSTEM_LOGINASUSER" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+				<!-- END: Version Check -->
+
+				<!-- BEGIN: Check if Web357 Framework plugin exists -->
+				<field name="w357frmrk" id="w357frmrk" type="w357frmrk" addfieldpath="/plugins/system/loginasuser/elements" />
+				<!-- END: Check if Web357 Framework plugin exists -->
+
+				<field type="header" label="W357FRM_HEADER_PARAMETERS" />
+				
+				<field name="loginasuserinaction" id="loginasuserinaction" type="loginasuserinaction" label="" addfieldpath="/plugins/system/loginasuser/elements" />
+				
+				<field name="login_system" type="radio" class="btn-group btn-group-yesno" default="joomla" label="PLG_LOGINASUSER_LOGINSYSTEM_LBL" description="PLG_LOGINASUSER_LOGINSYSTEM_DESC">
+					<option value="joomla">PLG_LOGINASUSER_JOOMLA_LBL</option>
+					<option value="k2">PLG_LOGINASUSER_K2_LBL</option>
+					<option value="ExtendedReg">PLG_LOGINASUSER_EXTENDEDREG_LBL</option>
+				</field>
+				
+				<field name="send_message_to_admin" type="radio" class="btn-group btn-group-yesno" default="1" label="PLG_LOGINASUSER_INFORM_ADMIN_LBL" description="PLG_LOGINASUSER_INFORM_ADMIN_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field name="admin_email" type="email" validate="email" label="PLG_LOGINASUSER_ADMIN_EMAIL_LBL" default="" description="PLG_LOGINASUSER_ADMIN_EMAIL_DESC" size="25" showon="send_message_to_admin:1" />
+
+				<field name="url_redirect" type="url" default="index.php?option=com_users&amp;view=profile" label="PLG_LOGINASUSER_URL_LBL" description="PLG_LOGINASUSER_URL_DESC" size="50" />
+				
+				<field name="displayed_text" type="text" default="Login as %s »" label="PLG_LOGINASUSER_DISPLAYED_TEXT_LBL" description="PLG_LOGINASUSER_DISPLAYED_TEXT_DESC" />
+
+				<field name="custom_css" type="textarea" default="" label="PLG_LOGINASUSER_CUSTOM_CSS_LBL" description="PLG_LOGINASUSER_CUSTOM_CSS_DESC" rows="6" cols="50" filter="raw" />
+				
+				<!-- BEGIN: JED Review -->
+				<field name="jedreview" id="jedreview" type="jedreview" extension_type="module" extension_name="loginasuser" real_name="PLG_SYSTEM_LOGINASUSER" plugin_type="authentication" label="" addfieldpath="/plugins/system/web357framework/elements" />
+				<!-- END: JED Review -->
+				
+			</fieldset>
+
+			<!-- ::: TEXTS FOR LANGUAGES ::: -->
+			<fieldset name="permissions_for_loginasuser" label="PLG_LOGINASUSER_PERMISSIONS_FIELDSET_LBL">
+				
+				<!-- BEGIN: Texts for Languages -->
+				<field type="header" class="w357_large_header" label="PLG_LOGINASUSER_PERMISSIONS_FIELDSET_LBL" />
+
+				<!-- BEGIN: Check if Web357 Framework J! Plugin is enabled -->
+				<field name="web357frameworkstatus" id="web357frameworkstatus" type="web357frameworkstatus" addfieldpath="/plugins/system/loginasuser/elements" />
+				<!-- END: Check if Web357 Framework J! Plugin is enabled -->
+
+				<!-- END: Texts for Languages -->
+			</fieldset>
+
+			<fieldset name="description" label="W357FRM_HEADER_DESCRIPTION">
+
+				<!-- BEGIN: Description -->
+				<field type="header" label="W357FRM_HEADER_DESCRIPTION" />
+				<field name="description" id="description" type="description" extension_type="plugin" extension_name="loginasuser" real_name="PLG_SYSTEM_LOGINASUSER" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+				<!-- END: Description -->
+
+				<!-- BEGIN: Version Check -->
+				<field type="header" label="W357FRM_HEADER_VERSION_CHECK" />
+				<field name="info" id="info" type="info" extension_type="plugin" extension_name="loginasuser" real_name="PLG_SYSTEM_LOGINASUSER" plugin_type="system" label="" addfieldpath="/plugins/system/web357framework/elements" />
+				<!-- END: Version Check -->
+			
+			</fieldset>
+			
+			<fieldset name="about" label="W357FRM_HEADER_ABOUT_WEB357">
+				
+				<!-- BEGIN: About Web357 -->
+				<field type="header" label="W357FRM_HEADER_ABOUT_WEB357" />
+				<field name="about" id="about" type="about" label="" addfieldpath="/plugins/system/web357framework/elements" />
+				<!-- END: About Web357 -->
+				
+			</fieldset>
+			
+		</fields>
+	</config>
+
+	<updateservers><server type="extension" priority="1" name="Login as User (pro version)"><![CDATA[https://updates.web357.com/loginasuser/loginasuser_pro.xml]]></server></updateservers>
+
+</extension>
