@@ -23,7 +23,7 @@ class plgUserSttcartlogin extends JPlugin
 		$r = $db->loadResult();
 		if ($r) {
 			$cookcart = base64_decode($r);
-			//----------------
+			//---------------- сохраним корзину из БД
 			$cookcart_old = json_decode($cookcart);
 			//------------
 			if ($cookcart) {
