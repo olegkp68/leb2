@@ -75,12 +75,23 @@ class plgSystemstt_cartusave extends JPlugin
 
 		$session = JFactory::getSession();
 		$cartSession = $session->get('vmcart', 0, 'vm');
+		//-----------------
+		/*
+		$cartSession_std = json_decode($cartSession);
+		foreach ($cartSession_std->cartProductsData as $p_new) {
+			$new[$p_new->virtuemart_product_id] = $p_new->quantity;
+		}*/
+		//-----------------
 		if (!empty($cartSession)) {
 			$db->setQuery("INSERT INTO #__sttcartusave (created,vmcart,userid) values(NOW()," .
 				$db->Quote(base64_encode($cartSession)) .
-				', ' . $db->Quote($userid) . ") ON DUPLICATE KEY UPDATE created=NOW(), vmcart="  .
+				', ' . $db->quote($userid) . ") ON DUPLICATE KEY UPDATE created=NOW(), vmcart="  .
 				$db->Quote(base64_encode($cartSession)));
 			$db->query();
 		}
+		//---------------------
+		//$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=" . $db->quote(json_encode($new)) . " WHERE userid=" . $db->Quote($userid));
+		//$db->query();
+		//---------------------
 	}
 }
