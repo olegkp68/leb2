@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * loads the add to cart button
@@ -12,10 +13,10 @@
  * @version $Id: addtocartbtn.php 8024 2014-06-12 15:08:59Z Milbo $
  */
 // Check to ensure this file is included in Joomla!
-defined ('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');
 
-if($viewData['orderable']) {
-	echo '<input type="submit" name="addtocart" class="addtocart-button" value="'.vmText::_( 'COM_VIRTUEMART_CART_ADD_TO' ).'" title="'.vmText::_( 'COM_VIRTUEMART_CART_ADD_TO' ).'" />';
+if ($viewData['orderable']) {
+	echo '<input type="submit" name="addtocart" class="addtocart-button " value="' . vmText::_('COM_VIRTUEMART_CART_ADD_TO') . '" title="' . vmText::_('COM_VIRTUEMART_CART_ADD_TO') . '" />';
 } else {
-	echo '<span name="addtocart" class="addtocart-button-disabled" title="'.vmText::_( 'COM_VIRTUEMART_ADDTOCART_CHOOSE_VARIANT' ).'" >'.vmText::_( 'COM_VIRTUEMART_ADDTOCART_CHOOSE_VARIANT' ).'</span>';
+	echo '<span name="addtocart" class="addtocart-button-disabled" title="' . vmText::_('COM_VIRTUEMART_ADDTOCART_CHOOSE_VARIANT') . '" >' . vmText::_('COM_VIRTUEMART_ADDTOCART_CHOOSE_VARIANT') . '</span>';
 }

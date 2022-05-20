@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5"
+           type="plugin"
+           group="ajax"
+           method="upgrade">
+	<name>Ajax cart products highlite</name>
+	<version>0.1</version>
+	<creationDate>May 20, 2022</creationDate>
+	<author>Oleg Koval</author>
+	<authorEmail>olegkp@gmail.com</authorEmail>
+	<authorUrl>http://www.siprint.com.ua</authorUrl>
+	<license>GNU General Public License version 2 or later</license>
+	<copyright>Copyright (C) 2013 betweenbrain llc. All rights reserved.</copyright>
+	<description>Joomla Ajax Cart Products Highlite Plugin</description>
+
+	<files>
+		<filename plugin="carthighlite">carthighlite.php</filename>
+	</files>
+
+</extension>

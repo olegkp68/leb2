@@ -2708,7 +2708,7 @@ div#vmMainPage input.button {
 }
 
 span.addtocart-button input.addtocart-button {
-	width: 65px;
+	width: auto;
 }
 
 .ask-a-question .enquiry-btn {
@@ -3131,7 +3131,7 @@ body span.addtocart-button input.addtocart-button, body span.addtocart-button in
 	color: white;
 	background-color: #C4013D;
 	border: 1px solid #C4013D;
-	padding: 1px 3px;
+	padding: 1px 5px;
 	margin-top: 2px;
 }
 
@@ -3868,7 +3868,13 @@ a.fancybox:hover, a.fancybox:focus {
 	margin-bottom: 10px;
 	display: inline-block;
 }
+/*----- cart_highlitet ------------*/
 
+.cart_highlite {
+	background-color: #04AA6D!important;
+	border-color:  #04AA6D!important;
+}
+/*--------------------------------------------------------*/
 @media (max-width: 800px) {
 	.productdetails div[class*="vm-col-"] {
 		width: 100%;

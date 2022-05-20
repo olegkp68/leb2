@@ -29,7 +29,7 @@ class plgUserSttcartlogin extends JPlugin
 		$r = $db->loadResult();
 		if ($r) {
 			$cookcart = base64_decode($r);
-			//---------------- сохраним корзину из БД
+			//--------------------------------------------- сохраним корзину из БД
 			$cookcart_old = json_decode($cookcart);
 			//------------
 			if ($cookcart) {
@@ -131,6 +131,7 @@ class plgUserSttcartlogin extends JPlugin
 		if ($add) {
 			vmInfo('COM_VIRTUEMART_CART_PRODUCT_NO_AVAILABLE_ADD');
 		}
+
 		return true;
 	}
 }

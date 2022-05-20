@@ -47,7 +47,7 @@ class JConfig {
 	public $offline = '0';
 	public $offline_image = '';
 	public $offline_message = 'Сайт закрыт на техническое обслуживание.<br />Пожалуйста, зайдите позже.';
-	public $offset = 'Europe/Berlin';
+	public $offset = 'Europe/Kiev';
 	public $offset_user = 'UTC';
 	public $password = '';
 	public $robots = '';
@@ -57,7 +57,7 @@ class JConfig {
 	public $sef_suffix = '1';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $session_handler = 'database';
-	public $sitename = 'leb-design.de';
+	public $sitename = 'leb2';
 	public $sitename_pagetitles = '1';
 	public $smtpauth = '0';
 	public $smtphost = 'localhost';

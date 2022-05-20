@@ -44,6 +44,7 @@ if ($_REQUEST['option'] == 'com_virtuemart') {
 }
 
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/carthighlite.js');
 
 // Check for a custom CSS file
 $userCss = JPATH_SITE . '/templates/' . $this->template . '/css/user.css';
@@ -117,6 +118,8 @@ echo($this->direction == 'rtl' ? ' rtl' : '');
 <div class="body">
 	<div id="site" class="container<?php echo($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 		<!-- Header -->
+		
+		
 		<table id="top" cellpadding="0" cellspacing="0" border="0">
 			<tr>
 				<td id="top-left">
@@ -249,6 +252,9 @@ echo($this->direction == 'rtl' ? ' rtl' : '');
 </div>
 
 <jdoc:include type="modules" name="debug" style="none"/>
+
+
+
 </body>
 
 </html>

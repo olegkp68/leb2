@@ -93,5 +93,7 @@ class plgSystemstt_cartusave extends JPlugin
 		//$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=" . $db->quote(json_encode($new)) . " WHERE userid=" . $db->Quote($userid));
 		//$db->query();
 		//---------------------
+
 	}
+	
 }
