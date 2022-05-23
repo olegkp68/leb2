@@ -27,28 +27,31 @@ jimport('joomla.application.component.controller');
  * @package VirtueMart
  * @subpackage Cart
  */
-class VirtueMartControllerCart extends JControllerLegacy {
+class VirtueMartControllerCart extends JControllerLegacy
+{
 
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 
 		$this->useSSL = vmURI::useSSL();	//VmConfig::get('useSSL', 0);
 		$this->useXHTML = false;
-
 	}
 
-/**/
-function click_removeall() {
-    $cart = VirtueMartCart::getCart();
-	$cart->emptyCart();
-}
+	/**/
+	function click_removeall()
+	{
+		$cart = VirtueMartCart::getCart();
+		$cart->emptyCart();
+	}
 
-/**/
+	/**/
 
-	public function display($cachable = false, $urlparams = false){
+	public function display($cachable = false, $urlparams = false)
+	{
 
-		if(VmConfig::get('use_as_catalog', 0)){
+		if (VmConfig::get('use_as_catalog', 0)) {
 			// Get a continue link
 			$virtuemart_category_id = shopFunctionsF::getLastVisitedCategoryId();
 			$categoryLink = '';
@@ -63,12 +66,12 @@ function click_removeall() {
 
 			$continue_link = JRoute::_('index.php?option=com_virtuemart&view=category' . $categoryLink . $ItemIdLink, FALSE);
 			$app = JFactory::getApplication();
-			$app ->redirect($continue_link,'This is a catalogue, you cannot acccess the cart');
+			$app->redirect($continue_link, 'This is a catalogue, you cannot acccess the cart');
 		}
 
 		$document = JFactory::getDocument();
 		$viewType = $document->getType();
-		$tmpl = vRequest::getCmd('tmpl',false);
+		$tmpl = vRequest::getCmd('tmpl', false);
 		if ($viewType == 'raw' and $tmpl == 'component') {
 			$viewType = 'html';
 		}
@@ -83,14 +86,14 @@ function click_removeall() {
 		$cart = VirtueMartCart::getCart();
 
 		$cart->order_language = vRequest::getString('order_language', $cart->order_language);
-		if(!isset($force))$force = VmConfig::get('oncheckout_opc',true);
+		if (!isset($force)) $force = VmConfig::get('oncheckout_opc', true);
 		$cart->prepareCartData(false);
 
-		$html=true;
+		$html = true;
 		$request = vRequest::getRequest();
 		$task = vRequest::getCmd('task');
 
-		if(($task == 'confirm' or isset($request['confirm'])) and !$cart->getInCheckOut()){
+		if (($task == 'confirm' or isset($request['confirm'])) and !$cart->getInCheckOut()) {
 			$cart->confirmDone();
 			$view = $this->getView('cart', 'html');
 			$view->setLayout('orderdone');
@@ -99,8 +102,8 @@ function click_removeall() {
 			return true;
 		} else {
 			//$cart->_inCheckOut = false;
-			$redirect = (isset($request['checkout']) or $task=='checkout' );
-			if( VmConfig::get('directCheckout',false) and !$redirect and !$cart->getInCheckOut() and !vRequest::getInt('dynamic',0) and !$cart->_dataValidated) {
+			$redirect = (isset($request['checkout']) or $task == 'checkout');
+			if (VmConfig::get('directCheckout', false) and !$redirect and !$cart->getInCheckOut() and !vRequest::getInt('dynamic', 0) and !$cart->_dataValidated) {
 				$redirect = true;
 				vmdebug('directCheckout');
 			}
@@ -116,43 +119,45 @@ function click_removeall() {
 		return $this;
 	}
 
-	public function updateCartNoMethods($html=true,$force = null){
+	public function updateCartNoMethods($html = true, $force = null)
+	{
 		return $this->updatecart($html, $force, false);
 	}
 
-	public function updatecart($html=true,$force = null, $methods = true){
+	public function updatecart($html = true, $force = null, $methods = true)
+	{
 
 		$cart = VirtueMartCart::getCart();
 		$cart->_fromCart = true;
 		$cart->_redirected = false;
-		if(vRequest::getCmd('cancel',0)){
+		if (vRequest::getCmd('cancel', 0)) {
 			$cart->_inConfirm = false;
 		}
-		if($cart->getInCheckOut()){
-			vRequest::setVar('checkout',true);
+		if ($cart->getInCheckOut()) {
+			vRequest::setVar('checkout', true);
 		}
 
 		$cart->storeCartSession = false;
 		$cart->saveCartFieldsInCart();
 
-		if($cart->updateProductCart()){
+		if ($cart->updateProductCart()) {
 			//vmInfo('COM_VIRTUEMART_PRODUCT_UPDATED_SUCCESSFULLY');
 		}
 
 
 		$STsameAsBT = vRequest::getInt('STsameAsBT', null);
-		if(isset($STsameAsBT)){
+		if (isset($STsameAsBT)) {
 			$cart->STsameAsBT = $STsameAsBT;
 		}
 
 		$currentUser = JFactory::getUser();
-		if(!$currentUser->guest){
+		if (!$currentUser->guest) {
 			$cart->selected_shipto = vRequest::getVar('shipto', $cart->selected_shipto);
-			if(!empty($cart->selected_shipto)){
+			if (!empty($cart->selected_shipto)) {
 				$userModel = VmModel::getModel('user');
 				$stData = $userModel->getUserAddressList($currentUser->id, 'ST', $cart->selected_shipto);
 
-				if(isset($stData[0]) and is_object($stData[0])){
+				if (isset($stData[0]) and is_object($stData[0])) {
 					$stData = get_object_vars($stData[0]);
 					$cart->ST = $stData;
 					$cart->STsameAsBT = 0;
@@ -160,21 +165,21 @@ function click_removeall() {
 					$cart->selected_shipto = 0;
 				}
 			}
-			if(empty($cart->selected_shipto)){
+			if (empty($cart->selected_shipto)) {
 				$cart->STsameAsBT = 1;
 				$cart->selected_shipto = 0;
 				//$cart->ST = $cart->BT;
 			}
 		} else {
 			$cart->selected_shipto = 0;
-			if(!empty($cart->STsameAsBT)){
+			if (!empty($cart->STsameAsBT)) {
 				//$cart->ST = $cart->BT;
 			}
 		}
 
-		if(!isset($force))$force = VmConfig::get('oncheckout_opc',true);
+		if (!isset($force)) $force = VmConfig::get('oncheckout_opc', true);
 
-		if($methods){
+		if ($methods) {
 			$cart->setShipmentMethod($force, !$html);
 			$cart->setPaymentMethod($force, !$html);
 		}
@@ -182,20 +187,20 @@ function click_removeall() {
 		VmConfig::importVMPlugins('vmcustom');
 
 		$dispatcher = JDispatcher::getInstance();
-		$dispatcher->trigger('plgVmOnUpdateCart',array(&$cart, &$force, &$html));
+		$dispatcher->trigger('plgVmOnUpdateCart', array(&$cart, &$force, &$html));
 
 		$cart->prepareCartData();
 
 		$coupon_code = trim(vRequest::getString('coupon_code', ''));
-		if(!empty($coupon_code)){
+		if (!empty($coupon_code)) {
 			$msg = $cart->setCouponCode($coupon_code);
-			if($msg) vmInfo($msg);
+			if ($msg) vmInfo($msg);
 			$cart->setOutOfCheckout();
 		}
 
 		//We enable storing of the cart again, execute store session and just set the boolean to store the cart to yes, which is then executed in the display function
 		$cart->storeCartSession = true;
-		$cart->setCartIntoSession(false,true);
+		$cart->setCartIntoSession(false, true);
 		$cart->storeToDB = true;
 
 		if ($html) {
@@ -203,16 +208,16 @@ function click_removeall() {
 		} else {
 			$json = new stdClass();
 			ob_start();
-			$this->display ();
+			$this->display();
 			$json->msg = ob_get_clean();
 			echo json_encode($json);
 			jExit();
 		}
-
 	}
 
 
-	public function updatecartJS(){
+	public function updatecartJS()
+	{
 		$this->updatecart(false);
 	}
 
@@ -221,27 +226,32 @@ function click_removeall() {
 	 * legacy
 	 * @deprecated
 	 */
-	public function confirm(){
+	public function confirm()
+	{
 		$this->updatecart();
 	}
 
-	public function orderdone(){
+	public function orderdone()
+	{
 		$this->updatecart();
 	}
 
-	public function setshipment(){
-		$this->updatecart(true,true);
+	public function setshipment()
+	{
+		$this->updatecart(true, true);
 	}
 
-	public function setpayment(){
-		$this->updatecart(true,true);
+	public function setpayment()
+	{
+		$this->updatecart(true, true);
 	}
 
 	/**
 	 * Add the product to the cart
 	 * @access public
 	 */
-	public function add() {
+	public function add()
+	{
 		$mainframe = JFactory::getApplication();
 		if (VmConfig::get('use_as_catalog', 0)) {
 			$msg = vmText::_('COM_VIRTUEMART_PRODUCT_NOT_ADDED_SUCCESSFULLY');
@@ -253,7 +263,7 @@ function click_removeall() {
 			$virtuemart_product_ids = vRequest::getInt('virtuemart_product_id');
 
 			$error = false;
-			$cart->add($virtuemart_product_ids,$error);
+			$cart->add($virtuemart_product_ids, $error);
 			if (!$error) {
 				$msg = vmText::_('COM_VIRTUEMART_PRODUCT_ADDED_SUCCESSFULLY');
 				$type = '';
@@ -264,7 +274,6 @@ function click_removeall() {
 
 			$mainframe->enqueueMessage($msg, $type);
 			$mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart', FALSE));
-
 		} else {
 			$mainframe->enqueueMessage('Cart does not exist?', 'error');
 		}
@@ -274,36 +283,37 @@ function click_removeall() {
 	 * Add the product to the cart, with JS
 	 * @access public
 	 */
-	public function addJS() {
-		if(VmConfig::showDebug()) {
+	public function addJS()
+	{
+		if (VmConfig::showDebug()) {
 			VmConfig::$echoDebug = 1;
 			ob_start();
 		}
 		$this->json = new stdClass();
 		$cart = VirtueMartCart::getCart();
 		if ($cart) {
-			$view = $this->getView ('cart', 'json');
+			$view = $this->getView('cart', 'json');
 			$virtuemart_category_id = shopFunctionsF::getLastVisitedCategoryId();
 
 			$virtuemart_product_ids = vRequest::getInt('virtuemart_product_id');
 
-			$view = $this->getView ('cart', 'json');
+			$view = $this->getView('cart', 'json');
 			$errorMsg = 0;
 
-			$products = $cart->add($virtuemart_product_ids, $errorMsg );
+			$products = $cart->add($virtuemart_product_ids, $errorMsg);
 
 
 			$view->setLayout('padded');
 			$this->json->stat = '1';
 
-			if(!$products or count($products) == 0){
+			if (!$products or count($products) == 0) {
 				$product_name = vRequest::getWord('pname');
-				if(is_array($virtuemart_product_ids)){
+				if (is_array($virtuemart_product_ids)) {
 					$pId = $virtuemart_product_ids[0];
 				} else {
 					$pId = $virtuemart_product_ids;
 				}
-				if($product_name && $pId) {
+				if ($product_name && $pId) {
 					$view->product_name = $product_name;
 					$view->virtuemart_product_id = $pId;
 				} else {
@@ -311,20 +321,20 @@ function click_removeall() {
 				}
 				$view->setLayout('perror');
 			}
-			if(!empty($errorMsg)){
+			if (!empty($errorMsg)) {
 				$this->json->stat = '2';
 				$view->setLayout('perror');
 			}
 
-			$view->assignRef('products',$products);
-			$view->assignRef('errorMsg',$errorMsg);
+			$view->assignRef('products', $products);
+			$view->assignRef('errorMsg', $errorMsg);
 
-			if(!VmConfig::showDebug()) {
+			if (!VmConfig::showDebug()) {
 				ob_start();
 			}
-			$view->display ();
+			$view->display();
 			$this->json->msg = ob_get_clean();
-			if(VmConfig::showDebug()) {
+			if (VmConfig::showDebug()) {
 				VmConfig::$echoDebug = 0;
 			}
 		} else {
@@ -341,11 +351,12 @@ function click_removeall() {
 	 *
 	 * @access public
 	 */
-	public function viewJS() {
+	public function viewJS()
+	{
 
 		$cart = VirtueMartCart::getCart(false);
-		$cart -> prepareCartData();
-		$data = $cart -> prepareAjaxData(true);
+		$cart->prepareCartData();
+		$data = $cart->prepareAjaxData(true);
 
 		echo json_encode($data);
 		Jexit();
@@ -354,7 +365,8 @@ function click_removeall() {
 	/**
 	 * For selecting couponcode to use, opens a new layout
 	 */
-	public function edit_coupon() {
+	public function edit_coupon()
+	{
 
 		$view = $this->getView('cart', 'html');
 		$view->setLayout('edit_coupon');
@@ -367,7 +379,8 @@ function click_removeall() {
 	 * Store the coupon code in the cart
 	 * @author Max Milbers
 	 */
-	public function setcoupon() {
+	public function setcoupon()
+	{
 
 		$this->updatecart();
 	}
@@ -376,7 +389,8 @@ function click_removeall() {
 	/**
 	 * For selecting shipment, opens a new layout
 	 */
-	public function edit_shipment() {
+	public function edit_shipment()
+	{
 
 
 		$view = $this->getView('cart', 'html');
@@ -389,7 +403,8 @@ function click_removeall() {
 	/**
 	 * To select a payment method
 	 */
-	public function editpayment() {
+	public function editpayment()
+	{
 
 		$view = $this->getView('cart', 'html');
 		$view->setLayout('select_payment');
@@ -402,21 +417,23 @@ function click_removeall() {
 	 * Delete a product from the cart
 	 * @access public
 	 */
-	public function delete() {
+	public function delete()
+	{
 		$mainframe = JFactory::getApplication();
 		/* Load the cart helper */
 		$cart = VirtueMartCart::getCart();
 		if ($cart->removeProductCart())
-		$mainframe->enqueueMessage(vmText::_('COM_VIRTUEMART_PRODUCT_REMOVED_SUCCESSFULLY'));
+			$mainframe->enqueueMessage(vmText::_('COM_VIRTUEMART_PRODUCT_REMOVED_SUCCESSFULLY'));
 		else
-		$mainframe->enqueueMessage(vmText::_('COM_VIRTUEMART_PRODUCT_NOT_REMOVED_SUCCESSFULLY'), 'error');
+			$mainframe->enqueueMessage(vmText::_('COM_VIRTUEMART_PRODUCT_NOT_REMOVED_SUCCESSFULLY'), 'error');
 
 		$this->display();
 	}
 
-	public function getManager(){
+	public function getManager()
+	{
 		$id = vmAccess::getBgManagerId();
-		return JFactory::getUser( $id );
+		return JFactory::getUser($id);
 	}
 
 	/**
@@ -424,42 +441,42 @@ function click_removeall() {
 	 *
 	 * @author Maik Künnemann
 	 */
-	public function changeShopper() {
-		vRequest::vmCheckToken() or jexit ('Invalid Token');
+	public function changeShopper()
+	{
+		vRequest::vmCheckToken() or jexit('Invalid Token');
 		$app = JFactory::getApplication();
 
-		$redirect = vRequest::getString('redirect',false);
-		if($redirect){
+		$redirect = vRequest::getString('redirect', false);
+		if ($redirect) {
 			$red = $redirect;
 		} else {
 			$red = JRoute::_('index.php?option=com_virtuemart&view=cart');
 		}
 
 		$id = vmAccess::getBgManagerId();
-		$current = JFactory::getUser( );;
+		$current = JFactory::getUser();;
 		$manager = vmAccess::manager('user');
-		if(!$manager){
-			vmdebug('Not manager ',$id,$current);
-			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name .' ('.$current->username.')'), 'error');
+		if (!$manager) {
+			vmdebug('Not manager ', $id, $current);
+			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name . ' (' . $current->username . ')'), 'error');
 			$app->redirect($red);
 			return false;
 		}
 
 		$userID = vRequest::getCmd('userID');
-		if($manager and !empty($userID) and $userID!=$current->id ){
-			if($userID == $id){
-
-			} else if(vmAccess::manager('core',$userID)){
-				vmdebug('Manager want to change to  '.$userID,$id,$current);
-			//if($newUser->authorise('core.admin', 'com_virtuemart') or $newUser->authorise('vm.user', 'com_virtuemart')){
-				$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name .' ('.$current->username.')'), 'error');
+		if ($manager and !empty($userID) and $userID != $current->id) {
+			if ($userID == $id) {
+			} else if (vmAccess::manager('core', $userID)) {
+				vmdebug('Manager want to change to  ' . $userID, $id, $current);
+				//if($newUser->authorise('core.admin', 'com_virtuemart') or $newUser->authorise('vm.user', 'com_virtuemart')){
+				$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name . ' (' . $current->username . ')'), 'error');
 				$app->redirect($red);
 			}
 		}
 
 		$searchShopper = vRequest::getString('searchShopper');
 
-		if(!empty($searchShopper)){
+		if (!empty($searchShopper)) {
 			$this->display();
 			return false;
 		}
@@ -467,11 +484,11 @@ function click_removeall() {
 		//update session
 		$session = JFactory::getSession();
 		$adminID = $session->get('vmAdminID');
-		if(!isset($adminID)) {
+		if (!isset($adminID)) {
 			$session->set('vmAdminID', vmCrypt::encrypt($current->id));
 		}
 
-		if(!empty($userID)){
+		if (!empty($userID)) {
 			$newUser = JFactory::getUser($userID);
 			$session->set('user', $newUser);
 			session_write_close();
@@ -485,17 +502,17 @@ function click_removeall() {
 		//behaviour on admin change shopper
 		if (VmConfig::get('ChangeShopperDeleteCart', 1)) {
 
-//		Changing shopper empties all existing cart data and give new cart id
+			//		Changing shopper empties all existing cart data and give new cart id
 			$cart->resetEntireCart();
-			vmdebug('Cart deleted',$cart);
+			vmdebug('Cart deleted', $cart);
 		}
 
-		if(!empty($userID)){
+		if (!empty($userID)) {
 			$usermodel = VmModel::getModel('user');
 			$data = $usermodel->getUserAddressList($userID, 'BT');
 
-			if(isset($data[0])){
-				foreach($data[0] as $k => $v) {
+			if (isset($data[0])) {
+				foreach ($data[0] as $k => $v) {
 					$data[$k] = $v;
 				}
 			} else {
@@ -518,11 +535,11 @@ function click_removeall() {
 		$cart->setCartIntoSession();
 		$this->resetShopperGroup(false);
 
-		$msg = vmText::sprintf('COM_VIRTUEMART_CART_CHANGED_SHOPPER_SUCCESSFULLY', $newUser->name .' ('.$newUser->username.')');
+		$msg = vmText::sprintf('COM_VIRTUEMART_CART_CHANGED_SHOPPER_SUCCESSFULLY', $newUser->name . ' (' . $newUser->username . ')');
 
-		if(empty($userID)){
+		if (empty($userID)) {
 			$red = JRoute::_('index.php?option=com_virtuemart&view=user&task=editaddresscart&addrtype=BT&new=1');
-			$msg = vmText::sprintf('COM_VIRTUEMART_CART_CHANGED_SHOPPER_SUCCESSFULLY','');
+			$msg = vmText::sprintf('COM_VIRTUEMART_CART_CHANGED_SHOPPER_SUCCESSFULLY', '');
 		}
 
 		$app->enqueueMessage($msg, 'info');
@@ -534,21 +551,22 @@ function click_removeall() {
 	 *
 	 * @author Maik Künnemann
 	 */
-	public function changeShopperGroup() {
-		vRequest::vmCheckToken() or jexit ('Invalid Token');
+	public function changeShopperGroup()
+	{
+		vRequest::vmCheckToken() or jexit('Invalid Token');
 		$app = JFactory::getApplication();
 
-		$redirect = vRequest::getString('redirect',false);
-		if($redirect){
+		$redirect = vRequest::getString('redirect', false);
+		if ($redirect) {
 			$red = $redirect;
 		} else {
 			$red = JRoute::_('index.php?option=com_virtuemart&view=cart');
 		}
 
-		$jUser = JFactory::getUser( );
+		$jUser = JFactory::getUser();
 		$manager = vmAccess::manager('user');
-		if(!$manager){
-			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $jUser->name .' ('.$jUser->username.')'), 'error');
+		if (!$manager) {
+			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $jUser->name . ' (' . $jUser->username . ')'), 'error');
 			$app->redirect($red);
 			return false;
 		}
@@ -562,25 +580,25 @@ function click_removeall() {
 		//update session
 		$session = JFactory::getSession();
 
-		$add = $session->get('vm_shoppergroups_add',array(),'vm');
-		if(!empty($add)){
-			if(!is_array($add)) $add = (array)$add;
+		$add = $session->get('vm_shoppergroups_add', array(), 'vm');
+		if (!empty($add)) {
+			if (!is_array($add)) $add = (array)$add;
 			$toAdd = array_merge($add, $toAdd);
 			$toAdd = array_unique($toAdd);
 		}
-		if(!empty($toRemove)){
+		if (!empty($toRemove)) {
 			$toAdd = array_diff($toAdd, $toRemove);
 		}
 		$session->set('vm_shoppergroups_add', $toAdd, 'vm');
 
-		$remove = $session->get('vm_shoppergroups_remove',array(),'vm');
-		if($remove!==0){
-			if(!is_array($remove)) $remove = (array)$remove;
+		$remove = $session->get('vm_shoppergroups_remove', array(), 'vm');
+		if ($remove !== 0) {
+			if (!is_array($remove)) $remove = (array)$remove;
 			$toRemove = array_merge($remove, $toRemove);
 			$toRemove = array_unique($toRemove);
 		}
-		if(!empty($toAdd)){
-			$toRemove = array_diff($toRemove,$toAdd);
+		if (!empty($toAdd)) {
+			$toRemove = array_diff($toRemove, $toAdd);
 		}
 		$session->set('vm_shoppergroups_remove', $toRemove, 'vm');
 		$session->set('vm_shoppergroups_set.' . $vmUser->virtuemart_user_id, TRUE, 'vm');
@@ -592,21 +610,22 @@ function click_removeall() {
 		$app->redirect($red);
 	}
 
-	public function resetShopperGroup($exeRedirect = true) {
+	public function resetShopperGroup($exeRedirect = true)
+	{
 
 		$app = JFactory::getApplication();
 
-		$redirect = vRequest::getString('redirect',false);
-		if($redirect){
+		$redirect = vRequest::getString('redirect', false);
+		if ($redirect) {
 			$red = $redirect;
 		} else {
 			$red = JRoute::_('index.php?option=com_virtuemart&view=cart');
 		}
 
-		$current = JFactory::getUser( );
+		$current = JFactory::getUser();
 		$manager = vmAccess::manager('user');
-		if(!$manager){
-			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name .' ('.$current->username.')'), 'error');
+		if (!$manager) {
+			$app->enqueueMessage(vmText::sprintf('COM_VIRTUEMART_CART_CHANGE_SHOPPER_NO_PERMISSIONS', $current->name . ' (' . $current->username . ')'), 'error');
 			$app->redirect($red);
 			return false;
 		}
@@ -619,14 +638,15 @@ function click_removeall() {
 
 		$msg = vmText::sprintf('COM_VIRTUEMART_CART_RESET_SHOPPERGROUP_SUCCESSFULLY');
 
-		if($exeRedirect) {
+		if ($exeRedirect) {
 			$app->enqueueMessage($msg, 'info');
 			$app->redirect($red);
 		}
 	}
 
 
-	function cancel() {
+	function cancel()
+	{
 
 		$cart = VirtueMartCart::getCart();
 		if ($cart) {
@@ -634,7 +654,6 @@ function click_removeall() {
 		}
 		$this->display();
 	}
-
 }
 
 //pure php no Tag

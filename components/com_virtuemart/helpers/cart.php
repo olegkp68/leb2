@@ -681,10 +681,21 @@ class VirtueMartCart
 
 		if (!empty($this->virtuemart_cart_id)) {
 			$carts->delete($this->virtuemart_cart_id, 'virtuemart_cart_id');
+			// -------
+			$currentUser = JFactory::getUser();
+			if (!empty($currentUser->id)) {
+				$db = JFactory::getDBO();
+				$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=0 WHERE userid=" . $db->Quote($currentUser->id));
+				$db->query();
+			}
 		} else {
 			$currentUser = JFactory::getUser();
 			if (!empty($currentUser->id)) {
 				$carts->delete($currentUser->id);
+				//-----------
+				// $db = JFactory::getDBO();
+				// $db->setQuery("UPDATE #__sttcartusave SET vmprod_id=0 WHERE userid=" . $db->Quote($currentUser->id));
+				// $db->query();
 			}
 		}
 	}

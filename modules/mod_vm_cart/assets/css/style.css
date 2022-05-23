@@ -128,7 +128,7 @@
   padding: 5px 0;
   padding-right: 5px;
   padding-left: -5px;
-  
+  height: 5.7em;
 }
 
 .vmCartModule .product_row img {
@@ -141,10 +141,12 @@
 
 .cart_content .block-left {
   float: left;
-  width: 70%;
+  width: 100%;
   padding-left: 70px;
 }
-
+.cart_content .quantity {
+	font-weight: 700;
+}
 .cart_content .product_name a {
   display: inline;
   float: none;
@@ -160,6 +162,7 @@
   float: right;
   text-align: right;
   width: 25%;
+  display: none;
 }
 
 .cart_content .total {
@@ -183,6 +186,7 @@
   margin: 10px 0;
   text-align: center;
   width: 100%;
+  display: none;
 }
 
 .cart_content .show_cart a {

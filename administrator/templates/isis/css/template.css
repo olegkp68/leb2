@@ -1685,6 +1685,31 @@ table {
 	vertical-align: top;
 	border-top: 1px solid #ddd;
 }
+.adminlist.table td.is_featured,  .adminlist.table td.publ,  .adminlist.table th.publ{
+	text-align: center;
+}
+
+.adminlist.table-striped tbody > tr:nth-child(2n+1) > td.color
+{
+	background: #e4f1fc;
+	text-align: right;
+	padding-right: 1rem;
+}
+.adminlist.table-striped tbody > tr:nth-child(2n) > td.color, .adminlist.table-striped  th.color
+{
+	background: #d7ffd7;
+	text-align: right;
+	padding-right: 1rem;
+}
+.adminlist.table-striped  th.color {
+	text-align: center;
+}
+
+
+.adminlist.table-striped tbody > tr:nth-child(2n):hover {
+	background: #d7ffd7;
+}
+
 .table th {
 	font-weight: bold;
 }
@@ -1791,10 +1816,19 @@ table {
 	-moz-border-radius-topright: 3px;
 	border-top-right-radius: 3px;
 }
-.table-striped tbody > tr:nth-child(odd) > td,
+/*.table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
 	background-color: #f9f9f9;
+}*/
+.table-striped tbody > tr:nth-child(odd) {
+	background-color: #f9f9f9;
 }
+table.adminlist.table-striped tbody > tr:nth-child(odd):hover {
+	background-color: #e4f1fc;
+}
+
+
+
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
 	background-color: #F0F0F0;

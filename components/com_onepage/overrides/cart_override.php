@@ -1199,7 +1199,8 @@ class OPCcheckout
 
 						//----------------------------
 
-						$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=0, created=NOW(), vmcart=0 WHERE userid=" . (int)$GLOBALS['opc_new_user']);
+						// $db->setQuery("UPDATE #__sttcartusave SET vmprod_id=0, created=NOW(), vmcart=0 WHERE userid=" . (int)$GLOBALS['opc_new_user']);
+						$db->setQuery("DELETE FROM #__sttcartusave WHERE userid=" . (int)$GLOBALS['opc_new_user']);
 						$db->query();
 
 						//---------------
