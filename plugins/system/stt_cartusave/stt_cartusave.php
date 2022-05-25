@@ -74,75 +74,94 @@ class plgSystemstt_cartusave extends JPlugin
 		$session = JFactory::getSession();
 		$cartSession = $session->get('vmcart', 0, 'vm');
 		//-----------------
-		$cartProductsData = json_decode($cartSession);
-		$cart_ids = [];
-		foreach ($cartProductsData->cartProductsData as $cart) {
-			$cart_ids[] = (string)$cart->virtuemart_product_id;
+
+		$db = JFactory::getDBO();
+		// $db->setQuery(true);
+		// $add = true;
+
+		$q = "SELECT vmcart FROM #__sttcartusave WHERE userid=" . $db->Quote($userid);
+		$db->setQuery($q);
+		$r = $db->loadResult();
+		if ($r) {
+			$cookcart = base64_decode($r);
+			//--------------------------------------------- сохраним корзину из БД
+			$cookcart_old = json_decode($cookcart);
+			//------------
+			if ($cookcart) {
+				// $session->set('vmcart', $cookcart, 'vm');
+				$cart = VirtueMartCart::getCart(true);
+				$cart->prepareCartData();
+				// --------------
+
+
+				$db->setQuery("SELECT vmprod_id FROM #__sttcartusave WHERE userid=" . $db->quote($userid));
+				$db->query();
+
+				$vmprods_id = json_decode($db->loadResult());
+				if ($vmprods_id) {
+					foreach ($vmprods_id as $key => $vmprod_id) {
+						// $add = FALSE;
+						$p_add[$key] = $vmprod_id;
+						$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $vmprod_id);
+						$db->query();
+						if ($db->loadResult()) {
+							$add_cart = true;
+							foreach ($cart->products as $product) {
+								if ($product->virtuemart_product_id == $vmprod_id) {
+									$add_cart = FALSE;
+									break;
+								}
+							}
+							if ($add_cart) {
+								JFactory::getApplication()->input->set('quantity', array(1));
+								$cart->add(array($vmprod_id));
+								// $add = TRUE;
+							}
+							unset($p_add[$key]);
+						}
+					}
+				}
+
+
+
+				foreach ($cart->products as $p_new) {
+					$new[] = (int)$p_new->virtuemart_product_id;
+				}
+
+				foreach ($cookcart_old->cartProductsData as $p_old) {
+					$old[] = $p_old->virtuemart_product_id;
+				}
+				$p_add2 = array_diff($old, $new);
+
+				if ($p_add) {
+					$p_add = array_merge($p_add, $p_add2);
+				} else {
+					$p_add = $p_add2;
+				}
+
+				foreach ($p_add as $key => $published) {
+					$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $published);
+					$db->query();
+					if ($db->loadResult()) {
+						unset($p_add[$key]);
+						// $add = false;
+					}
+				}
+				//----
+
+			}
 		}
 
 		//-----------------
 		if (!empty($cartSession)) {
 			$db->setQuery("INSERT INTO #__sttcartusave (created,vmcart,userid,vmprod_id) values(NOW()," .
 				$db->Quote(base64_encode($cartSession)) .
-				', ' . $db->quote($userid) . ', ' . $db->Quote(json_encode($cart_ids)) . ") ON DUPLICATE KEY UPDATE created=NOW(), vmcart="  .
-				$db->Quote(base64_encode($cartSession)));
+				', ' . $db->quote($userid) . ', ' . $db->Quote(json_encode($p_add)) . ") ON DUPLICATE KEY UPDATE created=NOW(), vmcart="  .
+				$db->Quote(base64_encode($cartSession)) . ', vmprod_id=' . $db->Quote(json_encode($p_add)));
 			$db->query();
+
+			// $db->setQuery("UPDATE #__sttcartusave SET vmprod_id=" . $db->Quote(json_encode($p_add)) . " WHERE userid=" . $db->Quote($userid));
+			// $db->query();
 		}
-		//---------------------
-		$db->setQuery("SELECT vmprod_id FROM #__sttcartusave WHERE userid=" . $db->quote($userid));
-		$db->query();
-		$res = (array)json_decode($db->loadResult());
-		$p_add = NULL;
-		if ($res) {
-			$p_add = [];
-			$diffs_to_bd = array_diff($cart_ids, $res);
-			$diffs_to_cart = array_diff($res, $cart_ids);
-			if ($diffs_to_bd == null && $diffs_to_cart == null) {
-				$p_add = NULL;
-			}
-
-			if ($diffs_to_cart) {
-				$unpub[] = 0;
-				$cart = VirtueMartCart::getCart(true);
-				$cart->prepareCartData();
-
-				foreach ($diffs_to_cart as $key => $diff_to_cart) {
-					$add_cart = true;
-					$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $diff_to_cart);
-					$db->query();
-
-					if ($db->loadResult()) {
-						if ($key != $diff_to_cart) { //будет удалено из корзины и БД
-							$add_cart = false;
-						} else {
-							unset($diffs_to_cart[$key]);
-							unset($res[$key]);
-							$res[count($res) + 1] = $diff_to_cart;
-						}
-					} else {
-						$unpub[(string)$diff_to_cart] = (string)$diff_to_cart;
-						$add_cart = false;
-					}
-
-					if ($add_cart) {
-						JFactory::getApplication()->input->set('quantity', array(1));
-						$cart->add(array($diff_to_cart));
-					}
-				}
-				$p_add = array_diff($res, $diffs_to_cart) + $unpub;
-			}
-			if ($diffs_to_bd) {
-				$p_add = array_merge($res, $diffs_to_bd);
-			}
-		} else {
-			$p_add = $cart_ids;
-		}
-
-		if (isset($p_add)) {
-			$db->setQuery("UPDATE #__sttcartusave SET vmprod_id=" . $db->Quote(json_encode($p_add)) . " WHERE userid=" . $db->Quote($userid));
-			$db->query();
-		}
-		//---------------------
-
 	}
 }
