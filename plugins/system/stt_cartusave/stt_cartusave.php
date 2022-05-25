@@ -113,7 +113,6 @@ class plgSystemstt_cartusave extends JPlugin
 
 					if ($db->loadResult()) {
 						if ($key != $diff_to_cart) { //будет удалено из корзины и БД
-							// unset($diffs_to_cart[$key]);
 							$add_cart = false;
 						} else {
 							unset($diffs_to_cart[$key]);
@@ -122,8 +121,6 @@ class plgSystemstt_cartusave extends JPlugin
 						}
 					} else {
 						$unpub[(string)$diff_to_cart] = (string)$diff_to_cart;
-						// unset($diffs_to_cart[$key]);
-						// $p_add[] = $diffs_to_cart[(string)$diff_to_cart];
 						$add_cart = false;
 					}
 

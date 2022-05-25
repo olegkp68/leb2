@@ -2240,7 +2240,7 @@ class VirtueMartCart
 					$productTemp = $productsModel->getProduct($productdata['virtuemart_product_id'], TRUE, FALSE, TRUE, $productdata['quantity']);
 
 					if (empty($productTemp->virtuemart_product_id)) {
-						vmError('The product is no longer available; prepareCartData virtuemart_product_id is empty', 'COM_VIRTUEMART_CART_PRODUCT_NO_AVAILABLE');
+						vmError('COM_VIRTUEMART_CART_PRODUCT_NO_AVAILABLE', 'COM_VIRTUEMART_CART_PRODUCT_NO_AVAILABLE');
 						unset($this->cartProductsData[$k]);
 						continue;
 					}
