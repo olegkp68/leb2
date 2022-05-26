@@ -64,6 +64,10 @@ class plgSystemstt_cartusave extends JPlugin
 
 	function putCart()
 	{
+		if (!class_exists('VirtueMartModelProduct')) {
+			JLoader::import('product', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_virtuemart' . DS . 'models');
+		}
+
 		//-------------------------------------------------------------------
 		$user = JFactory::getUser();
 		$userid = $user->get('id');
@@ -97,10 +101,18 @@ class plgSystemstt_cartusave extends JPlugin
 				$db->setQuery("SELECT vmprod_id FROM #__sttcartusave WHERE userid=" . $db->quote($userid));
 				$db->query();
 
-				$vmprods_id = json_decode($db->loadResult());
+				$vmprods_ttx = json_decode($db->loadResult());
+				foreach ($vmprods_ttx as $ke => $vmprod_ttx) {
+					// if ($ke == 'virtuemart_product_id') {
+					$vmprod_ttx = json_decode($vmprod_ttx);
+					$vmprods_id[] = $vmprod_ttx->virtuemart_product_id;
+					// break;
+					// }
+				}
+
 				if ($vmprods_id) {
 					foreach ($vmprods_id as $key => $vmprod_id) {
-						// $add = FALSE;
+
 						$p_add[$key] = $vmprod_id;
 						$db->setQuery("SELECT published FROM #__virtuemart_products WHERE virtuemart_product_id = " . $vmprod_id);
 						$db->query();
@@ -113,9 +125,12 @@ class plgSystemstt_cartusave extends JPlugin
 								}
 							}
 							if ($add_cart) {
-								JFactory::getApplication()->input->set('quantity', array(1));
+								JFactory::getApplication()->input->set('quantity', array($vmprod_ttx->quantity));
+								$cpd = json_decode(json_encode($vmprod_ttx->customProductData), true);
+								$cpd2[$vmprod_id] = $cpd;
+								$_REQUEST['customProductData'] = $cpd2;
+								$_REQUEST["virtuemart_product_id"] = array($vmprod_id, $vmprod_id);
 								$cart->add(array($vmprod_id));
-								// $add = TRUE;
 							}
 							unset($p_add[$key]);
 						}
@@ -145,7 +160,14 @@ class plgSystemstt_cartusave extends JPlugin
 					if ($db->loadResult()) {
 						unset($p_add[$key]);
 						// $add = false;
+					} else {
+						foreach ($cookcart_old->cartProductsData as $k => $ttx) {
+							if ($ttx->virtuemart_product_id == $published) {
+								$p_add_ttx[] = json_encode($ttx);
+							}
+						}
 					}
+					$p_add = $p_add_ttx;
 				}
 				//----
 
